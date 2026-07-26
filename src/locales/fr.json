@@ -2,31 +2,84 @@
   "selection": {
     "welcome": "Bienvenue",
     "prompt": "Pour commencer, dites-nous qui vous êtes",
-    "traveler": { "title": "Je suis voyageur", "subtitle": "Je cherche une location pour mes vacances à Sète", "cta": "Entrer" },
-    "owner":   { "title": "Je suis propriétaire", "subtitle": "Je cherche une conciergerie pour mon bien", "cta": "Entrer" }
+    "traveler": {
+      "title": "Je suis voyageur",
+      "subtitle": "Je cherche une location pour mes vacances à Sète",
+      "cta": "Entrer"
+    },
+    "owner": {
+      "title": "Je suis propriétaire",
+      "subtitle": "Je cherche une conciergerie pour mon bien",
+      "cta": "Entrer"
+    }
   },
   "navbar": {
     "switch": "Changer",
     "traveler": "Voyageur",
     "owner": "Propriétaire",
     "travelerLinks": [
-      { "label": "Accueil",   "href": "#accueil"   },
-      { "label": "Locations", "href": "#locations" },
-      { "label": "Carte",     "href": "#carte"     },
-      { "label": "Tarifs",    "href": "#tarifs"    },
-      { "label": "Sète",      "href": "#sete"      },
-      { "label": "FAQ",       "href": "#faq"       },
-      { "label": "Contact",   "href": "#contact"   }
+      {
+        "label": "Accueil",
+        "href": "#accueil"
+      },
+      {
+        "label": "Locations",
+        "href": "#locations"
+      },
+      {
+        "label": "Carte",
+        "href": "#carte"
+      },
+      {
+        "label": "Tarifs",
+        "href": "#tarifs"
+      },
+      {
+        "label": "Sète",
+        "href": "#sete"
+      },
+      {
+        "label": "FAQ",
+        "href": "#faq"
+      },
+      {
+        "label": "Contact",
+        "href": "#contact"
+      }
     ],
     "ownerLinks": [
-      { "label": "Accueil",     "href": "#accueil"     },
-      { "label": "Services",    "href": "#services"    },
-      { "label": "À propos",    "href": "#apropos"     },
-      { "label": "Prestations", "href": "#prestations" },
-      { "label": "Tarifs",      "href": "#tarifs"      },
-      { "label": "Sète",        "href": "#sete"        },
-      { "label": "FAQ",         "href": "#faq"         },
-      { "label": "Contact",     "href": "#contact"     }
+      {
+        "label": "Accueil",
+        "href": "#accueil"
+      },
+      {
+        "label": "Services",
+        "href": "#services"
+      },
+      {
+        "label": "À propos",
+        "href": "#apropos"
+      },
+      {
+        "label": "Prestations",
+        "href": "#prestations"
+      },
+      {
+        "label": "Tarifs",
+        "href": "#tarifs"
+      },
+      {
+        "label": "Sète",
+        "href": "#sete"
+      },
+      {
+        "label": "FAQ",
+        "href": "#faq"
+      },
+      {
+        "label": "Contact",
+        "href": "#contact"
+      }
     ]
   },
   "rentals": {
@@ -46,9 +99,24 @@
     "title1": "Ce que disent",
     "title2": "nos voyageurs",
     "items": [
-      { "name": "Marie D.", "location": "Paris", "text": "Appartement magnifique avec vue sur le port. Tout était impeccable à notre arrivée : linge propre, cuisine équipée. On reviendra l'année prochaine !", "initials": "MD" },
-      { "name": "Thomas & Emma", "location": "Lyon", "text": "L'accueil était parfait et le logement exactement comme sur les photos, peut-être encore mieux. Sète est une ville incroyable, idéalement situés.", "initials": "TE" },
-      { "name": "Julien B.", "location": "Bordeaux", "text": "La meilleure expérience de location que j'ai eue. Communication au top, aucun souci durant tout le séjour. Je recommande sans la moindre hésitation.", "initials": "JB" }
+      {
+        "name": "Marie D.",
+        "location": "Paris",
+        "text": "Appartement magnifique avec vue sur le port. Tout était impeccable à notre arrivée : linge propre, cuisine équipée. On reviendra l'année prochaine !",
+        "initials": "MD"
+      },
+      {
+        "name": "Thomas & Emma",
+        "location": "Lyon",
+        "text": "L'accueil était parfait et le logement exactement comme sur les photos, peut-être encore mieux. Sète est une ville incroyable, idéalement situés.",
+        "initials": "TE"
+      },
+      {
+        "name": "Julien B.",
+        "location": "Bordeaux",
+        "text": "La meilleure expérience de location que j'ai eue. Communication au top, aucun souci durant tout le séjour. Je recommande sans la moindre hésitation.",
+        "initials": "JB"
+      }
     ]
   },
   "map": {
@@ -64,17 +132,50 @@
       "nature": "Nature"
     },
     "pois": [
-      { "name": "Plage de la Corniche",          "desc": "La grande plage de sable fin de Sète." },
-      { "name": "Plage du Lazaret",              "desc": "Plage calme côté étang de Thau." },
-      { "name": "Plage de la Plagette",          "desc": "Petite plage appréciée des locaux." },
-      { "name": "Port de Sète",                  "desc": "Premier port de pêche de Méditerranée." },
-      { "name": "Quai du Maroc (joutes)",        "desc": "Lieu des joutes nautiques et animations estivales." },
-      { "name": "Cimetière Marin",              "desc": "Vue panoramique, immortalisé par Paul Valéry." },
-      { "name": "Musée Paul Valéry",            "desc": "Musée dédié au poète sétois et à son œuvre." },
-      { "name": "Mont Saint-Clair",             "desc": "Point de vue à 175m, panorama 360°." },
-      { "name": "Les Halles de Sète",           "desc": "Marché couvert, produits frais locaux chaque matin." },
-      { "name": "Quai du Général Durand",       "desc": "Restaurants de poissons et fruits de mer." },
-      { "name": "Étang de Thau",               "desc": "Étang à huîtres et moules, paysage unique." }
+      {
+        "name": "Plage de la Corniche",
+        "desc": "La grande plage de sable fin de Sète."
+      },
+      {
+        "name": "Plage du Lazaret",
+        "desc": "Plage calme côté étang de Thau."
+      },
+      {
+        "name": "Plage de la Plagette",
+        "desc": "Petite plage appréciée des locaux."
+      },
+      {
+        "name": "Port de Sète",
+        "desc": "Premier port de pêche de Méditerranée."
+      },
+      {
+        "name": "Quai du Maroc (joutes)",
+        "desc": "Lieu des joutes nautiques et animations estivales."
+      },
+      {
+        "name": "Cimetière Marin",
+        "desc": "Vue panoramique, immortalisé par Paul Valéry."
+      },
+      {
+        "name": "Musée Paul Valéry",
+        "desc": "Musée dédié au poète sétois et à son œuvre."
+      },
+      {
+        "name": "Mont Saint-Clair",
+        "desc": "Point de vue à 175m, panorama 360°."
+      },
+      {
+        "name": "Les Halles de Sète",
+        "desc": "Marché couvert, produits frais locaux chaque matin."
+      },
+      {
+        "name": "Quai du Général Durand",
+        "desc": "Restaurants de poissons et fruits de mer."
+      },
+      {
+        "name": "Étang de Thau",
+        "desc": "Étang à huîtres et moules, paysage unique."
+      }
     ]
   },
   "weather": {
@@ -84,8 +185,29 @@
     "error": "Météo temporairement indisponible.",
     "today": "Aujourd'hui",
     "tomorrow": "Demain",
-    "days": ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"],
-    "months": ["jan", "fév", "mar", "avr", "mai", "jun", "jul", "aoû", "sep", "oct", "nov", "déc"],
+    "days": [
+      "Dim",
+      "Lun",
+      "Mar",
+      "Mer",
+      "Jeu",
+      "Ven",
+      "Sam"
+    ],
+    "months": [
+      "jan",
+      "fév",
+      "mar",
+      "avr",
+      "mai",
+      "jun",
+      "jul",
+      "aoû",
+      "sep",
+      "oct",
+      "nov",
+      "déc"
+    ],
     "wmo_0": "Ensoleillé",
     "wmo_1": "Peu nuageux",
     "wmo_3": "Couvert",
@@ -118,16 +240,79 @@
     "in_days": "Dans {{count}} jours",
     "in_months": "Dans {{count}} mois",
     "events": [
-      { "name": "Fêtes de la Saint-Louis", "dates": "23 – 27 août 2026", "type": "Joutes nautiques", "desc": "Le plus grand tournoi de joutes nautiques de France. Spectacles pyrotechniques, concerts et animations sur les canaux de Sète.", "lieu": "Canaux de Sète" },
-      { "name": "Fête de la Mer", "dates": "Septembre 2026", "type": "Tradition", "desc": "Bénédiction des bateaux de pêche, procession en mer et festivités animées tout le week-end.", "lieu": "Port de Sète" },
-      { "name": "Les Langues de Renard", "dates": "Octobre 2026", "type": "Festival", "desc": "Festival de musique alternative et expérimentale au cœur de Sète, avec artistes locaux et internationaux.", "lieu": "Sète" },
-      { "name": "Marché de Noël", "dates": "Décembre 2026", "type": "Marché", "desc": "Marché artisanal traditionnel avec produits locaux, vins de la région et créateurs sétois.", "lieu": "Centre-ville" }
+      {
+        "name": "Fêtes de la Saint-Louis",
+        "dates": "23 – 27 août 2026",
+        "type": "Joutes nautiques",
+        "desc": "Le plus grand tournoi de joutes nautiques de France. Spectacles pyrotechniques, concerts et animations sur les canaux de Sète.",
+        "lieu": "Canaux de Sète"
+      },
+      {
+        "name": "Fête de la Mer",
+        "dates": "Septembre 2026",
+        "type": "Tradition",
+        "desc": "Bénédiction des bateaux de pêche, procession en mer et festivités animées tout le week-end.",
+        "lieu": "Port de Sète"
+      },
+      {
+        "name": "Les Langues de Renard",
+        "dates": "Octobre 2026",
+        "type": "Festival",
+        "desc": "Festival de musique alternative et expérimentale au cœur de Sète, avec artistes locaux et internationaux.",
+        "lieu": "Sète"
+      },
+      {
+        "name": "Marché de Noël",
+        "dates": "Décembre 2026",
+        "type": "Marché",
+        "desc": "Marché artisanal traditionnel avec produits locaux, vins de la région et créateurs sétois.",
+        "lieu": "Centre-ville"
+      }
     ]
   },
   "tarifs_v": {
-    "eyebrow": "Tarifs",
-    "title1": "Des prix",
-    "title2": "transparents"
+    "eyebrow": "Tarifs voyageurs",
+    "title1": "Un accueil",
+    "title2": "de qualité dans un logement parfaitement entretenu et décoré avec goût",
+    "subtitle": "",
+    "included": "Inclus",
+    "contactBtn": "Nous contacter",
+    "packNote": "",
+    "services": [
+      {
+        "name": "Accueil physique",
+        "tagline": "Arrivée & départ",
+        "price": "",
+        "unit": "",
+        "features": [
+          "Check-in en personne à l'arrivée",
+          "État des lieux à l'entrée",
+          "Remise des clés et présentation du logement",
+          "Check-out et contrôle à la sortie",
+          "Conciergerie disponible durant tout le séjour"
+        ]
+      },
+      {
+        "name": "Ménage",
+        "tagline": "Entre chaque location",
+        "price": "",
+        "unit": "",
+        "features": [
+          "Nettoyage complet du logement"
+        ]
+      },
+      {
+        "name": "Blanchisserie optionnelle",
+        "tagline": "Linge frais à chaque séjour",
+        "price": "dès 5",
+        "unit": "€",
+        "features": [
+          "Grand lit : 20 €",
+          "Petit lit : 15 €",
+          "Kit serviettes : 5 € / personne (Grande + petite serviette)"
+        ]
+      }
+    ]
   },
   "calculator": {
     "eyebrow": "Estimation",
@@ -149,18 +334,48 @@
     "eyebrow": "Questions fréquentes",
     "title": "FAQ",
     "traveler": [
-      { "q": "Comment puis-je réserver ?", "a": "Vous pouvez réserver directement via nos annonces Airbnb en cliquant sur « Voir l'annonce », ou nous contacter via le formulaire en bas de page pour une réservation directe." },
-      { "q": "Les animaux de compagnie sont-ils acceptés ?", "a": "Cela dépend du logement. La présence ou non d'animaux est précisée dans chaque annonce. N'hésitez pas à nous contacter pour en savoir plus." },
-      { "q": "Quelle est la politique d'annulation ?", "a": "Notre politique est flexible. Les conditions varient selon la plateforme de réservation et sont toujours précisées avant la confirmation." },
-      { "q": "À quelle heure est le check-in / check-out ?", "a": "Le check-in se fait à partir de 16h, le check-out avant 11h. Des horaires flexibles peuvent être arrangés selon les disponibilités." },
-      { "q": "Le linge de maison est-il fourni ?", "a": "Oui, draps et serviettes propres sont inclus dans tous nos logements, sans supplément." }
+      {
+        "q": "Comment puis-je réserver ?",
+        "a": "Vous pouvez réserver directement via nos annonces Airbnb en cliquant sur « Voir l'annonce », ou nous contacter via le formulaire en bas de page pour plus d'informations."
+      },
+      {
+        "q": "Les animaux de compagnie sont-ils acceptés ?",
+        "a": "Cela dépend du logement. La présence ou non d'animaux est précisée dans chaque annonce. N'hésitez pas à nous contacter pour en savoir plus."
+      },
+      {
+        "q": "Quelle est la politique d'annulation ?",
+        "a": "Notre politique est flexible. Les conditions varient selon la plateforme de réservation et sont toujours précisées avant la confirmation."
+      },
+      {
+        "q": "À quelle heure est le check-in / check-out ?",
+        "a": "Le check-in se fait à partir de 17h, le check-out avant 10h. Des horaires flexibles peuvent être arrangés selon les disponibilités."
+      },
+      {
+        "q": "Le linge de maison est-il fourni ?",
+        "a": "Non, la blanchisserie est optionnelle pour certains appartements, consultez bien l'annonce."
+      }
     ],
     "owner": [
-      { "q": "Combien coûtent vos services ?", "a": "Nos formules et tarifs sont détaillés dans la section ci-dessus. Nous proposons plusieurs niveaux de service adaptés à vos besoins." },
-      { "q": "Puis-je utiliser mon bien à titre personnel ?", "a": "Absolument. Vous gardez la maîtrise de votre calendrier. Il suffit de nous indiquer vos périodes d'occupation à l'avance." },
-      { "q": "Comment gérez-vous les dégradations ?", "a": "Nous effectuons un état des lieux à chaque départ. Les dépôts de garantie sont gérés via les plateformes, et nous assurons le suivi en cas de litige." },
-      { "q": "Sur quelles plateformes publiez-vous les annonces ?", "a": "Nous gérons vos annonces sur Airbnb, Booking.com et Abritel, en optimisant prix et contenu pour maximiser votre taux d'occupation." },
-      { "q": "Quel est le délai de prise en charge ?", "a": "En général, nous débutons la prise en charge sous 2 semaines après signature du mandat de gestion." }
+      {
+        "q": "Combien coûtent vos services ?",
+        "a": "Nos formules et tarifs sont détaillés dans la section ci-dessus. Nous proposons plusieurs niveaux de service adaptés à vos besoins."
+      },
+      {
+        "q": "Puis-je utiliser mon bien à titre personnel ?",
+        "a": "Absolument. Vous gardez la maîtrise de votre calendrier. Il suffit de nous indiquer vos périodes d'occupation à l'avance."
+      },
+      {
+        "q": "Comment gérez-vous les dégradations ?",
+        "a": "Nous effectuons un état des lieux à chaque départ. Les dépôts de garantie sont gérés via les plateformes, et nous assurons le suivi en cas de litige."
+      },
+      {
+        "q": "Sur quelles plateformes publiez-vous les annonces ?",
+        "a": "Nous gérons vos annonces sur Airbnb, Booking.com et Abritel, en optimisant prix et contenu pour maximiser votre taux d'occupation."
+      },
+      {
+        "q": "Quel est le délai de prise en charge ?",
+        "a": "En général, nous débutons la prise en charge sous 2 semaines après signature du mandat de gestion."
+      }
     ]
   },
   "contact": {
@@ -213,10 +428,22 @@
     "eyebrow": "Notre processus",
     "title": "Comment ça marche ?",
     "steps": [
-      { "title": "Évaluation gratuite", "desc": "Nous visitons votre bien et estimons son potentiel locatif, sans engagement de votre part." },
-      { "title": "Prise en charge complète", "desc": "Ménage professionnel, linge fourni, photos soignées, annonce optimisée et accueil des voyageurs." },
-      { "title": "Gestion des réservations", "desc": "Vos annonces sur Airbnb, Booking et Abritel sont gérées pour maximiser le taux d'occupation." },
-      { "title": "Vos revenus, sans effort", "desc": "Versement mensuel transparent, bilan régulier. Vous profitez, sans vous occuper de rien." }
+      {
+        "title": "Évaluation gratuite",
+        "desc": "Nous visitons votre bien et estimons son potentiel locatif, sans engagement de votre part."
+      },
+      {
+        "title": "Prise en charge complète",
+        "desc": "Ménage professionnel, linge fourni, photos soignées, annonce optimisée et accueil des voyageurs."
+      },
+      {
+        "title": "Gestion des réservations",
+        "desc": "Vos annonces sur Airbnb, Booking et Abritel sont gérées pour maximiser le taux d'occupation."
+      },
+      {
+        "title": "Vos revenus, sans effort",
+        "desc": "Versement mensuel transparent, bilan régulier. Vous profitez, sans vous occuper de rien."
+      }
     ]
   },
   "beforeAfter": {
@@ -255,9 +482,18 @@
     "title1": "Chaque détail,",
     "title2": "pensé pour vous",
     "items": [
-      { "title": "Suivi de vos réservations", "description": "Gestion complète de vos plannings, tarification et confirmation de réservations sur Airbnb et Booking." },
-      { "title": "Gestion des arrivées & départs", "description": "Accueil en personne de vos voyageurs, état des lieux et accompagnement tout au long du séjour." },
-      { "title": "Sérénité totale", "description": "Ménage, blanchisserie, petit entretien et gestion du logement entre les locations. Votre bien est entre de bonnes mains." }
+      {
+        "title": "Suivi de vos réservations",
+        "description": "Gestion complète de vos plannings, tarification et confirmation de réservations sur Airbnb et Booking."
+      },
+      {
+        "title": "Gestion des arrivées & départs",
+        "description": "Accueil en personne de vos voyageurs, état des lieux et accompagnement tout au long du séjour."
+      },
+      {
+        "title": "Sérénité totale",
+        "description": "Ménage, blanchisserie, petit entretien et gestion du logement entre les locations. Votre bien est entre de bonnes mains."
+      }
     ]
   },
   "about": {
@@ -267,26 +503,68 @@
     "p1": "Nous sommes un couple passionné, et nous prenons en charge votre bien, qu'il s'agisse de votre résidence principale ou secondaire. Nos différents métiers (hôtellerie, restauration, accompagnement et aide à la personne) nous ont permis d'acquérir les qualités requises pour assumer ces missions.",
     "p2": "Nous avons opté pour une présence physique et non une boîte à clés, impersonnelle et non sécurisée. Être accueilli en personne change la qualité de la location.",
     "values": [
-      { "label": "Accueil humain", "text": "Chaque voyageur est accueilli en personne, jamais une boîte à clés." },
-      { "label": "Confiance", "text": "Créée en 2019, notre expérience s'enrichit chaque année au contact des voyageurs et des propriétaires." },
-      { "label": "Sérénité", "text": "Souriants, sociables et accueillants, nous prenons à cœur notre métier et assurerons à vos clients un séjour de qualité." }
+      {
+        "label": "Accueil humain",
+        "text": "Chaque voyageur est accueilli en personne, jamais une boîte à clés."
+      },
+      {
+        "label": "Confiance",
+        "text": "Créée en 2019, notre expérience s'enrichit chaque année au contact des voyageurs et des propriétaires."
+      },
+      {
+        "label": "Sérénité",
+        "text": "Souriants, sociables et accueillants, nous prenons à cœur notre métier et assurerons à vos clients un séjour de qualité."
+      }
     ]
   },
   "prestations": {
     "eyebrow": "Ce que nous faisons",
     "title": "Nos prestations",
     "items": [
-      { "title": "Création d'annonces", "desc": "Rédaction et photos sur Airbnb & Booking" },
-      { "title": "Planification", "desc": "Gestion des plannings et tarification" },
-      { "title": "Confirmation", "desc": "Suivi et confirmation de vos réservations" },
-      { "title": "Déclaration nuitées", "desc": "Sur la plateforme dédiée" },
-      { "title": "Gestion du logement", "desc": "Durant la vacance de votre bien" },
-      { "title": "Arrivées & départs", "desc": "Présence physique, état des lieux" },
-      { "title": "Ménage", "desc": "Entre les locations, à la charge du voyageur" },
-      { "title": "Blanchisserie", "desc": "Linge frais pour chaque voyageur" },
-      { "title": "Petit entretien", "desc": "Bricolage et appel dépannage" },
-      { "title": "Guides touristiques", "desc": "Mise à disposition pour vos voyageurs" },
-      { "title": "Accompagnement", "desc": "Aide aux vacanciers durant leur séjour" }
+      {
+        "title": "Création d'annonces",
+        "desc": "Rédaction et photos sur Airbnb & Booking"
+      },
+      {
+        "title": "Planification",
+        "desc": "Gestion des plannings et tarification"
+      },
+      {
+        "title": "Confirmation",
+        "desc": "Suivi et confirmation de vos réservations"
+      },
+      {
+        "title": "Déclaration nuitées",
+        "desc": "Sur la plateforme dédiée"
+      },
+      {
+        "title": "Gestion du logement",
+        "desc": "Durant la vacance de votre bien"
+      },
+      {
+        "title": "Arrivées & départs",
+        "desc": "Présence physique, état des lieux"
+      },
+      {
+        "title": "Ménage",
+        "desc": "Entre les locations, à la charge du voyageur"
+      },
+      {
+        "title": "Blanchisserie",
+        "desc": "Linge frais pour chaque voyageur"
+      },
+      {
+        "title": "Petit entretien",
+        "desc": "Bricolage et appel dépannage"
+      },
+      {
+        "title": "Guides touristiques",
+        "desc": "Mise à disposition pour vos voyageurs"
+      },
+      {
+        "title": "Accompagnement",
+        "desc": "Aide aux vacanciers durant leur séjour"
+      }
     ]
   },
   "ownerPricing": {
@@ -300,67 +578,54 @@
     "phase2": "Phase 2",
     "duringStay": "Durant le séjour",
     "quoteBtn": "Demander un devis",
-"packNote": "Pack complet disponible sur devis (ex : Check-in + Check-out + ménage). Appelez-nous au 06.59.76.91.94.",
+    "packNote": "Pack complet disponible sur devis (ex : Check-in + Check-out + ménage). Appelez-nous au 06.59.76.91.94.",
     "before": [
-      { "label": "Gestion de réservations", "price": "15 €", "unit": "/ réservation", "detail": "Mise en ligne annonce + photos sur Airbnb & Booking, tarification, déclaration Mairie, relation hôtes jusqu'à l'arrivée, déclaration taxe de séjour." },
-      { "label": "Ménage", "price": "Forfait", "unit": "", "detail": "Tarif déterminé selon la taille et la composition de votre logement, à la charge du voyageur." },
-      { "label": "Grand lit", "price": "20 €", "unit": "", "detail": "Blanchisserie draps grand lit, à la charge du voyageur." },
-      { "label": "Petit lit", "price": "15 €", "unit": "", "detail": "Blanchisserie draps petit lit, à la charge du voyageur." },
-      { "label": "Kit serviettes", "price": "5 €", "unit": "/ personne", "detail": "Une grande + une petite serviette, à la charge du voyageur." }
+      {
+        "label": "Gestion de réservations",
+        "price": "15 €",
+        "unit": "/ réservation",
+        "detail": "Mise en ligne annonce + photos sur Airbnb & Booking, tarification, déclaration Mairie, relation hôtes jusqu'à l'arrivée, déclaration taxe de séjour."
+      },
+      {
+        "label": "Ménage",
+        "price": "Forfait",
+        "unit": "",
+        "detail": "Tarif déterminé selon la taille et la composition de votre logement, à la charge du voyageur."
+      },
+      {
+        "label": "Grand lit",
+        "price": "20 €",
+        "unit": "",
+        "detail": "Blanchisserie draps grand lit, à la charge du voyageur."
+      },
+      {
+        "label": "Petit lit",
+        "price": "15 €",
+        "unit": "",
+        "detail": "Blanchisserie draps petit lit, à la charge du voyageur."
+      },
+      {
+        "label": "Kit serviettes",
+        "price": "5 €",
+        "unit": "/ personne",
+        "detail": "Une grande + une petite serviette, à la charge du voyageur."
+      }
     ],
     "during": [
-      { "label": "Check-in / Check-out", "price": "55 €", "detail": "Accueil en personne à l'arrivée et état des lieux à la sortie." },
-      { "label": "Shopping & traiteurs", "price": "Sur devis", "detail": "Courses, réservation de traiteurs et services sur-mesure." },
-      { "label": "Conciergerie durant le séjour", "price": "Incluse", "detail": "Disponibilité pour vos hôtes si nécessaire durant tout le séjour." }
-    ]
-  },
-  "tarifs_v": {
-    "eyebrow": "Tarifs voyageurs",
-    "title1": "Un accueil",
-    "title2": "de qualité",
-    "subtitle": "Des packs peuvent être combinés selon vos besoins. Contactez-nous pour un devis personnalisé.",
-    "included": "Inclus",
-    "contactBtn": "Nous contacter",
-    "packNote": "Pack complet disponible sur devis (ex : Check-in + Check-out + ménage).",
-    "services": [
       {
-        "name": "Accueil",
-        "tagline": "Arrivée & départ",
-        "price": "55",
-        "unit": "€",
-        "features": [
-          "Check-in en personne à l'arrivée",
-          "État des lieux à l'entrée",
-          "Remise des clés et présentation du logement",
-          "Check-out et contrôle à la sortie",
-          "Conciergerie disponible durant tout le séjour"
-        ]
+        "label": "Check-in / Check-out",
+        "price": "55 €",
+        "detail": "Accueil en personne à l'arrivée et état des lieux à la sortie."
       },
       {
-        "name": "Ménage",
-        "tagline": "Entre chaque location",
-        "price": "Sur forfait",
-        "unit": "",
-        "features": [
-          "Nettoyage complet du logement",
-          "Forfait déterminé selon la superficie",
-          "Et la composition de votre bien",
-          "Réalisé entre chaque location",
-          "À la charge du voyageur"
-        ]
+        "label": "Shopping & traiteurs",
+        "price": "Sur devis",
+        "detail": "Courses, réservation de traiteurs et services sur-mesure."
       },
       {
-        "name": "Blanchisserie",
-        "tagline": "Linge frais à chaque séjour",
-        "price": "dès 5",
-        "unit": "€",
-        "features": [
-          "Grand lit : 20 €",
-          "Petit lit : 15 €",
-          "Kit serviettes : 5 € / personne",
-          "Grande + petite serviette incluses",
-          "À la charge du voyageur"
-        ]
+        "label": "Conciergerie durant le séjour",
+        "price": "Incluse",
+        "detail": "Disponibilité pour vos hôtes si nécessaire durant tout le séjour."
       }
     ]
   },
@@ -371,30 +636,90 @@
     "title2": "Explorez Sète",
     "nearby": "À proximité",
     "activities": [
-      { "category": "Plages & Nature", "items": [
-        { "name": "Plages de la Corniche", "detail": "12 km de sable fin" },
-        { "name": "Étang de Thau", "detail": "Flamants roses & huîtres" },
-        { "name": "Mont Saint-Clair", "detail": "Panorama à 183 m" },
-        { "name": "Le Lido", "detail": "Cordon littoral entre mer et étang" }
-      ]},
-      { "category": "Culture & Patrimoine", "items": [
-        { "name": "Cimetière Marin", "detail": "Brassens, Paul Valéry" },
-        { "name": "Musée Paul Valéry", "detail": "Art méditerranéen" },
-        { "name": "MIAM", "detail": "Arts Modestes contemporains" },
-        { "name": "Maison Brassens", "detail": "Musée du chansonnier sétois" }
-      ]},
-      { "category": "Gastronomie", "items": [
-        { "name": "Tielle sétoise", "detail": "Tourte aux poulpes, spécialité locale" },
-        { "name": "Huîtres de Thau", "detail": "Dégustation au bord de l'étang" },
-        { "name": "Macarons de Sète", "detail": "Douceur moelleuse depuis 1809" },
-        { "name": "Terrasses sur les quais", "detail": "Restaurants le long des canaux" }
-      ]},
-      { "category": "Sports & Activités", "items": [
-        { "name": "Joutes languedociennes", "detail": "Sport traditionnel estival" },
-        { "name": "Voile & Nautisme", "detail": "École de voile, location de bateaux" },
-        { "name": "Vélo sur le Lido", "detail": "Piste cyclable face à la mer" },
-        { "name": "Kayak & Paddle", "detail": "Canaux et lagune de Thau" }
-      ]}
+      {
+        "category": "Plages & Nature",
+        "items": [
+          {
+            "name": "Plages de la Corniche",
+            "detail": "12 km de sable fin"
+          },
+          {
+            "name": "Étang de Thau",
+            "detail": "Flamants roses & huîtres"
+          },
+          {
+            "name": "Mont Saint-Clair",
+            "detail": "Panorama à 183 m"
+          },
+          {
+            "name": "Le Lido",
+            "detail": "Cordon littoral entre mer et étang"
+          }
+        ]
+      },
+      {
+        "category": "Culture & Patrimoine",
+        "items": [
+          {
+            "name": "Cimetière Marin",
+            "detail": "Brassens, Paul Valéry"
+          },
+          {
+            "name": "Musée Paul Valéry",
+            "detail": "Art méditerranéen"
+          },
+          {
+            "name": "MIAM",
+            "detail": "Arts Modestes contemporains"
+          },
+          {
+            "name": "Maison Brassens",
+            "detail": "Musée du chansonnier sétois"
+          }
+        ]
+      },
+      {
+        "category": "Gastronomie",
+        "items": [
+          {
+            "name": "Tielle sétoise",
+            "detail": "Tourte aux poulpes, spécialité locale"
+          },
+          {
+            "name": "Huîtres de Thau",
+            "detail": "Dégustation au bord de l'étang"
+          },
+          {
+            "name": "Macarons de Sète",
+            "detail": "Douceur moelleuse depuis 1809"
+          },
+          {
+            "name": "Terrasses sur les quais",
+            "detail": "Restaurants le long des canaux"
+          }
+        ]
+      },
+      {
+        "category": "Sports & Activités",
+        "items": [
+          {
+            "name": "Joutes languedociennes",
+            "detail": "Sport traditionnel estival"
+          },
+          {
+            "name": "Voile & Nautisme",
+            "detail": "École de voile, location de bateaux"
+          },
+          {
+            "name": "Vélo sur le Lido",
+            "detail": "Piste cyclable face à la mer"
+          },
+          {
+            "name": "Kayak & Paddle",
+            "detail": "Canaux et lagune de Thau"
+          }
+        ]
+      }
     ]
   }
 }

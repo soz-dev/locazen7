@@ -11,7 +11,6 @@ import Weather from "@/components/locazen/Weather";
 import SeaConditions from "@/components/locazen/SeaConditions";
 import EventsAgenda from "@/components/locazen/EventsAgenda";
 import TravelerTarifs from "@/components/locazen/TravelerTarifs";
-import StayCalculator from "@/components/locazen/StayCalculator";
 import Sete from "@/components/locazen/Sete";
 import FAQ from "@/components/locazen/FAQ";
 import Contact from "@/components/locazen/Contact";
@@ -52,7 +51,6 @@ export default function VoyageurPage() {
       <SeaConditions />
       <EventsAgenda />
       <TravelerTarifs />
-      <StayCalculator />
       <Sete />
       <FAQ visitorType="voyageur" />
       <Contact visitorType="voyageur" />

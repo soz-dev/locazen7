@@ -4,7 +4,7 @@ import { MapPin, Waves, Landmark, Utensils, Bike, Clock } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 const SETE_PORT =
-  "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1920&q=80";
+  "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/S%C3%A8te_water_jousting_joute_nautique_%2852222049980%29.jpg/1920px-S%C3%A8te_water_jousting_joute_nautique_%2852222049980%29.jpg";
 
 const ACTIVITIES = [
   {

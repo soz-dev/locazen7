@@ -110,16 +110,18 @@ export default function TravelerTarifs() {
               <p className={`text-sm font-body mb-6 ${p.highlight ? "text-white/50" : V.muted}`}>
                 {p.tagline}
               </p>
-              <div className="flex items-baseline gap-1 mb-8">
-                <span className={`font-heading text-4xl font-light ${p.highlight ? "text-white" : V.title}`}>
-                  {p.price}
-                </span>
-                {p.unit && (
-                  <span className={`text-lg font-heading font-light ${p.highlight ? "text-white/70" : V.muted}`}>
-                    {p.unit}
+              {p.price && (
+                <div className="flex items-baseline gap-1 mb-8">
+                  <span className={`font-heading text-4xl font-light ${p.highlight ? "text-white" : V.title}`}>
+                    {p.price}
                   </span>
-                )}
-              </div>
+                  {p.unit && (
+                    <span className={`text-lg font-heading font-light ${p.highlight ? "text-white/70" : V.muted}`}>
+                      {p.unit}
+                    </span>
+                  )}
+                </div>
+              )}
               <ul className="space-y-3 flex-1">
                 {p.features.map((f, j) => (
                   <li key={j} className="flex items-start gap-3 text-sm font-body">

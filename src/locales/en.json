@@ -317,17 +317,17 @@
   "tarifs_v": {
     "eyebrow": "Guest rates",
     "title1": "Quality",
-    "title2": "every time",
-    "subtitle": "Packages can be combined to suit your needs. Contact us for a personalised quote.",
+    "title2": "every time, in a perfectly maintained and tastefully decorated home",
+    "subtitle": "",
     "included": "Included",
     "contactBtn": "Contact us",
-    "packNote": "Full package available on request (e.g. Check-in + Check-out + cleaning).",
+    "packNote": "",
     "services": [
       {
-        "name": "Welcome",
+        "name": "In-person welcome",
         "tagline": "Arrival & departure",
-        "price": "55",
-        "unit": "€",
+        "price": "",
+        "unit": "",
         "features": [
           "Personal check-in on arrival",
           "Property inspection at entry",
@@ -339,27 +339,21 @@
       {
         "name": "Cleaning",
         "tagline": "Between each stay",
-        "price": "Package rate",
+        "price": "",
         "unit": "",
         "features": [
-          "Full property clean",
-          "Package rate based on size",
-          "And layout of your property",
-          "Carried out between each stay",
-          "Charged to the guest"
+          "Full property clean"
         ]
       },
       {
-        "name": "Laundry",
+        "name": "Optional laundry",
         "tagline": "Fresh linen every stay",
         "price": "from €5",
         "unit": "",
         "features": [
           "Double bed: €20",
           "Single bed: €15",
-          "Towel kit: €5 / person",
-          "Large + small towel included",
-          "Charged to the guest"
+          "Towel kit: €5 / person (Large + small towel)"
         ]
       }
     ]

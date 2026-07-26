@@ -57,7 +57,7 @@ export default function Hero({
           <p className="font-body text-[#F7F5F2]/80 text-4xl md:text-5xl tracking-[0.3em] uppercase">
             {eyebrow}
           </p>
-          <p className="mt-4 font-body text-[#F7F5F2]/60 text-sm md:text-lg max-w-lg tracking-wide font-light">
+          <p className="mt-4 font-body text-[#F7F5F2]/60 text-sm md:text-lg max-w-lg mx-auto tracking-wide font-light text-center">
             {tagline}
           </p>
           <motion.a

@@ -16,7 +16,7 @@ export default function Contact({ visitorType = "proprietaire" }) {
     e.preventDefault();
     setStatus("sending");
     try {
-      const res = await fetch("https://formsubmit.co/ajax/soza@live.fr", {
+      const res = await fetch("https://formsubmit.co/ajax/myriamboum34@gmail.com", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
@@ -186,8 +186,8 @@ export default function Contact({ visitorType = "proprietaire" }) {
             </div>
             <div>
               <p className="text-[10px] tracking-[0.2em] uppercase text-[#F7F5F2]/30 font-body mb-2">{t("contact.emailLabel")}</p>
-              <a href="mailto:soza@live.fr" className={`text-[#F7F5F2]/80 ${hoverLink} transition-colors font-body text-sm`}>
-                soza@live.fr
+              <a href="mailto:myriamboum34@gmail.com" className={`text-[#F7F5F2]/80 ${hoverLink} transition-colors font-body text-sm`}>
+                myriamboum34@gmail.com
               </a>
             </div>
             <div>
