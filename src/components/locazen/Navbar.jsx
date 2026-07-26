@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { Menu, X, Phone, Repeat, Lock, Eye, EyeOff } from "lucide-react";
+import { Menu, X, Repeat, Lock, Eye, EyeOff } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import i18n from "@/i18n";
@@ -110,13 +110,6 @@ export default function Navbar({ visitorType, onSwitch }) {
               <Repeat size={13} />
               <span className="text-[10px] tracking-[0.15em] uppercase font-body">{t("navbar.switch")}</span>
             </button>
-            <a
-              href="tel:0659769194"
-              className={`hidden lg:flex items-center gap-2 text-xs tracking-wide transition-colors ${mutedColor}`}
-            >
-              <Phone size={13} />
-              06.59.76.91.94
-            </a>
             <button
               onClick={toggleLang}
               className={`hidden md:flex items-center transition-colors min-h-[44px] px-2 text-[10px] tracking-[0.15em] uppercase font-body ${mutedColor}`}
@@ -184,16 +177,6 @@ export default function Navbar({ visitorType, onSwitch }) {
                 <Repeat size={16} />
                 <span className="text-sm tracking-[0.15em] uppercase font-body">Changer de profil</span>
               </motion.button>
-              <motion.a
-                href="tel:0659769194"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.6 }}
-                className="mt-2 flex items-center gap-2 text-[#2D2D2D]/70"
-              >
-                <Phone size={16} />
-                06.59.76.91.94
-              </motion.a>
               <motion.button
                 onClick={openAdminModal}
                 initial={{ opacity: 0 }}

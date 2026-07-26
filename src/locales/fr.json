@@ -49,28 +49,28 @@
     ],
     "ownerLinks": [
       {
-        "label": "Accueil",
-        "href": "#accueil"
+        "label": "Visite",
+        "href": "#etape-1"
       },
       {
-        "label": "Services",
-        "href": "#services"
+        "label": "Annonce",
+        "href": "#etape-2"
       },
       {
-        "label": "À propos",
-        "href": "#apropos"
+        "label": "Réservations",
+        "href": "#etape-3"
       },
       {
-        "label": "Prestations",
-        "href": "#prestations"
+        "label": "Arrivées",
+        "href": "#etape-4"
+      },
+      {
+        "label": "Sérénité",
+        "href": "#etape-5"
       },
       {
         "label": "Tarifs",
         "href": "#tarifs"
-      },
-      {
-        "label": "Sète",
-        "href": "#sete"
       },
       {
         "label": "FAQ",
@@ -487,6 +487,14 @@
     "title2": "pensé pour vous",
     "items": [
       {
+        "title": "Visite du bien",
+        "description": "Nous visitons votre logement pour évaluer son potentiel locatif, vous conseiller sur la mise en valeur et définir le tarif idéal."
+      },
+      {
+        "title": "Création de l'annonce",
+        "description": "Rédaction soignée, photos professionnelles et publication optimisée sur Airbnb, Booking et Abritel pour maximiser votre visibilité."
+      },
+      {
         "title": "Suivi de vos réservations",
         "description": "Gestion complète de vos plannings, tarification et confirmation de réservations sur Airbnb et Booking."
       },
@@ -582,7 +590,7 @@
     "phase2": "Phase 2",
     "duringStay": "Durant le séjour",
     "quoteBtn": "Demander un devis",
-    "packNote": "Pack complet disponible sur devis (ex : Check-in + Check-out + ménage). Appelez-nous au 06.59.76.91.94.",
+    "packNote": "",
     "before": [
       {
         "label": "Gestion de réservations",
@@ -631,7 +639,42 @@
         "price": "Incluse",
         "detail": "Disponibilité pour vos hôtes si nécessaire durant tout le séjour."
       }
-    ]
+    ],
+    "distinction": "Contrairement à la plupart des conciergeries, nous appliquons des tarifs fixes, aucun pourcentage prélevé sur vos revenus. Vous gardez l'intégralité de ce que vous gagnez.",
+    "items": [
+      {
+        "label": "Visite du bien",
+        "price": "Offerte",
+        "unit": "",
+        "detail": "Évaluation de votre logement et conseils personnalisés sur son potentiel locatif."
+      },
+      {
+        "label": "Création de l'annonce",
+        "price": "Offerte",
+        "unit": "",
+        "detail": "Rédaction soignée, photos professionnelles et publication optimisée sur Airbnb & Booking."
+      },
+      {
+        "label": "Suivi de vos réservations",
+        "price": "15 €",
+        "unit": "/ réservation",
+        "detail": "Gestion des plannings, tarification dynamique, relation hôtes et déclarations administratives."
+      },
+      {
+        "label": "Gestion des arrivées & départs",
+        "price": "60 €",
+        "unit": "/ passage",
+        "detail": "Accueil en personne, état des lieux et ménage professionnel (forfait à la charge du voyageur)."
+      },
+      {
+        "label": "Sérénité totale",
+        "price": "Incluse",
+        "unit": "",
+        "detail": "Conciergerie disponible pour vos hôtes durant tout le séjour."
+      }
+    ],
+    "billing_detail_1": "Le ménage et la blanchisserie sont à la charge du voyageur.",
+    "billing_detail_2": "Vous conservez l'intégralité de vos revenus locatifs."
   },
   "sete": {
     "eyebrow1": "Sète",
@@ -723,6 +766,33 @@
             "detail": "Canaux et lagune de Thau"
           }
         ]
+      }
+    ]
+  },
+  "etapes": {
+    "eyebrow": "Notre démarche",
+    "title1": "5 étapes,",
+    "title2": "zéro souci",
+    "items": [
+      {
+        "title": "Visite du bien",
+        "description": "Nous visitons votre logement pour évaluer son potentiel locatif, vous conseiller sur la mise en valeur et définir le tarif idéal."
+      },
+      {
+        "title": "Création de l'annonce",
+        "description": "Rédaction soignée, photos professionnelles et publication optimisée sur Airbnb et Booking pour maximiser votre visibilité."
+      },
+      {
+        "title": "Suivi de vos réservations",
+        "description": "Gestion complète de vos plannings, tarification dynamique et confirmation des réservations. Vous n'avez rien à faire."
+      },
+      {
+        "title": "Gestion des arrivées & départs",
+        "description": "Accueil en personne de chaque voyageur, état des lieux d'entrée et de sortie, remise et récupération des clés."
+      },
+      {
+        "title": "Sérénité totale",
+        "description": "Ménage professionnel, blanchisserie, petit entretien et rapport d'état entre chaque séjour. Votre bien est entre de bonnes mains."
       }
     ]
   }

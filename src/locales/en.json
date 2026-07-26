@@ -49,28 +49,28 @@
     ],
     "ownerLinks": [
       {
-        "label": "Home",
-        "href": "#accueil"
+        "label": "Visit",
+        "href": "#etape-1"
       },
       {
-        "label": "Services",
-        "href": "#services"
+        "label": "Listing",
+        "href": "#etape-2"
       },
       {
-        "label": "About",
-        "href": "#apropos"
+        "label": "Bookings",
+        "href": "#etape-3"
       },
       {
-        "label": "Offerings",
-        "href": "#prestations"
+        "label": "Check-in",
+        "href": "#etape-4"
+      },
+      {
+        "label": "Serenity",
+        "href": "#etape-5"
       },
       {
         "label": "Rates",
         "href": "#tarifs"
-      },
-      {
-        "label": "Sète",
-        "href": "#sete"
       },
       {
         "label": "FAQ",
@@ -487,6 +487,14 @@
     "title2": "crafted for you",
     "items": [
       {
+        "title": "Property visit",
+        "description": "We visit your property to assess its rental potential, advise on presentation and set the ideal nightly rate."
+      },
+      {
+        "title": "Listing creation",
+        "description": "Professional copywriting, quality photos and optimised publishing on Airbnb, Booking and Abritel to maximise your visibility."
+      },
+      {
         "title": "Booking management",
         "description": "Complete management of your calendar, pricing and reservation confirmation on Airbnb and Booking."
       },
@@ -575,14 +583,14 @@
     "eyebrow": "Owner rates",
     "title": "Clear pricing, no surprises",
     "subtitle": "You can combine different services or choose a full package to suit your needs. Packages are available on request.",
-    "billing_title": "End-of-month billing.",
+    "billing_title": "End of month billing.",
     "billing_detail": "Cleaning and laundry are charged to the guest. You keep 100% of your rental income.",
     "phase1": "Phase 1",
     "beforeStay": "Before the stay",
     "phase2": "Phase 2",
     "duringStay": "During the stay",
     "quoteBtn": "Request a quote",
-    "packNote": "Full package available on request (e.g. Check-in + Check-out + cleaning). Call us on 06.59.76.91.94.",
+    "packNote": "",
     "before": [
       {
         "label": "Booking management",
@@ -631,7 +639,42 @@
         "price": "Included",
         "detail": "Available for your guests whenever needed throughout the stay."
       }
-    ]
+    ],
+    "distinction": "Unlike most concierge services, we charge fixed fees, no percentage taken from your income. You keep every euro you earn.",
+    "items": [
+      {
+        "label": "Property visit",
+        "price": "Free",
+        "unit": "",
+        "detail": "Assessment of your property and personalised advice on its rental potential."
+      },
+      {
+        "label": "Listing creation",
+        "price": "Free",
+        "unit": "",
+        "detail": "Carefully written description, professional photos and optimised publication on Airbnb & Booking."
+      },
+      {
+        "label": "Booking management",
+        "price": "€15",
+        "unit": "/ booking",
+        "detail": "Schedule management, dynamic pricing, guest relations and administrative declarations."
+      },
+      {
+        "label": "Check-in / Check-out",
+        "price": "€60",
+        "unit": "/ visit",
+        "detail": "Personal welcome on arrival, property inspection and professional cleaning (billed to the guest)."
+      },
+      {
+        "label": "Total peace of mind",
+        "price": "Included",
+        "unit": "",
+        "detail": "Concierge service available for your guests throughout their stay."
+      }
+    ],
+    "billing_detail_1": "Cleaning and laundry are charged to the guest.",
+    "billing_detail_2": "You keep all of your rental income."
   },
   "sete": {
     "eyebrow1": "Sète",
@@ -723,6 +766,33 @@
             "detail": "Canals and Thau lagoon"
           }
         ]
+      }
+    ]
+  },
+  "etapes": {
+    "eyebrow": "Our approach",
+    "title1": "5 steps,",
+    "title2": "zero hassle",
+    "items": [
+      {
+        "title": "Property visit",
+        "description": "We visit your property to assess its rental potential, advise on presentation and set the ideal nightly rate."
+      },
+      {
+        "title": "Listing creation",
+        "description": "Professional copywriting, quality photos and optimised publishing on Airbnb and Booking."
+      },
+      {
+        "title": "Booking management",
+        "description": "Full management of your calendar, dynamic pricing and booking confirmations. Nothing to do on your end."
+      },
+      {
+        "title": "Check-in & check-out management",
+        "description": "Personal welcome for every guest, property inspection on arrival and departure, key handover and collection."
+      },
+      {
+        "title": "Total peace of mind",
+        "description": "Professional cleaning, laundry, minor maintenance and condition reports between every stay. Your property is in safe hands."
       }
     ]
   }

@@ -3,9 +3,12 @@ import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
 const PROPERTY_TYPES = [
-  { key: "studio", label: "Studio", pricePerNight: 75, avgNights: 5 },
-  { key: "t2", label: "Appartement T2", pricePerNight: 95, avgNights: 5 },
-  { key: "maison", label: "Maison", pricePerNight: 165, avgNights: 4.5 },
+  { key: "studio",  label: "Studio",          pricePerNight:  75, avgNights: 5   },
+  { key: "t2",     label: "Appartement T2",  pricePerNight:  95, avgNights: 5   },
+  { key: "t3",     label: "Appartement T3",  pricePerNight: 120, avgNights: 5   },
+  { key: "t4",     label: "Appartement T4",  pricePerNight: 180, avgNights: 4.5 },
+  { key: "t5",     label: "Appartement T5",  pricePerNight: 250, avgNights: 4.5 },
+  { key: "maison", label: "Maison",           pricePerNight: 300, avgNights: 4.5 },
 ];
 
 export default function RevenueSimulator() {
@@ -122,7 +125,7 @@ export default function RevenueSimulator() {
                 {t("simulator.monthly")}
               </p>
               <p className="font-heading text-4xl font-light text-[#F7F5F2]">
-                {monthlyGross.toLocaleString("fr-FR")}€
+                {monthlyGross.toLocaleString("fr-FR")}€*
               </p>
             </div>
 
@@ -131,10 +134,13 @@ export default function RevenueSimulator() {
                 {t("simulator.annual")}
               </p>
               <p className="font-heading text-5xl font-light text-[#1A2535]">
-                {annualGross.toLocaleString("fr-FR")}€
+                {annualGross.toLocaleString("fr-FR")}€*
               </p>
               <p className="text-[#1A2535]/45 text-xs font-body mt-3 leading-relaxed">
                 {t("simulator.note")}
+              </p>
+              <p className="text-[#1A2535]/50 text-[10px] font-body mt-2 leading-relaxed">
+                * Estimation indicative. Les revenus réels varient selon le bien, son emplacement et sa disponibilité.
               </p>
             </div>
 

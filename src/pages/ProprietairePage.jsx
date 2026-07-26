@@ -4,12 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Navbar from "@/components/locazen/Navbar";
 import Hero from "@/components/locazen/Hero";
-import Services from "@/components/locazen/Services";
-import HowItWorks from "@/components/locazen/HowItWorks";
+import EtapesProprietaire from "@/components/locazen/EtapesProprietaire";
 import About from "@/components/locazen/About";
-import BeforeAfter from "@/components/locazen/BeforeAfter";
-import Prestations from "@/components/locazen/Prestations";
-import OwnerPricing from "@/components/locazen/OwnerPricing";
 import RevenueSimulator from "@/components/locazen/RevenueSimulator";
 import Sete from "@/components/locazen/Sete";
 import OwnerTestimonials from "@/components/locazen/OwnerTestimonials";
@@ -42,15 +38,11 @@ export default function ProprietairePage() {
         eyebrow={t("hero.owner.eyebrow")}
         tagline={t("hero.owner.tagline")}
         ctaLabel={t("hero.owner.cta")}
-        ctaHref="#services"
+        ctaHref="#etapes"
         visitorType="proprietaire"
       />
-      <Services />
-      <HowItWorks />
+      <EtapesProprietaire />
       <About />
-      <BeforeAfter />
-      <Prestations />
-      <OwnerPricing />
       <RevenueSimulator />
       <Sete />
       <OwnerTestimonials />
