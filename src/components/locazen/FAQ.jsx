@@ -96,7 +96,7 @@ export default function FAQ({ visitorType }) {
   const items = t(isProprio ? "faq.owner" : "faq.traveler", { returnObjects: true });
 
   return (
-    <section id="faq" className={`py-[5px] ${isProprio ? "bg-[#F7F5F2] border-t border-[#2D2D2D]/10" : "bg-white border-t border-[#0C4A6E]/10"}`}>
+    <section id="faq" className={`py-16 md:py-20 ${isProprio ? "bg-[#F7F5F2] border-t border-[#2D2D2D]/10" : "bg-white border-t border-[#0C4A6E]/10"}`}>
       <div className="max-w-5xl mx-auto px-6 md:px-16">
         <motion.div
           initial={{ opacity: 0, y: 40 }}

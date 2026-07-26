@@ -19,7 +19,7 @@ export default function TravelerTarifs() {
   const services = t("tarifs_v.services", { returnObjects: true });
 
   return (
-    <section id="tarifs" className={`py-[5px] scroll-mt-20 ${V.bg}`}>
+    <section id="tarifs" className={`py-16 md:py-20 scroll-mt-20 ${V.bg}`}>
       <div className="max-w-6xl mx-auto px-6 md:px-16">
 
         {/* Header */}

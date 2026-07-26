@@ -59,7 +59,7 @@ export default function TravelerRentals() {
   const displayRentals = rentals.length > 0 ? rentals : PLACEHOLDER_RENTALS;
 
   return (
-    <section id="locations" className="py-[5px] bg-gradient-to-b from-[#F0F9FF] to-[#E0F2FE]/50 border-t border-[#0C4A6E]/10">
+    <section id="locations" className="py-16 md:py-20 bg-gradient-to-b from-[#F0F9FF] to-[#E0F2FE]/50 border-t border-[#0C4A6E]/10">
       <div className="max-w-7xl mx-auto px-6 md:px-16">
         <motion.div
           initial={{ opacity: 0, y: 40 }}

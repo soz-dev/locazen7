@@ -21,7 +21,7 @@ export default function RevenueSimulator() {
   const monthlyGross = Math.round(annualGross / 12);
 
   return (
-    <section id="simulateur" className="py-[5px] bg-[#1A2535]">
+    <section id="simulateur" className="py-16 md:py-20 bg-[#1A2535]">
       <div className="max-w-5xl mx-auto px-6 md:px-16">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
