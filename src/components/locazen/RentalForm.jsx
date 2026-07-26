@@ -1,25 +1,17 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Image as ImageIcon, X, Upload, Loader2, Plus } from "lucide-react";
+import { Image as ImageIcon, X, Upload, Loader2, ChevronUp, ChevronDown } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 import { AMENITIES } from "@/components/locazen/amenities";
 
 const empty = {
   name: "", type: "", price: "", beds: 1, baths: 1, guests: 2,
-  rating: 4.8, images: [], amenities: [], airbnb_url: "",
+  rating: 4.8, image: "", imageY: 50, amenities: [], airbnb_url: "",
   address: "", lat: null, lng: null,
 };
 
-function normalizeImages(r) {
-  if (!r) return empty;
-  let imgs = [];
-  try { imgs = typeof r.images === "string" ? JSON.parse(r.images) : (Array.isArray(r.images) ? r.images : []); } catch {}
-  if (!imgs.length && r.image) imgs = [r.image];
-  return { ...empty, ...r, images: imgs };
-}
-
 export default function RentalForm({ rental, onSave, onClose }) {
-  const [form, setForm] = useState(rental ? normalizeImages(rental) : empty);
+  const [form, setForm] = useState(rental ? { ...empty, ...rental } : empty);
   const [uploading, setUploading] = useState(false);
   const [saving, setSaving] = useState(false);
   const [geocoding, setGeocoding] = useState({ loading: false, ok: null, city: "" });
@@ -58,36 +50,18 @@ export default function RentalForm({ rental, onSave, onClose }) {
     }));
   };
 
-  const handleAddImage = (e) => {
-    const files = Array.from(e.target.files || []);
-    if (!files.length) return;
-    const slots = 10 - form.images.length;
-    files.slice(0, slots).forEach((file) => {
-      if (file.size > 3 * 1024 * 1024) {
-        toast({ title: "Image trop lourde (max 3 Mo)", variant: "destructive" });
-        return;
-      }
-      setUploading(true);
-      const reader = new FileReader();
-      reader.onload = () => {
-        setForm((f) => ({ ...f, images: [...f.images, reader.result] }));
-        setUploading(false);
-      };
-      reader.onerror = () => { toast({ title: "Erreur de lecture", variant: "destructive" }); setUploading(false); };
-      reader.readAsDataURL(file);
-    });
-    e.target.value = "";
-  };
-
-  const removeImage = (idx) => setForm((f) => ({ ...f, images: f.images.filter((_, i) => i !== idx) }));
-
-  const moveImage = (from, to) => {
-    if (to < 0 || to >= form.images.length) return;
-    setForm((f) => {
-      const imgs = [...f.images];
-      [imgs[from], imgs[to]] = [imgs[to], imgs[from]];
-      return { ...f, images: imgs };
-    });
+  const handleUpload = (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    if (file.size > 3 * 1024 * 1024) {
+      toast({ title: "Image trop lourde (max 3 Mo)", variant: "destructive" });
+      return;
+    }
+    setUploading(true);
+    const reader = new FileReader();
+    reader.onload = () => { set("image", reader.result); setUploading(false); };
+    reader.onerror = () => { toast({ title: "Erreur de lecture", variant: "destructive" }); setUploading(false); };
+    reader.readAsDataURL(file);
   };
 
   const handleSubmit = async (e) => {
@@ -100,7 +74,6 @@ export default function RentalForm({ rental, onSave, onClose }) {
     try {
       const payload = {
         ...form,
-        image: form.images[0] || "",
         price: Number(form.price),
         beds: Number(form.beds),
         baths: Number(form.baths),
@@ -136,34 +109,51 @@ export default function RentalForm({ rental, onSave, onClose }) {
         </div>
 
         <form onSubmit={handleSubmit} className="p-6 space-y-6">
-          {/* Photos */}
+          {/* Photo */}
           <div>
-            <label className={labelCls}>Photos ({form.images.length}/10) — la 1ère est la couverture</label>
-            <div className="grid grid-cols-3 gap-2">
-              {form.images.map((src, idx) => (
-                <div key={idx} className="relative aspect-square overflow-hidden group border border-[#E5E0DA]">
-                  <img src={src} alt={`Photo ${idx + 1}`} className="w-full h-full object-cover" />
-                  {idx === 0 && (
-                    <span className="absolute bottom-1 left-1 bg-[#C4A96B] text-white text-[9px] px-1.5 py-0.5 font-body leading-tight">Couverture</span>
-                  )}
-                  <div className="absolute top-1 right-1 flex gap-1">
-                    {idx > 0 && (
-                      <button type="button" onClick={() => moveImage(idx, idx - 1)} className="p-1 bg-[#2D2D2D]/70 text-[#F7F5F2] text-[10px] font-body leading-none min-w-[24px] min-h-[24px] flex items-center justify-center" title="Déplacer à gauche">←</button>
-                    )}
-                    <button type="button" onClick={() => removeImage(idx)} className="p-1 bg-[#2D2D2D]/70 text-[#F7F5F2] min-w-[24px] min-h-[24px] flex items-center justify-center">
-                      <X size={12} />
-                    </button>
-                  </div>
+            <label className={labelCls}>Photo</label>
+            {form.image ? (
+              <div>
+                <div className="relative aspect-[16/10] overflow-hidden">
+                  <img
+                    src={form.image}
+                    alt="Aperçu"
+                    className="w-full h-full object-cover transition-all duration-200"
+                    style={{ objectPosition: `center ${form.imageY ?? 50}%` }}
+                  />
+                  <button type="button" onClick={() => set("image", "")} className="absolute top-2 right-2 p-2 bg-[#2D2D2D]/80 text-[#F7F5F2] min-w-[44px] min-h-[44px] flex items-center justify-center">
+                    <X size={16} />
+                  </button>
                 </div>
-              ))}
-              {form.images.length < 10 && (
-                <label className={`flex flex-col items-center justify-center aspect-square border border-dashed border-[#E5E0DA] cursor-pointer hover:border-[#8E9B90] transition-colors ${uploading ? "opacity-50 pointer-events-none" : ""}`}>
-                  {uploading ? <Loader2 size={20} className="animate-spin text-[#8E9B90]" /> : <Plus size={20} className="text-[#8E9B90]" />}
-                  <span className="mt-1 text-[11px] text-[#2D2D2D]/40 font-body">{form.images.length === 0 ? "Ajouter" : "Ajouter"}</span>
-                  <input type="file" accept="image/*" multiple onChange={handleAddImage} className="hidden" />
-                </label>
-              )}
-            </div>
+                <div className="mt-3 flex items-center gap-3">
+                  <button type="button" onClick={() => set("imageY", Math.max(0, (form.imageY ?? 50) - 5))} className="p-1 text-[#2D2D2D]/50 hover:text-[#2D2D2D] transition-colors">
+                    <ChevronUp size={18} />
+                  </button>
+                  <div className="flex-1 flex flex-col gap-1">
+                    <input
+                      type="range" min={0} max={100} step={1}
+                      value={form.imageY ?? 50}
+                      onChange={(e) => set("imageY", Number(e.target.value))}
+                      className="w-full accent-[#2D2D2D] h-1 cursor-pointer"
+                    />
+                    <div className="flex justify-between text-[10px] text-[#2D2D2D]/35 font-body tracking-[0.1em] uppercase">
+                      <span>Haut</span>
+                      <span>Recadrage vertical</span>
+                      <span>Bas</span>
+                    </div>
+                  </div>
+                  <button type="button" onClick={() => set("imageY", Math.min(100, (form.imageY ?? 50) + 5))} className="p-1 text-[#2D2D2D]/50 hover:text-[#2D2D2D] transition-colors">
+                    <ChevronDown size={18} />
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <label className={`flex flex-col items-center justify-center aspect-[16/10] border border-dashed border-[#E5E0DA] cursor-pointer hover:border-[#8E9B90] transition-colors ${uploading ? "opacity-50" : ""}`}>
+                {uploading ? <Loader2 size={24} className="animate-spin text-[#8E9B90]" /> : <Upload size={24} className="text-[#8E9B90]" />}
+                <span className="mt-2 text-sm text-[#2D2D2D]/50 font-body">Cliquez pour téléverser une photo</span>
+                <input type="file" accept="image/*" onChange={handleUpload} className="hidden" />
+              </label>
+            )}
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
