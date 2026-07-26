@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { useTranslation } from "react-i18next";
@@ -116,12 +117,12 @@ export default function Footer({ visitorType = "proprietaire" }) {
             {t("footer.copyright", { year: new Date().getFullYear() })}
           </p>
           <div className="flex gap-6">
-            <a href="#accueil" className={`text-[#2D2D2D]/30 text-xs ${hoverLink} transition-colors font-body`}>
+            <Link to="/mentions-legales" className={`text-[#2D2D2D]/30 text-xs ${hoverLink} transition-colors font-body`}>
               {t("footer.legal")}
-            </a>
-            <a href="#accueil" className={`text-[#2D2D2D]/30 text-xs ${hoverLink} transition-colors font-body`}>
+            </Link>
+            <Link to="/politique-confidentialite" className={`text-[#2D2D2D]/30 text-xs ${hoverLink} transition-colors font-body`}>
               {t("footer.privacy")}
-            </a>
+            </Link>
           </div>
         </div>
       </div>
