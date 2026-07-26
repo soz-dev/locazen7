@@ -26,7 +26,7 @@ export default function Footer({ visitorType = "proprietaire" }) {
           transition={{ duration: 1 }}
           className={`font-heading text-[6rem] md:text-[10rem] lg:text-[14rem] font-light ${brandTint} leading-none text-center tracking-[0.1em] select-none whitespace-nowrap`}
         >
-          LOCAZEN 12
+          LOCAZEN 7
         </motion.h2>
       </div>
 
@@ -36,7 +36,7 @@ export default function Footer({ visitorType = "proprietaire" }) {
           {/* Brand */}
           <div>
             <p className={`font-heading text-xl tracking-[0.15em] ${brandName} mb-3`}>
-              LOCAZEN 12
+              LOCAZEN 7
             </p>
             <p className="text-[#2D2D2D]/50 text-sm font-body">
               {t("footer.tagline")}
