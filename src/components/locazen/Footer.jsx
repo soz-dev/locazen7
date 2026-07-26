@@ -125,6 +125,18 @@ export default function Footer({ visitorType = "proprietaire" }) {
             </Link>
           </div>
         </div>
+
+        {/* Dev credit */}
+        <div className="mt-6 text-center">
+          <a
+            href="https://soz-dev.github.io"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`text-[#2D2D2D]/20 text-[10px] tracking-[0.15em] uppercase font-body ${hoverLink} transition-colors`}
+          >
+            Faites-vous votre site sans attendre →
+          </a>
+        </div>
       </div>
     </footer>
   );
