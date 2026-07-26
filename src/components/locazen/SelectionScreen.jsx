@@ -48,9 +48,9 @@ export default function SelectionScreen({ onSelect }) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.15 }}
-          className="font-heading text-5xl md:text-7xl font-light text-[#2D2D2D] tracking-[0.05em]"
+          className="font-heading text-5xl md:text-7xl font-light text-[#2D2D2D] tracking-[0.2em]"
         >
-          LOCAZEN <span className="italic">Sète</span>
+          Loca Zen Sète
         </motion.h1>
         <motion.p
           initial={{ opacity: 0 }}
