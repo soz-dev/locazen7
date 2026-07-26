@@ -33,7 +33,7 @@
     "eyebrow": "Our rentals",
     "title1": "Stay in Sète,",
     "title2": "like a local",
-    "placeholder": "Preview of our property types — availability on request.",
+    "placeholder": "Preview of our property types, availability on request.",
     "contact": "Contact us",
     "viewListing": "View listing",
     "bed": "bedroom",
@@ -46,15 +46,15 @@
     "title1": "What our",
     "title2": "guests say",
     "items": [
-      { "name": "Marie D.", "location": "Paris", "text": "Beautiful apartment with a view of the harbour. Everything was immaculate on arrival — clean linen, fully equipped kitchen. We'll be back next year!", "initials": "MD" },
-      { "name": "Thomas & Emma", "location": "Lyon", "text": "The welcome was perfect and the property was exactly as shown in the photos — maybe even better. Sète is an incredible city, and we were perfectly located.", "initials": "TE" },
+      { "name": "Marie D.", "location": "Paris", "text": "Beautiful apartment with a view of the harbour. Everything was immaculate on arrival: clean linen, fully equipped kitchen. We'll be back next year!", "initials": "MD" },
+      { "name": "Thomas & Emma", "location": "Lyon", "text": "The welcome was perfect and the property was exactly as shown in the photos, maybe even better. Sète is an incredible city, and we were perfectly located.", "initials": "TE" },
       { "name": "Julien B.", "location": "Bordeaux", "text": "The best rental experience I've ever had. Communication was excellent, no issues at all during the stay. I recommend without the slightest hesitation.", "initials": "JB" }
     ]
   },
   "map": {
     "eyebrow": "Location",
     "title": "Sète, within reach",
-    "subtitle": "Our properties are in the heart of Sète — beaches, harbour, restaurants and cultural sites just minutes away.",
+    "subtitle": "Our properties are in the heart of Sète: beaches, harbour, restaurants and cultural sites just minutes away.",
     "categories": {
       "logement": "Our rentals",
       "plage": "Beaches",
@@ -132,7 +132,7 @@
   "calculator": {
     "eyebrow": "Estimate",
     "title": "Calculate your stay",
-    "subtitle": "Indicative price — contact us for an exact quote and availability.",
+    "subtitle": "Indicative price. Contact us for an exact quote and availability.",
     "duration": "Length of stay",
     "night": "night",
     "nights": "nights",
@@ -157,7 +157,7 @@
     ],
     "owner": [
       { "q": "How much do your services cost?", "a": "Our packages and rates are detailed in the section above. We offer several service levels to suit your needs." },
-      { "q": "Can I still use my property personally?", "a": "Absolutely. You retain full control of your calendar — just let us know your blocked dates in advance." },
+      { "q": "Can I still use my property personally?", "a": "Absolutely. You retain full control of your calendar, just let us know your blocked dates in advance." },
       { "q": "How do you handle damages?", "a": "We carry out an inventory check at each checkout. Security deposits are managed via the platforms, and we handle any disputes." },
       { "q": "Which platforms do you list on?", "a": "We manage your listings on Airbnb, Booking.com and Abritel, optimising pricing and content to maximise occupancy." },
       { "q": "How long does onboarding take?", "a": "We can typically begin managing your property within 2 weeks of signing the management agreement." }
@@ -183,7 +183,7 @@
     "message_placeholder": "Your message...",
     "send": "Send message",
     "sending": "Sending...",
-    "success": "Message sent — we will reply within 24h.",
+    "success": "Message sent. We will reply within 24h.",
     "error": "Error sending. Please retry or call 06.59.76.91.94.",
     "phone": "Phone",
     "phone_label": "Phone",
@@ -207,16 +207,16 @@
     "callUs": "Call us",
     "legal": "Legal notice",
     "privacy": "Privacy policy",
-    "copyright": "© {{year}} LocaZen — Concierge Sète. All rights reserved."
+    "copyright": "© {{year}} LocaZen · Concierge Sète. All rights reserved."
   },
   "howItWorks": {
     "eyebrow": "Our process",
     "title": "How does it work?",
     "steps": [
-      { "title": "Free assessment", "desc": "We visit your property and estimate its rental potential — with no commitment from you." },
+      { "title": "Free assessment", "desc": "We visit your property and estimate its rental potential, with no commitment from you." },
       { "title": "Full management", "desc": "Professional cleaning, linen provided, quality photos, optimised listing and guest welcome." },
       { "title": "Booking management", "desc": "We manage your listings on Airbnb, Booking and Abritel to maximise occupancy." },
-      { "title": "Your income, effortlessly", "desc": "Monthly transparent payouts, regular reports. You enjoy the returns — we handle everything." }
+      { "title": "Your income, effortlessly", "desc": "Monthly transparent payouts, regular reports. You enjoy the returns. We handle everything." }
     ]
   },
   "beforeAfter": {
@@ -234,7 +234,7 @@
     "weeks_label": "Weeks rented / year",
     "monthly": "Estimated gross income / month",
     "annual": "Estimated gross income / year",
-    "note": "Excluding Locazen management fees — see rates above.",
+    "note": "Excluding Locazen management fees, see rates above.",
     "cta": "Speak to an expert",
     "per_night": "/night"
   },
@@ -264,10 +264,10 @@
     "eyebrow": "About us",
     "title": "Because every traveller deserves a real welcome",
     "title_em": "a real welcome",
-    "p1": "We are a passionate couple who take charge of your property — whether it is your primary or secondary residence. Our backgrounds in hospitality, catering, and personal care have given us the skills needed to carry out these responsibilities.",
+    "p1": "We are a passionate couple who take charge of your property, whether it is your primary or secondary residence. Our backgrounds in hospitality, catering, and personal care have given us the skills needed to carry out these responsibilities.",
     "p2": "We chose a personal physical presence over an impersonal key safe. Being greeted in person genuinely elevates the quality of the stay.",
     "values": [
-      { "label": "Human welcome", "text": "Every guest is welcomed in person — never a key safe." },
+      { "label": "Human welcome", "text": "Every guest is welcomed in person, never a key safe." },
       { "label": "Trust", "text": "Founded in 2019, our experience grows richer every year through our guests and property owners." },
       { "label": "Peace of mind", "text": "Warm, social and welcoming, we take our work to heart and ensure your guests enjoy a high-quality stay." }
     ]
@@ -294,19 +294,19 @@
     "title": "Clear pricing, no surprises",
     "subtitle": "You can combine different services or choose a full package to suit your needs. Packages are available on request.",
     "billing_title": "End-of-month billing.",
-    "billing_detail": "Cleaning and laundry are charged to the guest — you keep 100% of your rental income.",
+    "billing_detail": "Cleaning and laundry are charged to the guest. You keep 100% of your rental income.",
     "phase1": "Phase 1",
     "beforeStay": "Before the stay",
     "phase2": "Phase 2",
     "duringStay": "During the stay",
     "quoteBtn": "Request a quote",
-    "packNote": "Full package available on request — e.g. Check-in + Check-out + cleaning. Call us on 06.59.76.91.94.",
+    "packNote": "Full package available on request (e.g. Check-in + Check-out + cleaning). Call us on 06.59.76.91.94.",
     "before": [
       { "label": "Booking management", "price": "€15", "unit": "/ booking", "detail": "Listing + photos on Airbnb & Booking, pricing, Town Hall declaration, host relations until arrival, tourist tax declaration." },
-      { "label": "Cleaning", "price": "Package", "unit": "", "detail": "Rate determined by the size and layout of your property — charged to the guest." },
-      { "label": "Double bed", "price": "€20", "unit": "", "detail": "Laundry for double bed linen — charged to the guest." },
-      { "label": "Single bed", "price": "€15", "unit": "", "detail": "Laundry for single bed linen — charged to the guest." },
-      { "label": "Towel kit", "price": "€5", "unit": "/ person", "detail": "One large + one small towel — charged to the guest." }
+      { "label": "Cleaning", "price": "Package", "unit": "", "detail": "Rate determined by the size and layout of your property, charged to the guest." },
+      { "label": "Double bed", "price": "€20", "unit": "", "detail": "Laundry for double bed linen, charged to the guest." },
+      { "label": "Single bed", "price": "€15", "unit": "", "detail": "Laundry for single bed linen, charged to the guest." },
+      { "label": "Towel kit", "price": "€5", "unit": "/ person", "detail": "One large + one small towel, charged to the guest." }
     ],
     "during": [
       { "label": "Check-in / Check-out", "price": "€55", "detail": "Personal welcome on arrival and property inspection on departure." },
@@ -318,10 +318,10 @@
     "eyebrow": "Guest rates",
     "title1": "Services,",
     "title2": "tailored to you",
-    "subtitle": "Packages can be combined to suit your needs — contact us for a personalised quote.",
+    "subtitle": "Packages can be combined to suit your needs. Contact us for a personalised quote.",
     "included": "Included",
     "contactBtn": "Contact us",
-    "packNote": "Full package available on request — e.g. Check-in + Check-out + cleaning.",
+    "packNote": "Full package available on request (e.g. Check-in + Check-out + cleaning).",
     "services": [
       {
         "name": "Welcome",

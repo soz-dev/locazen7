@@ -8,7 +8,7 @@ const STEPS = [
     n: "01",
     Icon: Search,
     title: "Évaluation gratuite",
-    desc: "Nous visitons votre bien et estimons son potentiel locatif — sans engagement de votre part.",
+    desc: "Nous visitons votre bien et estimons son potentiel locatif, sans engagement de votre part.",
   },
   {
     n: "02",
@@ -26,7 +26,7 @@ const STEPS = [
     n: "04",
     Icon: Banknote,
     title: "Vos revenus, sans effort",
-    desc: "Versement mensuel transparent, bilan régulier. Vous profitez — sans vous occuper de rien.",
+    desc: "Versement mensuel transparent, bilan régulier. Vous profitez, sans vous occuper de rien.",
   },
 ];
 

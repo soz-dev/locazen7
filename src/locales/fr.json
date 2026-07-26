@@ -33,7 +33,7 @@
     "eyebrow": "Nos locations",
     "title1": "Séjournez à Sète,",
     "title2": "comme un local",
-    "placeholder": "Aperçu de nos types de biens — disponibilités sur demande.",
+    "placeholder": "Aperçu de nos types de biens, disponibilités sur demande.",
     "contact": "Nous contacter",
     "viewListing": "Voir l'annonce",
     "bed": "chambre",
@@ -46,15 +46,15 @@
     "title1": "Ce que disent",
     "title2": "nos voyageurs",
     "items": [
-      { "name": "Marie D.", "location": "Paris", "text": "Appartement magnifique avec vue sur le port. Tout était impeccable à notre arrivée — linge propre, cuisine équipée. On reviendra l'année prochaine !", "initials": "MD" },
-      { "name": "Thomas & Emma", "location": "Lyon", "text": "L'accueil était parfait et le logement exactement comme sur les photos — peut-être encore mieux. Sète est une ville incroyable, idéalement situés.", "initials": "TE" },
+      { "name": "Marie D.", "location": "Paris", "text": "Appartement magnifique avec vue sur le port. Tout était impeccable à notre arrivée : linge propre, cuisine équipée. On reviendra l'année prochaine !", "initials": "MD" },
+      { "name": "Thomas & Emma", "location": "Lyon", "text": "L'accueil était parfait et le logement exactement comme sur les photos, peut-être encore mieux. Sète est une ville incroyable, idéalement situés.", "initials": "TE" },
       { "name": "Julien B.", "location": "Bordeaux", "text": "La meilleure expérience de location que j'ai eue. Communication au top, aucun souci durant tout le séjour. Je recommande sans la moindre hésitation.", "initials": "JB" }
     ]
   },
   "map": {
     "eyebrow": "Localisation",
     "title": "Sète, à portée de main",
-    "subtitle": "Nos logements sont au cœur de Sète — plages, port, restaurants et sites culturels à quelques minutes à pied.",
+    "subtitle": "Nos logements sont au cœur de Sète : plages, port, restaurants et sites culturels à quelques minutes à pied.",
     "categories": {
       "logement": "Nos logements",
       "plage": "Plages",
@@ -132,7 +132,7 @@
   "calculator": {
     "eyebrow": "Estimation",
     "title": "Calculez votre séjour",
-    "subtitle": "Tarif indicatif — contactez-nous pour un devis précis et les disponibilités.",
+    "subtitle": "Tarif indicatif. Contactez-nous pour un devis précis et les disponibilités.",
     "duration": "Durée du séjour",
     "night": "nuit",
     "nights": "nuits",
@@ -183,7 +183,7 @@
     "message_placeholder": "Votre message...",
     "send": "Envoyer le message",
     "sending": "Envoi en cours…",
-    "success": "Message envoyé — nous vous répondrons sous 24h.",
+    "success": "Message envoyé. Nous vous répondrons sous 24h.",
     "error": "Erreur d'envoi. Réessayez ou appelez le 06.59.76.91.94.",
     "phone": "Téléphone",
     "phone_label": "Téléphone",
@@ -207,16 +207,16 @@
     "callUs": "Appelez-nous",
     "legal": "Mentions légales",
     "privacy": "Politique de confidentialité",
-    "copyright": "© {{year}} LocaZen — Conciergerie Sète. Tous droits réservés."
+    "copyright": "© {{year}} LocaZen · Conciergerie Sète. Tous droits réservés."
   },
   "howItWorks": {
     "eyebrow": "Notre processus",
     "title": "Comment ça marche ?",
     "steps": [
-      { "title": "Évaluation gratuite", "desc": "Nous visitons votre bien et estimons son potentiel locatif — sans engagement de votre part." },
+      { "title": "Évaluation gratuite", "desc": "Nous visitons votre bien et estimons son potentiel locatif, sans engagement de votre part." },
       { "title": "Prise en charge complète", "desc": "Ménage professionnel, linge fourni, photos soignées, annonce optimisée et accueil des voyageurs." },
       { "title": "Gestion des réservations", "desc": "Vos annonces sur Airbnb, Booking et Abritel sont gérées pour maximiser le taux d'occupation." },
-      { "title": "Vos revenus, sans effort", "desc": "Versement mensuel transparent, bilan régulier. Vous profitez — sans vous occuper de rien." }
+      { "title": "Vos revenus, sans effort", "desc": "Versement mensuel transparent, bilan régulier. Vous profitez, sans vous occuper de rien." }
     ]
   },
   "beforeAfter": {
@@ -234,7 +234,7 @@
     "weeks_label": "Semaines louées / an",
     "monthly": "Revenus bruts estimés / mois",
     "annual": "Revenus bruts estimés / an",
-    "note": "Hors frais de gestion Locazen — voir tarifs ci-dessus.",
+    "note": "Hors frais de gestion Locazen, voir tarifs ci-dessus.",
     "cta": "Parler à un expert",
     "per_night": "/nuit"
   },
@@ -264,7 +264,7 @@
     "eyebrow": "À notre propos",
     "title": "Parce que chaque voyageur mérite un vrai accueil",
     "title_em": "un vrai accueil",
-    "p1": "Nous sommes un couple passionné, et nous prenons en charge votre bien — qu'il s'agisse de votre résidence principale ou secondaire. Nos différents métiers (hôtellerie, restauration, accompagnement et aide à la personne) nous ont permis d'acquérir les qualités requises pour assumer ces missions.",
+    "p1": "Nous sommes un couple passionné, et nous prenons en charge votre bien, qu'il s'agisse de votre résidence principale ou secondaire. Nos différents métiers (hôtellerie, restauration, accompagnement et aide à la personne) nous ont permis d'acquérir les qualités requises pour assumer ces missions.",
     "p2": "Nous avons opté pour une présence physique et non une boîte à clés, impersonnelle et non sécurisée. Être accueilli en personne change la qualité de la location.",
     "values": [
       { "label": "Accueil humain", "text": "Chaque voyageur est accueilli en personne, jamais une boîte à clés." },
@@ -294,19 +294,19 @@
     "title": "Des tarifs clairs, sans surprise",
     "subtitle": "Vous avez la possibilité de combiner différentes prestations ou de choisir un pack complet, en fonction de vos besoins. Les packs sont proposés sur devis.",
     "billing_title": "Facturation fin de mois.",
-    "billing_detail": "Le ménage et la blanchisserie sont à la charge du voyageur — vous conservez l'intégralité de vos revenus locatifs.",
+    "billing_detail": "Le ménage et la blanchisserie sont à la charge du voyageur. Vous conservez l'intégralité de vos revenus locatifs.",
     "phase1": "Phase 1",
     "beforeStay": "Avant le séjour",
     "phase2": "Phase 2",
     "duringStay": "Durant le séjour",
     "quoteBtn": "Demander un devis",
-    "packNote": "Pack complet disponible sur devis — ex : Check-in + Check-out + ménage. Appelez-nous au 06.59.76.91.94.",
+"packNote": "Pack complet disponible sur devis (ex : Check-in + Check-out + ménage). Appelez-nous au 06.59.76.91.94.",
     "before": [
       { "label": "Gestion de réservations", "price": "15 €", "unit": "/ réservation", "detail": "Mise en ligne annonce + photos sur Airbnb & Booking, tarification, déclaration Mairie, relation hôtes jusqu'à l'arrivée, déclaration taxe de séjour." },
-      { "label": "Ménage", "price": "Forfait", "unit": "", "detail": "Tarif déterminé selon la taille et la composition de votre logement — à la charge du voyageur." },
-      { "label": "Grand lit", "price": "20 €", "unit": "", "detail": "Blanchisserie draps grand lit — à la charge du voyageur." },
-      { "label": "Petit lit", "price": "15 €", "unit": "", "detail": "Blanchisserie draps petit lit — à la charge du voyageur." },
-      { "label": "Kit serviettes", "price": "5 €", "unit": "/ personne", "detail": "Une grande + une petite serviette — à la charge du voyageur." }
+      { "label": "Ménage", "price": "Forfait", "unit": "", "detail": "Tarif déterminé selon la taille et la composition de votre logement, à la charge du voyageur." },
+      { "label": "Grand lit", "price": "20 €", "unit": "", "detail": "Blanchisserie draps grand lit, à la charge du voyageur." },
+      { "label": "Petit lit", "price": "15 €", "unit": "", "detail": "Blanchisserie draps petit lit, à la charge du voyageur." },
+      { "label": "Kit serviettes", "price": "5 €", "unit": "/ personne", "detail": "Une grande + une petite serviette, à la charge du voyageur." }
     ],
     "during": [
       { "label": "Check-in / Check-out", "price": "55 €", "detail": "Accueil en personne à l'arrivée et état des lieux à la sortie." },
@@ -318,10 +318,10 @@
     "eyebrow": "Tarifs voyageurs",
     "title1": "Des services,",
     "title2": "à votre mesure",
-    "subtitle": "Des packs peuvent être combinés selon vos besoins — contactez-nous pour un devis personnalisé.",
+    "subtitle": "Des packs peuvent être combinés selon vos besoins. Contactez-nous pour un devis personnalisé.",
     "included": "Inclus",
     "contactBtn": "Nous contacter",
-    "packNote": "Pack complet disponible sur devis — ex : Check-in + Check-out + ménage.",
+    "packNote": "Pack complet disponible sur devis (ex : Check-in + Check-out + ménage).",
     "services": [
       {
         "name": "Accueil",

@@ -88,7 +88,7 @@ export default function Footer({ visitorType = "proprietaire" }) {
               </a>
               <div className="flex items-center gap-3 text-[#2D2D2D]/60 text-sm font-body">
                 <MapPin size={14} />
-                34, rue Lucien Salette — 34200 Sète
+                34, rue Lucien Salette, 34200 Sète
               </div>
             </div>
           </div>

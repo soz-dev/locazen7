@@ -9,7 +9,7 @@ const TESTIMONIALS = [
     name: "Marie D.",
     location: "Paris",
     rating: 5,
-    text: "Appartement magnifique avec vue sur le port. Tout était impeccable à notre arrivée — linge propre, cuisine équipée. On reviendra l'année prochaine !",
+    text: "Appartement magnifique avec vue sur le port. Tout était impeccable à notre arrivée : linge propre, cuisine équipée. On reviendra l'année prochaine !",
     initials: "MD",
   },
   {
@@ -17,7 +17,7 @@ const TESTIMONIALS = [
     name: "Thomas & Emma",
     location: "Lyon",
     rating: 5,
-    text: "L'accueil était parfait et le logement exactement comme sur les photos — peut-être encore mieux. Sète est une ville incroyable, idéalement situés.",
+    text: "L'accueil était parfait et le logement exactement comme sur les photos, peut-être encore mieux. Sète est une ville incroyable, idéalement situés.",
     initials: "TE",
   },
   {
