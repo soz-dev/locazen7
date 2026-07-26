@@ -36,6 +36,9 @@ export default {
       return new Response(null, { status: 204, headers: corsHeaders(origin) });
     }
 
+    // Migration silencieuse : ajout colonne images si manquante
+    try { await env.DB.prepare("ALTER TABLE rentals ADD COLUMN images TEXT DEFAULT '[]'").run(); } catch {}
+
     // GET /rentals — public
     if (request.method === "GET" && path === "/rentals") {
       const { results } = await env.DB.prepare(
@@ -44,6 +47,7 @@ export default {
       const rentals = results.map((r) => ({
         ...r,
         amenities: JSON.parse(r.amenities || "[]"),
+        images: JSON.parse(r.images || "[]"),
       }));
       return json(rentals, 200, origin);
     }
@@ -54,8 +58,8 @@ export default {
       const body = await request.json();
       const id = Date.now().toString();
       await env.DB.prepare(
-        `INSERT INTO rentals (id, name, type, price, beds, baths, guests, rating, image, imageY, amenities, airbnb_url, address, lat, lng, created_at)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+        `INSERT INTO rentals (id, name, type, price, beds, baths, guests, rating, image, imageY, images, amenities, airbnb_url, address, lat, lng, created_at)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
       ).bind(
         id,
         body.name,
@@ -67,6 +71,7 @@ export default {
         Number(body.rating),
         body.image || "",
         body.imageY ?? 50,
+        JSON.stringify(body.images || []),
         JSON.stringify(body.amenities || []),
         body.airbnb_url || "",
         body.address || "",
@@ -84,7 +89,7 @@ export default {
       const body = await request.json();
       await env.DB.prepare(
         `UPDATE rentals SET name=?, type=?, price=?, beds=?, baths=?, guests=?,
-         rating=?, image=?, imageY=?, amenities=?, airbnb_url=?, address=?, lat=?, lng=? WHERE id=?`
+         rating=?, image=?, imageY=?, images=?, amenities=?, airbnb_url=?, address=?, lat=?, lng=? WHERE id=?`
       ).bind(
         body.name,
         body.type || "",
@@ -95,6 +100,7 @@ export default {
         Number(body.rating),
         body.image || "",
         body.imageY ?? 50,
+        JSON.stringify(body.images || []),
         JSON.stringify(body.amenities || []),
         body.airbnb_url || "",
         body.address || "",

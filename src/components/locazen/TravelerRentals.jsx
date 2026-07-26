@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { MapPin, Star, Loader2, ExternalLink, Waves, Sun, Coffee } from "lucide-react";
+import { MapPin, Star, Loader2, ExternalLink, Waves, Sun, Coffee, ChevronLeft, ChevronRight } from "lucide-react";
 import { getAmenity } from "@/components/locazen/amenities";
 import { fetchRentals } from "@/lib/rentalsApi";
 import { useTranslation } from "react-i18next";
@@ -43,6 +43,122 @@ const PLACEHOLDER_RENTALS = [
     badge: "Coup de cœur",
   },
 ];
+
+function getImages(r) {
+  try {
+    const arr = r.images ? (typeof r.images === "string" ? JSON.parse(r.images) : r.images) : [];
+    return Array.isArray(arr) && arr.length > 0 ? arr : (r.image ? [r.image] : []);
+  } catch { return r.image ? [r.image] : []; }
+}
+
+function RentalCard({ r, i, t }) {
+  const images = getImages(r);
+  const [idx, setIdx] = React.useState(0);
+  const prev = (e) => { e.stopPropagation(); setIdx((v) => (v - 1 + images.length) % images.length); };
+  const next = (e) => { e.stopPropagation(); setIdx((v) => (v + 1) % images.length); };
+
+  return (
+    <motion.div
+      key={r.id}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.7, delay: i * 0.1 }}
+      className="group cursor-pointer"
+    >
+      <div className="relative aspect-[4/5] overflow-hidden mb-5">
+        <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-105">
+          {images.length > 0 ? (
+            <img src={images[idx]} alt={r.name} className="w-full h-full object-cover" style={{ objectPosition: `center ${idx === 0 ? (r.imageY ?? 50) : 50}%` }} />
+          ) : (
+            <div className="w-full h-full bg-[#DBEAFE]" />
+          )}
+        </div>
+        {images.length > 1 && (
+          <>
+            <button onClick={prev} className="absolute left-2 top-1/2 -translate-y-1/2 p-2 bg-[#0C4A6E]/70 text-white min-w-[36px] min-h-[36px] flex items-center justify-center hover:bg-[#0C4A6E] transition-colors z-10" aria-label="Photo précédente">
+              <ChevronLeft size={16} />
+            </button>
+            <button onClick={next} className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-[#0C4A6E]/70 text-white min-w-[36px] min-h-[36px] flex items-center justify-center hover:bg-[#0C4A6E] transition-colors z-10" aria-label="Photo suivante">
+              <ChevronRight size={16} />
+            </button>
+            <div className="absolute bottom-14 left-1/2 -translate-x-1/2 flex gap-1 z-10">
+              {images.map((_, j) => (
+                <button key={j} onClick={(e) => { e.stopPropagation(); setIdx(j); }} className={`w-1.5 h-1.5 rounded-full transition-colors ${j === idx ? "bg-white" : "bg-white/40"}`} aria-label={`Photo ${j + 1}`} />
+              ))}
+            </div>
+          </>
+        )}
+        {r.badge && (
+          <div className="absolute top-4 left-4 px-3 py-1.5 bg-[#F59E0B] flex items-center gap-1.5">
+            <Sun size={11} className="text-white" />
+            <span className="text-xs font-body text-white tracking-wide">{r.badge}</span>
+          </div>
+        )}
+        {r.rating && (
+          <div className="absolute top-4 right-4 px-3 py-1.5 bg-white/90 backdrop-blur-sm flex items-center gap-1.5">
+            <Star size={11} className="text-[#F59E0B] fill-[#F59E0B]" />
+            <span className="text-xs font-body text-[#0C4A6E]">{r.rating}</span>
+          </div>
+        )}
+        <div className="absolute bottom-4 right-4 px-4 py-2 bg-[#0C4A6E]/85 backdrop-blur-sm">
+          <span className="text-white font-heading text-lg">{r.price}€</span>
+          <span className="text-white/60 text-xs font-body"> / nuit</span>
+        </div>
+      </div>
+
+      <div>
+        <h3 className="font-heading text-2xl font-light text-[#0C4A6E] mb-1">{r.name}</h3>
+        {r.type && (
+          <p className="flex items-center gap-1.5 text-[#0C4A6E]/50 text-sm font-body mb-3">
+            <MapPin size={12} className="text-[#0891B2]" />
+            {r.type}
+          </p>
+        )}
+        {r.amenities?.length > 0 && (
+          <div className="flex flex-wrap gap-1.5">
+            {r.amenities.slice(0, 5).map((key) => {
+              const a = getAmenity(key);
+              if (!a) return null;
+              const Icon = a.Icon;
+              return (
+                <span key={key} className="flex items-center gap-1 px-2 py-1 bg-[#E0F2FE] text-[#0891B2] text-[10px] font-body tracking-wide">
+                  <Icon size={10} />
+                  {a.label}
+                </span>
+              );
+            })}
+          </div>
+        )}
+      </div>
+
+      <div className="mt-4 flex gap-4 text-[#0C4A6E]/40 text-xs font-body border-t border-[#BAE6FD] pt-4">
+        {r.beds != null && <span>{r.beds} chambre{r.beds > 1 ? "s" : ""}</span>}
+        {r.baths != null && <span>{r.baths} sdb</span>}
+        {r.guests != null && <span>{r.guests} voyageurs</span>}
+      </div>
+
+      <div className="mt-5 flex gap-3">
+        <button
+          onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
+          className="flex-1 flex items-center justify-center gap-2 px-4 py-3 border border-[#0891B2] text-[#0891B2] text-xs tracking-[0.2em] uppercase font-body hover:bg-[#0891B2] hover:text-white transition-colors duration-300 min-h-[44px]"
+        >
+          {t("rentals.contact")}
+        </button>
+        {r.airbnb_url && (
+          <a
+            href={r.airbnb_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-[#0891B2] text-white text-xs tracking-[0.2em] uppercase font-body hover:bg-[#0C4A6E] transition-colors duration-300 min-h-[44px]"
+          >
+            {t("rentals.viewListing")} <ExternalLink size={13} />
+          </a>
+        )}
+      </div>
+    </motion.div>
+  );
+}
 
 export default function TravelerRentals() {
   const { t } = useTranslation();
@@ -90,91 +206,7 @@ export default function TravelerRentals() {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {displayRentals.map((r, i) => (
-              <motion.div
-                key={r.id}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.7, delay: i * 0.1 }}
-                className="group cursor-pointer"
-              >
-                <div className="relative aspect-[4/5] overflow-hidden mb-5">
-                  <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-105">
-                    {r.image ? (
-                      <img src={r.image} alt={r.name} className="w-full h-full object-cover" style={{ objectPosition: `center ${r.imageY ?? 50}%` }} />
-                    ) : (
-                      <div className="w-full h-full bg-[#DBEAFE]" />
-                    )}
-                  </div>
-                  {/* Badge vacances */}
-                  {r.badge && (
-                    <div className="absolute top-4 left-4 px-3 py-1.5 bg-[#F59E0B] flex items-center gap-1.5">
-                      <Sun size={11} className="text-white" />
-                      <span className="text-xs font-body text-white tracking-wide">{r.badge}</span>
-                    </div>
-                  )}
-                  {r.rating && (
-                    <div className="absolute top-4 right-4 px-3 py-1.5 bg-white/90 backdrop-blur-sm flex items-center gap-1.5">
-                      <Star size={11} className="text-[#F59E0B] fill-[#F59E0B]" />
-                      <span className="text-xs font-body text-[#0C4A6E]">{r.rating}</span>
-                    </div>
-                  )}
-                  <div className="absolute bottom-4 right-4 px-4 py-2 bg-[#0C4A6E]/85 backdrop-blur-sm">
-                    <span className="text-white font-heading text-lg">{r.price}€</span>
-                    <span className="text-white/60 text-xs font-body"> / nuit</span>
-                  </div>
-                </div>
-
-                <div>
-                  <h3 className="font-heading text-2xl font-light text-[#0C4A6E] mb-1">{r.name}</h3>
-                  {r.type && (
-                    <p className="flex items-center gap-1.5 text-[#0C4A6E]/50 text-sm font-body mb-3">
-                      <MapPin size={12} className="text-[#0891B2]" />
-                      {r.type}
-                    </p>
-                  )}
-                  {r.amenities?.length > 0 && (
-                    <div className="flex flex-wrap gap-1.5">
-                      {r.amenities.slice(0, 5).map((key) => {
-                        const a = getAmenity(key);
-                        if (!a) return null;
-                        const Icon = a.Icon;
-                        return (
-                          <span key={key} className="flex items-center gap-1 px-2 py-1 bg-[#E0F2FE] text-[#0891B2] text-[10px] font-body tracking-wide">
-                            <Icon size={10} />
-                            {a.label}
-                          </span>
-                        );
-                      })}
-                    </div>
-                  )}
-                </div>
-
-                <div className="mt-4 flex gap-4 text-[#0C4A6E]/40 text-xs font-body border-t border-[#BAE6FD] pt-4">
-                  {r.beds != null && <span>{r.beds} chambre{r.beds > 1 ? "s" : ""}</span>}
-                  {r.baths != null && <span>{r.baths} sdb</span>}
-                  {r.guests != null && <span>{r.guests} voyageurs</span>}
-                </div>
-
-                <div className="mt-5 flex gap-3">
-                  <button
-                    onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
-                    className="flex-1 flex items-center justify-center gap-2 px-4 py-3 border border-[#0891B2] text-[#0891B2] text-xs tracking-[0.2em] uppercase font-body hover:bg-[#0891B2] hover:text-white transition-colors duration-300 min-h-[44px]"
-                  >
-                    {t("rentals.contact")}
-                  </button>
-                  {r.airbnb_url && (
-                    <a
-                      href={r.airbnb_url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-[#0891B2] text-white text-xs tracking-[0.2em] uppercase font-body hover:bg-[#0C4A6E] transition-colors duration-300 min-h-[44px]"
-                    >
-                      {t("rentals.viewListing")} <ExternalLink size={13} />
-                    </a>
-                  )}
-                </div>
-              </motion.div>
+              <RentalCard key={r.id} r={r} i={i} t={t} />
             ))}
           </div>
         )}

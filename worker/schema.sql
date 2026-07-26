@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS rentals (
   rating      REAL NOT NULL DEFAULT 4.8,
   image       TEXT NOT NULL DEFAULT '',
   imageY      INTEGER NOT NULL DEFAULT 50,
+  images      TEXT NOT NULL DEFAULT '[]',
   amenities   TEXT NOT NULL DEFAULT '[]',
   airbnb_url  TEXT NOT NULL DEFAULT '',
   address     TEXT NOT NULL DEFAULT '',
