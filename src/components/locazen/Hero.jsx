@@ -54,7 +54,7 @@ export default function Hero({
           transition={{ duration: 1, delay: 0.6, ease: [0.25, 0.1, 0, 1] }}
           className="self-center text-center"
         >
-          <p className="font-body text-[#F7F5F2]/80 text-sm md:text-base tracking-[0.3em] uppercase">
+          <p className="font-body text-[#F7F5F2]/80 text-4xl md:text-5xl tracking-[0.3em] uppercase">
             {eyebrow}
           </p>
           <p className="mt-4 font-body text-[#F7F5F2]/60 text-sm md:text-lg max-w-lg tracking-wide font-light">
