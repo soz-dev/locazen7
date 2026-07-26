@@ -2,31 +2,84 @@
   "selection": {
     "welcome": "Welcome",
     "prompt": "To get started, tell us who you are",
-    "traveler": { "title": "I'm a traveler", "subtitle": "I'm looking for a rental for my holiday in Sète", "cta": "Enter" },
-    "owner":   { "title": "I'm a property owner", "subtitle": "I'm looking for concierge management for my property", "cta": "Enter" }
+    "traveler": {
+      "title": "I'm a traveler",
+      "subtitle": "I'm looking for a rental for my holiday in Sète",
+      "cta": "Enter"
+    },
+    "owner": {
+      "title": "I'm a property owner",
+      "subtitle": "I'm looking for concierge management for my property",
+      "cta": "Enter"
+    }
   },
   "navbar": {
     "switch": "Switch",
     "traveler": "Traveler",
     "owner": "Owner",
     "travelerLinks": [
-      { "label": "Home",     "href": "#accueil"   },
-      { "label": "Rentals",  "href": "#locations" },
-      { "label": "Map",      "href": "#carte"     },
-      { "label": "Rates",    "href": "#tarifs"    },
-      { "label": "Sète",     "href": "#sete"      },
-      { "label": "FAQ",      "href": "#faq"       },
-      { "label": "Contact",  "href": "#contact"   }
+      {
+        "label": "Home",
+        "href": "#accueil"
+      },
+      {
+        "label": "Rentals",
+        "href": "#locations"
+      },
+      {
+        "label": "Map",
+        "href": "#carte"
+      },
+      {
+        "label": "Rates",
+        "href": "#tarifs"
+      },
+      {
+        "label": "Sète",
+        "href": "#sete"
+      },
+      {
+        "label": "FAQ",
+        "href": "#faq"
+      },
+      {
+        "label": "Contact",
+        "href": "#contact"
+      }
     ],
     "ownerLinks": [
-      { "label": "Home",      "href": "#accueil"     },
-      { "label": "Services",  "href": "#services"    },
-      { "label": "About",     "href": "#apropos"     },
-      { "label": "Offerings", "href": "#prestations" },
-      { "label": "Rates",     "href": "#tarifs"      },
-      { "label": "Sète",      "href": "#sete"        },
-      { "label": "FAQ",       "href": "#faq"         },
-      { "label": "Contact",   "href": "#contact"     }
+      {
+        "label": "Home",
+        "href": "#accueil"
+      },
+      {
+        "label": "Services",
+        "href": "#services"
+      },
+      {
+        "label": "About",
+        "href": "#apropos"
+      },
+      {
+        "label": "Offerings",
+        "href": "#prestations"
+      },
+      {
+        "label": "Rates",
+        "href": "#tarifs"
+      },
+      {
+        "label": "Sète",
+        "href": "#sete"
+      },
+      {
+        "label": "FAQ",
+        "href": "#faq"
+      },
+      {
+        "label": "Contact",
+        "href": "#contact"
+      }
     ]
   },
   "rentals": {
@@ -46,9 +99,24 @@
     "title1": "What our",
     "title2": "guests say",
     "items": [
-      { "name": "Marie D.", "location": "Paris", "text": "Beautiful apartment with a view of the harbour. Everything was immaculate on arrival: clean linen, fully equipped kitchen. We'll be back next year!", "initials": "MD" },
-      { "name": "Thomas & Emma", "location": "Lyon", "text": "The welcome was perfect and the property was exactly as shown in the photos, maybe even better. Sète is an incredible city, and we were perfectly located.", "initials": "TE" },
-      { "name": "Julien B.", "location": "Bordeaux", "text": "The best rental experience I've ever had. Communication was excellent, no issues at all during the stay. I recommend without the slightest hesitation.", "initials": "JB" }
+      {
+        "name": "Marie D.",
+        "location": "Paris",
+        "text": "Beautiful apartment with a view of the harbour. Everything was immaculate on arrival: clean linen, fully equipped kitchen. We'll be back next year!",
+        "initials": "MD"
+      },
+      {
+        "name": "Thomas & Emma",
+        "location": "Lyon",
+        "text": "The welcome was perfect and the property was exactly as shown in the photos, maybe even better. Sète is an incredible city, and we were perfectly located.",
+        "initials": "TE"
+      },
+      {
+        "name": "Julien B.",
+        "location": "Bordeaux",
+        "text": "The best rental experience I've ever had. Communication was excellent, no issues at all during the stay. I recommend without the slightest hesitation.",
+        "initials": "JB"
+      }
     ]
   },
   "map": {
@@ -64,17 +132,50 @@
       "nature": "Nature"
     },
     "pois": [
-      { "name": "Plage de la Corniche",           "desc": "Sète's main fine-sand beach." },
-      { "name": "Plage du Lazaret",               "desc": "Quiet beach on the Thau lagoon side." },
-      { "name": "Plage de la Plagette",           "desc": "Small beach popular with locals." },
-      { "name": "Port de Sète",                   "desc": "Mediterranean's leading fishing port." },
-      { "name": "Quai du Maroc (jousting)",       "desc": "Home of the nautical jousting tournaments and summer events." },
-      { "name": "Cimetière Marin",               "desc": "Panoramic viewpoint, immortalised by Paul Valéry." },
-      { "name": "Musée Paul Valéry",             "desc": "Museum dedicated to the Sète poet and his work." },
-      { "name": "Mont Saint-Clair",              "desc": "Viewpoint at 175m, 360° panorama." },
-      { "name": "Les Halles de Sète",            "desc": "Covered market, fresh local produce every morning." },
-      { "name": "Quai du Général Durand",        "desc": "Fish and seafood restaurants." },
-      { "name": "Étang de Thau",                "desc": "Oyster and mussel lagoon, unique landscape." }
+      {
+        "name": "Plage de la Corniche",
+        "desc": "Sète's main fine-sand beach."
+      },
+      {
+        "name": "Plage du Lazaret",
+        "desc": "Quiet beach on the Thau lagoon side."
+      },
+      {
+        "name": "Plage de la Plagette",
+        "desc": "Small beach popular with locals."
+      },
+      {
+        "name": "Port de Sète",
+        "desc": "Mediterranean's leading fishing port."
+      },
+      {
+        "name": "Quai du Maroc (jousting)",
+        "desc": "Home of the nautical jousting tournaments and summer events."
+      },
+      {
+        "name": "Cimetière Marin",
+        "desc": "Panoramic viewpoint, immortalised by Paul Valéry."
+      },
+      {
+        "name": "Musée Paul Valéry",
+        "desc": "Museum dedicated to the Sète poet and his work."
+      },
+      {
+        "name": "Mont Saint-Clair",
+        "desc": "Viewpoint at 175m, 360° panorama."
+      },
+      {
+        "name": "Les Halles de Sète",
+        "desc": "Covered market, fresh local produce every morning."
+      },
+      {
+        "name": "Quai du Général Durand",
+        "desc": "Fish and seafood restaurants."
+      },
+      {
+        "name": "Étang de Thau",
+        "desc": "Oyster and mussel lagoon, unique landscape."
+      }
     ]
   },
   "weather": {
@@ -84,8 +185,29 @@
     "error": "Weather temporarily unavailable.",
     "today": "Today",
     "tomorrow": "Tomorrow",
-    "days": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-    "months": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    "days": [
+      "Sun",
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat"
+    ],
+    "months": [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec"
+    ],
     "wmo_0": "Sunny",
     "wmo_1": "Partly cloudy",
     "wmo_3": "Overcast",
@@ -118,16 +240,83 @@
     "in_days": "In {{count}} days",
     "in_months": "In {{count}} months",
     "events": [
-      { "name": "Fêtes de la Saint-Louis", "dates": "23 – 27 Aug 2026", "type": "Nautical jousting", "desc": "The largest nautical jousting tournament in France. Fireworks, concerts and entertainment along the canals of Sète.", "lieu": "Sète canals" },
-      { "name": "Fête de la Mer", "dates": "September 2026", "type": "Tradition", "desc": "Blessing of the fishing boats, procession at sea and lively festivities throughout the weekend.", "lieu": "Sète harbour" },
-      { "name": "Les Langues de Renard", "dates": "October 2026", "type": "Festival", "desc": "Alternative and experimental music festival in the heart of Sète, featuring local and international artists.", "lieu": "Sète" },
-      { "name": "Christmas Market", "dates": "December 2026", "type": "Market", "desc": "Traditional craft market with local produce, regional wines and Sète makers.", "lieu": "Town centre" }
+      {
+        "name": "Fêtes de la Saint-Louis",
+        "dates": "23 – 27 Aug 2026",
+        "type": "Nautical jousting",
+        "desc": "The largest nautical jousting tournament in France. Fireworks, concerts and entertainment along the canals of Sète.",
+        "lieu": "Sète canals"
+      },
+      {
+        "name": "Fête de la Mer",
+        "dates": "September 2026",
+        "type": "Tradition",
+        "desc": "Blessing of the fishing boats, procession at sea and lively festivities throughout the weekend.",
+        "lieu": "Sète harbour"
+      },
+      {
+        "name": "Les Langues de Renard",
+        "dates": "October 2026",
+        "type": "Festival",
+        "desc": "Alternative and experimental music festival in the heart of Sète, featuring local and international artists.",
+        "lieu": "Sète"
+      },
+      {
+        "name": "Christmas Market",
+        "dates": "December 2026",
+        "type": "Market",
+        "desc": "Traditional craft market with local produce, regional wines and Sète makers.",
+        "lieu": "Town centre"
+      }
     ]
   },
   "tarifs_v": {
-    "eyebrow": "Rates",
-    "title1": "Clear,",
-    "title2": "transparent pricing"
+    "eyebrow": "Guest rates",
+    "title1": "Quality welcome",
+    "title2": "",
+    "subtitle": "in a perfectly maintained and tastefully decorated home",
+    "included": "Included",
+    "contactBtn": "Contact us",
+    "packNote": "",
+    "services": [
+      {
+        "name": "In-person welcome",
+        "tagline": "Arrival & departure",
+        "price": "",
+        "unit": "",
+        "features": [
+          "Personal check-in on arrival",
+          "Property inspection at entry",
+          "Key handover and property walkthrough",
+          "Check-out and final inspection",
+          "Concierge available throughout the stay and tourist guide provided"
+        ]
+      },
+      {
+        "name": "Cleaning",
+        "tagline": "Between each stay",
+        "price": "",
+        "unit": "",
+        "features": [
+          "Full property clean",
+          "Condition check and property report",
+          "Restocking of welcome products",
+          "Airing out and tidying of the property",
+          "Equipment check (appliances, wifi, etc.)"
+        ]
+      },
+      {
+        "name": "Optional laundry",
+        "tagline": "Fresh linen every stay",
+        "price": "from €5",
+        "unit": "",
+        "features": [
+          "Double bed: €20",
+          "Single bed: €15",
+          "Towel kit: €5 / person (Large + small towel)"
+        ]
+      }
+    ]
   },
   "calculator": {
     "eyebrow": "Estimate",
@@ -149,18 +338,48 @@
     "eyebrow": "Frequently asked questions",
     "title": "FAQ",
     "traveler": [
-      { "q": "How can I book?", "a": "You can book directly via our Airbnb listings by clicking 'View listing', or contact us using the form below for a direct booking." },
-      { "q": "Are pets allowed?", "a": "It depends on the property. Pet policy is specified in each listing. Feel free to contact us for more details." },
-      { "q": "What is the cancellation policy?", "a": "Our policy is flexible. Cancellation conditions vary by booking platform and are always clearly stated before confirmation." },
-      { "q": "What are the check-in and check-out times?", "a": "Check-in is from 4pm, check-out by 11am. Flexible times may be arranged based on availability." },
-      { "q": "Is bed linen provided?", "a": "Yes, clean sheets and towels are included in all our properties at no extra charge." }
+      {
+        "q": "How can I book?",
+        "a": "You can book directly via our Airbnb listings by clicking 'View listing', or contact us using the form below for a direct booking."
+      },
+      {
+        "q": "Are pets allowed?",
+        "a": "It depends on the property. Pet policy is specified in each listing. Feel free to contact us for more details."
+      },
+      {
+        "q": "What is the cancellation policy?",
+        "a": "Our policy is flexible. Cancellation conditions vary by booking platform and are always clearly stated before confirmation."
+      },
+      {
+        "q": "What are the check-in and check-out times?",
+        "a": "Check-in is from 4pm, check-out by 11am. Flexible times may be arranged based on availability."
+      },
+      {
+        "q": "Is bed linen provided?",
+        "a": "Yes, clean sheets and towels are included in all our properties at no extra charge."
+      }
     ],
     "owner": [
-      { "q": "How much do your services cost?", "a": "Our packages and rates are detailed in the section above. We offer several service levels to suit your needs." },
-      { "q": "Can I still use my property personally?", "a": "Absolutely. You retain full control of your calendar, just let us know your blocked dates in advance." },
-      { "q": "How do you handle damages?", "a": "We carry out an inventory check at each checkout. Security deposits are managed via the platforms, and we handle any disputes." },
-      { "q": "Which platforms do you list on?", "a": "We manage your listings on Airbnb, Booking.com and Abritel, optimising pricing and content to maximise occupancy." },
-      { "q": "How long does onboarding take?", "a": "We can typically begin managing your property within 2 weeks of signing the management agreement." }
+      {
+        "q": "How much do your services cost?",
+        "a": "Our packages and rates are detailed in the section above. We offer several service levels to suit your needs."
+      },
+      {
+        "q": "Can I still use my property personally?",
+        "a": "Absolutely. You retain full control of your calendar, just let us know your blocked dates in advance."
+      },
+      {
+        "q": "How do you handle damages?",
+        "a": "We carry out an inventory check at each checkout. Security deposits are managed via the platforms, and we handle any disputes."
+      },
+      {
+        "q": "Which platforms do you list on?",
+        "a": "We manage your listings on Airbnb, Booking.com and Abritel, optimising pricing and content to maximise occupancy."
+      },
+      {
+        "q": "How long does onboarding take?",
+        "a": "We can typically begin managing your property within 2 weeks of signing the management agreement."
+      }
     ]
   },
   "contact": {
@@ -213,10 +432,22 @@
     "eyebrow": "Our process",
     "title": "How does it work?",
     "steps": [
-      { "title": "Free assessment", "desc": "We visit your property and estimate its rental potential, with no commitment from you." },
-      { "title": "Full management", "desc": "Professional cleaning, linen provided, quality photos, optimised listing and guest welcome." },
-      { "title": "Booking management", "desc": "We manage your listings on Airbnb, Booking and Abritel to maximise occupancy." },
-      { "title": "Your income, effortlessly", "desc": "Monthly transparent payouts, regular reports. You enjoy the returns. We handle everything." }
+      {
+        "title": "Free assessment",
+        "desc": "We visit your property and estimate its rental potential, with no commitment from you."
+      },
+      {
+        "title": "Full management",
+        "desc": "Professional cleaning, linen provided, quality photos, optimised listing and guest welcome."
+      },
+      {
+        "title": "Booking management",
+        "desc": "We manage your listings on Airbnb, Booking and Abritel to maximise occupancy."
+      },
+      {
+        "title": "Your income, effortlessly",
+        "desc": "Monthly transparent payouts, regular reports. You enjoy the returns. We handle everything."
+      }
     ]
   },
   "beforeAfter": {
@@ -255,9 +486,18 @@
     "title1": "Every detail,",
     "title2": "crafted for you",
     "items": [
-      { "title": "Booking management", "description": "Complete management of your calendar, pricing and reservation confirmation on Airbnb and Booking." },
-      { "title": "Check-in & check-out", "description": "Personal welcome of your guests, property inspection and support throughout their stay." },
-      { "title": "Total peace of mind", "description": "Cleaning, laundry, minor maintenance and property management between stays. Your property is in safe hands." }
+      {
+        "title": "Booking management",
+        "description": "Complete management of your calendar, pricing and reservation confirmation on Airbnb and Booking."
+      },
+      {
+        "title": "Check-in & check-out",
+        "description": "Personal welcome of your guests, property inspection and support throughout their stay."
+      },
+      {
+        "title": "Total peace of mind",
+        "description": "Cleaning, laundry, minor maintenance and property management between stays. Your property is in safe hands."
+      }
     ]
   },
   "about": {
@@ -267,26 +507,68 @@
     "p1": "We are a passionate couple who take charge of your property, whether it is your primary or secondary residence. Our backgrounds in hospitality, catering, and personal care have given us the skills needed to carry out these responsibilities.",
     "p2": "We chose a personal physical presence over an impersonal key safe. Being greeted in person genuinely elevates the quality of the stay.",
     "values": [
-      { "label": "Human welcome", "text": "Every guest is welcomed in person, never a key safe." },
-      { "label": "Trust", "text": "Founded in 2019, our experience grows richer every year through our guests and property owners." },
-      { "label": "Peace of mind", "text": "Warm, social and welcoming, we take our work to heart and ensure your guests enjoy a high-quality stay." }
+      {
+        "label": "Human welcome",
+        "text": "Every guest is welcomed in person, never a key safe."
+      },
+      {
+        "label": "Trust",
+        "text": "Founded in 2019, our experience grows richer every year through our guests and property owners."
+      },
+      {
+        "label": "Peace of mind",
+        "text": "Warm, social and welcoming, we take our work to heart and ensure your guests enjoy a high-quality stay."
+      }
     ]
   },
   "prestations": {
     "eyebrow": "What we do",
     "title": "Our services",
     "items": [
-      { "title": "Listing creation", "desc": "Writing and photos on Airbnb & Booking" },
-      { "title": "Planning", "desc": "Calendar management and pricing" },
-      { "title": "Confirmation", "desc": "Booking follow-up and confirmation" },
-      { "title": "Night declarations", "desc": "On the dedicated platform" },
-      { "title": "Property management", "desc": "During periods of vacancy" },
-      { "title": "Arrivals & departures", "desc": "Physical presence, property inspection" },
-      { "title": "Cleaning", "desc": "Between stays, charged to the guest" },
-      { "title": "Laundry", "desc": "Fresh linen for every guest" },
-      { "title": "Minor maintenance", "desc": "DIY and emergency call-outs" },
-      { "title": "Tourist guides", "desc": "Provided for your guests" },
-      { "title": "Guest support", "desc": "Assistance during the stay" }
+      {
+        "title": "Listing creation",
+        "desc": "Writing and photos on Airbnb & Booking"
+      },
+      {
+        "title": "Planning",
+        "desc": "Calendar management and pricing"
+      },
+      {
+        "title": "Confirmation",
+        "desc": "Booking follow-up and confirmation"
+      },
+      {
+        "title": "Night declarations",
+        "desc": "On the dedicated platform"
+      },
+      {
+        "title": "Property management",
+        "desc": "During periods of vacancy"
+      },
+      {
+        "title": "Arrivals & departures",
+        "desc": "Physical presence, property inspection"
+      },
+      {
+        "title": "Cleaning",
+        "desc": "Between stays, charged to the guest"
+      },
+      {
+        "title": "Laundry",
+        "desc": "Fresh linen for every guest"
+      },
+      {
+        "title": "Minor maintenance",
+        "desc": "DIY and emergency call-outs"
+      },
+      {
+        "title": "Tourist guides",
+        "desc": "Provided for your guests"
+      },
+      {
+        "title": "Guest support",
+        "desc": "Assistance during the stay"
+      }
     ]
   },
   "ownerPricing": {
@@ -302,59 +584,52 @@
     "quoteBtn": "Request a quote",
     "packNote": "Full package available on request (e.g. Check-in + Check-out + cleaning). Call us on 06.59.76.91.94.",
     "before": [
-      { "label": "Booking management", "price": "€15", "unit": "/ booking", "detail": "Listing + photos on Airbnb & Booking, pricing, Town Hall declaration, host relations until arrival, tourist tax declaration." },
-      { "label": "Cleaning", "price": "Package", "unit": "", "detail": "Rate determined by the size and layout of your property, charged to the guest." },
-      { "label": "Double bed", "price": "€20", "unit": "", "detail": "Laundry for double bed linen, charged to the guest." },
-      { "label": "Single bed", "price": "€15", "unit": "", "detail": "Laundry for single bed linen, charged to the guest." },
-      { "label": "Towel kit", "price": "€5", "unit": "/ person", "detail": "One large + one small towel, charged to the guest." }
+      {
+        "label": "Booking management",
+        "price": "€15",
+        "unit": "/ booking",
+        "detail": "Listing + photos on Airbnb & Booking, pricing, Town Hall declaration, host relations until arrival, tourist tax declaration."
+      },
+      {
+        "label": "Cleaning",
+        "price": "Package",
+        "unit": "",
+        "detail": "Rate determined by the size and layout of your property, charged to the guest."
+      },
+      {
+        "label": "Double bed",
+        "price": "€20",
+        "unit": "",
+        "detail": "Laundry for double bed linen, charged to the guest."
+      },
+      {
+        "label": "Single bed",
+        "price": "€15",
+        "unit": "",
+        "detail": "Laundry for single bed linen, charged to the guest."
+      },
+      {
+        "label": "Towel kit",
+        "price": "€5",
+        "unit": "/ person",
+        "detail": "One large + one small towel, charged to the guest."
+      }
     ],
     "during": [
-      { "label": "Check-in / Check-out", "price": "€55", "detail": "Personal welcome on arrival and property inspection on departure." },
-      { "label": "Shopping & catering", "price": "On request", "detail": "Grocery runs, catering bookings and bespoke services." },
-      { "label": "Concierge during stay", "price": "Included", "detail": "Available for your guests whenever needed throughout the stay." }
-    ]
-  },
-  "tarifs_v": {
-    "eyebrow": "Guest rates",
-    "title1": "Quality",
-    "title2": "every time, in a perfectly maintained and tastefully decorated home",
-    "subtitle": "",
-    "included": "Included",
-    "contactBtn": "Contact us",
-    "packNote": "",
-    "services": [
       {
-        "name": "In-person welcome",
-        "tagline": "Arrival & departure",
-        "price": "",
-        "unit": "",
-        "features": [
-          "Personal check-in on arrival",
-          "Property inspection at entry",
-          "Key handover and property walkthrough",
-          "Check-out and final inspection",
-          "Concierge available throughout the stay"
-        ]
+        "label": "Check-in / Check-out",
+        "price": "€55",
+        "detail": "Personal welcome on arrival and property inspection on departure."
       },
       {
-        "name": "Cleaning",
-        "tagline": "Between each stay",
-        "price": "",
-        "unit": "",
-        "features": [
-          "Full property clean"
-        ]
+        "label": "Shopping & catering",
+        "price": "On request",
+        "detail": "Grocery runs, catering bookings and bespoke services."
       },
       {
-        "name": "Optional laundry",
-        "tagline": "Fresh linen every stay",
-        "price": "from €5",
-        "unit": "",
-        "features": [
-          "Double bed: €20",
-          "Single bed: €15",
-          "Towel kit: €5 / person (Large + small towel)"
-        ]
+        "label": "Concierge during stay",
+        "price": "Included",
+        "detail": "Available for your guests whenever needed throughout the stay."
       }
     ]
   },
@@ -365,30 +640,90 @@
     "title2": "Explore Sète",
     "nearby": "Nearby",
     "activities": [
-      { "category": "Beaches & Nature", "items": [
-        { "name": "Corniche beaches", "detail": "12 km of fine sand" },
-        { "name": "Étang de Thau", "detail": "Flamingos & oysters" },
-        { "name": "Mont Saint-Clair", "detail": "Panoramic view at 183 m" },
-        { "name": "Le Lido", "detail": "Coastal strip between sea and lagoon" }
-      ]},
-      { "category": "Culture & Heritage", "items": [
-        { "name": "Cimetière Marin", "detail": "Brassens, Paul Valéry" },
-        { "name": "Musée Paul Valéry", "detail": "Mediterranean art" },
-        { "name": "MIAM", "detail": "Contemporary modest arts" },
-        { "name": "Maison Brassens", "detail": "Museum of the Sète singer" }
-      ]},
-      { "category": "Gastronomy", "items": [
-        { "name": "Tielle sétoise", "detail": "Octopus pie, local speciality" },
-        { "name": "Thau oysters", "detail": "Tasting by the lagoon" },
-        { "name": "Sète macarons", "detail": "Soft delicacy since 1809" },
-        { "name": "Quayside terraces", "detail": "Restaurants along the canals" }
-      ]},
-      { "category": "Sports & Activities", "items": [
-        { "name": "Languedoc jousting", "detail": "Traditional summer sport" },
-        { "name": "Sailing & Watersports", "detail": "Sailing school, boat hire" },
-        { "name": "Cycling on the Lido", "detail": "Cycle path facing the sea" },
-        { "name": "Kayak & Paddle", "detail": "Canals and Thau lagoon" }
-      ]}
+      {
+        "category": "Beaches & Nature",
+        "items": [
+          {
+            "name": "Corniche beaches",
+            "detail": "12 km of fine sand"
+          },
+          {
+            "name": "Étang de Thau",
+            "detail": "Flamingos & oysters"
+          },
+          {
+            "name": "Mont Saint-Clair",
+            "detail": "Panoramic view at 183 m"
+          },
+          {
+            "name": "Le Lido",
+            "detail": "Coastal strip between sea and lagoon"
+          }
+        ]
+      },
+      {
+        "category": "Culture & Heritage",
+        "items": [
+          {
+            "name": "Cimetière Marin",
+            "detail": "Brassens, Paul Valéry"
+          },
+          {
+            "name": "Musée Paul Valéry",
+            "detail": "Mediterranean art"
+          },
+          {
+            "name": "MIAM",
+            "detail": "Contemporary modest arts"
+          },
+          {
+            "name": "Maison Brassens",
+            "detail": "Museum of the Sète singer"
+          }
+        ]
+      },
+      {
+        "category": "Gastronomy",
+        "items": [
+          {
+            "name": "Tielle sétoise",
+            "detail": "Octopus pie, local speciality"
+          },
+          {
+            "name": "Thau oysters",
+            "detail": "Tasting by the lagoon"
+          },
+          {
+            "name": "Sète macarons",
+            "detail": "Soft delicacy since 1809"
+          },
+          {
+            "name": "Quayside terraces",
+            "detail": "Restaurants along the canals"
+          }
+        ]
+      },
+      {
+        "category": "Sports & Activities",
+        "items": [
+          {
+            "name": "Languedoc jousting",
+            "detail": "Traditional summer sport"
+          },
+          {
+            "name": "Sailing & Watersports",
+            "detail": "Sailing school, boat hire"
+          },
+          {
+            "name": "Cycling on the Lido",
+            "detail": "Cycle path facing the sea"
+          },
+          {
+            "name": "Kayak & Paddle",
+            "detail": "Canals and Thau lagoon"
+          }
+        ]
+      }
     ]
   }
 }

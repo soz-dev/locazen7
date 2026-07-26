@@ -272,9 +272,9 @@
   },
   "tarifs_v": {
     "eyebrow": "Tarifs voyageurs",
-    "title1": "Un accueil",
-    "title2": "de qualité dans un logement parfaitement entretenu et décoré avec goût",
-    "subtitle": "",
+    "title1": "Un accueil de qualité",
+    "title2": "",
+    "subtitle": "dans un logement parfaitement entretenu et décoré avec goût",
     "included": "Inclus",
     "contactBtn": "Nous contacter",
     "packNote": "",
@@ -289,7 +289,7 @@
           "État des lieux à l'entrée",
           "Remise des clés et présentation du logement",
           "Check-out et contrôle à la sortie",
-          "Conciergerie disponible durant tout le séjour"
+          "Conciergerie disponible durant tout le séjour et mise à disposition d'un guide touristique"
         ]
       },
       {
@@ -298,7 +298,11 @@
         "price": "",
         "unit": "",
         "features": [
-          "Nettoyage complet du logement"
+          "Nettoyage complet du logement",
+          "Vérification et rapport d'état du logement",
+          "Réapprovisionnement des produits d'accueil",
+          "Aération et mise en ordre du logement",
+          "Vérification des équipements (électroménager, wifi, etc.)"
         ]
       },
       {
