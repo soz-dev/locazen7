@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Plus, Pencil, Trash2, Loader2, ArrowLeft, Wrench } from "lucide-react";
+import { Plus, Pencil, Trash2, Loader2, ArrowLeft, Wrench, Eye, EyeOff } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
-import { fetchRentals, createRental, updateRental, deleteRental, fetchSettings, updateSetting } from "@/lib/rentalsApi";
+import { fetchRentals, createRental, updateRental, deleteRental, fetchSettings, updateSetting, fetchAllReviews, toggleReviewVisibility, deleteReview } from "@/lib/rentalsApi";
 import { AMENITIES, getAmenity } from "@/components/locazen/amenities";
 import RentalForm from "@/components/locazen/RentalForm";
 
@@ -14,18 +14,21 @@ export default function Admin() {
   const [editing, setEditing] = useState(null);
   const [maintenance, setMaintenance] = useState(false);
   const [maintenanceLoading, setMaintenanceLoading] = useState(false);
+  const [reviews, setReviews] = useState([]);
+  const [reviewsLoading, setReviewsLoading] = useState(true);
   const { toast } = useToast();
 
   const isAdmin = sessionStorage.getItem("locazen_admin") === "true";
 
   useEffect(() => {
-    Promise.all([fetchRentals(), fetchSettings()])
-      .then(([list, settings]) => {
+    Promise.all([fetchRentals(), fetchSettings(), fetchAllReviews()])
+      .then(([list, settings, revs]) => {
         setRentals(list);
         setMaintenance(settings.maintenance === "true");
+        setReviews(revs);
       })
       .catch(() => toast({ title: "Erreur de chargement", variant: "destructive" }))
-      .finally(() => setLoading(false));
+      .finally(() => { setLoading(false); setReviewsLoading(false); });
   }, []);
 
   const toggleMaintenance = async () => {
@@ -44,6 +47,27 @@ export default function Admin() {
 
   const openCreate = () => { setEditing(null); setShowForm(true); };
   const openEdit = (r) => { setEditing(r); setShowForm(true); };
+
+  const handleToggleReview = async (r) => {
+    try {
+      await toggleReviewVisibility(r.id, !r.visible);
+      setReviews((prev) => prev.map((x) => x.id === r.id ? { ...x, visible: r.visible ? 0 : 1 } : x));
+      toast({ title: r.visible ? "Avis masqué" : "Avis publié" });
+    } catch {
+      toast({ title: "Erreur", variant: "destructive" });
+    }
+  };
+
+  const handleDeleteReview = async (r) => {
+    if (!confirm(`Supprimer l'avis de « ${r.name} » ?`)) return;
+    try {
+      await deleteReview(r.id);
+      setReviews((prev) => prev.filter((x) => x.id !== r.id));
+      toast({ title: "Avis supprimé" });
+    } catch {
+      toast({ title: "Erreur", variant: "destructive" });
+    }
+  };
 
   const handleSave = async (payload) => {
     try {
@@ -205,6 +229,68 @@ export default function Admin() {
           onClose={() => { setShowForm(false); setEditing(null); }}
         />
       )}
+
+      {/* Section avis propriétaires */}
+      <div className="max-w-6xl mx-auto px-6 md:px-10 py-10 border-t border-[#E5E0DA] mt-4">
+        <div className="flex items-center justify-between mb-8">
+          <div>
+            <p className="text-[#2D2D2D]/50 text-sm font-body">
+              {reviews.length} avis propriétaire{reviews.length > 1 ? "s" : ""}
+            </p>
+            <h2 className="font-heading text-2xl font-light text-[#2D2D2D] mt-0.5">Avis propriétaires</h2>
+          </div>
+        </div>
+
+        {reviewsLoading ? (
+          <div className="flex justify-center py-10"><Loader2 size={24} className="animate-spin text-[#8E9B90]" /></div>
+        ) : reviews.length === 0 ? (
+          <p className="text-[#2D2D2D]/40 font-body text-center py-10">Aucun avis pour le moment.</p>
+        ) : (
+          <div className="space-y-3">
+            {reviews.map((r) => (
+              <div key={r.id} className={`bg-white border flex items-start gap-4 p-5 ${
+                r.visible ? "border-[#8E9B90]" : "border-[#E5E0DA] opacity-60"
+              }`}>
+                <div className="w-10 h-10 bg-[#C4A96B] flex items-center justify-center shrink-0">
+                  <span className="text-[#1A2535] text-xs font-body">{r.name.slice(0, 2).toUpperCase()}</span>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 flex-wrap mb-1">
+                    <span className="font-body text-sm font-medium text-[#2D2D2D]">{r.name}</span>
+                    <span className="text-[#C4A96B] text-xs">{"★".repeat(r.rating)}</span>
+                    <span className={`text-[10px] font-body px-2 py-0.5 ${
+                      r.visible ? "bg-green-100 text-green-700" : "bg-[#E5E0DA] text-[#2D2D2D]/50"
+                    }`}>
+                      {r.visible ? "Publié" : "Masqué"}
+                    </span>
+                    <span className="text-[#2D2D2D]/30 text-[10px] font-body">
+                      {new Date(r.created_at).toLocaleDateString("fr-FR")}
+                    </span>
+                  </div>
+                  <p className="text-[#2D2D2D]/70 text-sm font-body">{r.comment}</p>
+                </div>
+                <div className="flex gap-1 shrink-0">
+                  <button
+                    onClick={() => handleToggleReview(r)}
+                    title={r.visible ? "Masquer" : "Publier"}
+                    className={`p-2 min-w-[36px] min-h-[36px] flex items-center justify-center transition-colors ${
+                      r.visible ? "text-green-600 hover:bg-green-50" : "text-[#2D2D2D]/40 hover:bg-[#E5E0DA]/40"
+                    }`}
+                  >
+                    {r.visible ? <Eye size={16} /> : <EyeOff size={16} />}
+                  </button>
+                  <button
+                    onClick={() => handleDeleteReview(r)}
+                    className="p-2 min-w-[36px] min-h-[36px] flex items-center justify-center text-[#2D2D2D]/40 hover:text-red-600 hover:bg-red-50 transition-colors"
+                  >
+                    <Trash2 size={16} />
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

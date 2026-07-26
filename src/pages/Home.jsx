@@ -20,7 +20,7 @@ import Testimonials from "@/components/locazen/Testimonials";
 import FAQ from "@/components/locazen/FAQ";
 import StayCalculator from "@/components/locazen/StayCalculator";
 import RevenueSimulator from "@/components/locazen/RevenueSimulator";
-import MapSete from "@/components/locazen/MapSete";
+import OwnerTestimonials from "@/components/locazen/OwnerTestimonials";
 import SeaConditions from "@/components/locazen/SeaConditions";
 import EventsAgenda from "@/components/locazen/EventsAgenda";
 
@@ -118,6 +118,7 @@ export default function Home() {
             <OwnerPricing />
             <RevenueSimulator />
             <Sete />
+            <OwnerTestimonials />
             <FAQ visitorType="proprietaire" />
             <Contact visitorType="proprietaire" />
             <Footer visitorType="proprietaire" />

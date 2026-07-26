@@ -38,6 +38,13 @@ export default {
 
     // Migration silencieuse : ajout colonne images si manquante
     try { await env.DB.prepare("ALTER TABLE rentals ADD COLUMN images TEXT DEFAULT '[]'").run(); } catch {}
+    // Migration silencieuse : table reviews
+    try {
+      await env.DB.prepare(`CREATE TABLE IF NOT EXISTS reviews (
+        id TEXT PRIMARY KEY, name TEXT NOT NULL DEFAULT '', comment TEXT NOT NULL DEFAULT '',
+        rating INTEGER NOT NULL DEFAULT 5, visible INTEGER NOT NULL DEFAULT 0, created_at TEXT NOT NULL DEFAULT ''
+      )`).run();
+    } catch {}
 
     // GET /rentals — public
     if (request.method === "GET" && path === "/rentals") {
@@ -135,6 +142,47 @@ export default {
         "INSERT INTO settings (key, value) VALUES (?, ?) ON CONFLICT(key) DO UPDATE SET value=excluded.value"
       ).bind(key, String(body.value)).run();
       return json({ key, value: body.value }, 200, origin);
+    }
+
+    // GET /reviews — public, visible seulement
+    if (request.method === "GET" && path === "/reviews") {
+      const { results } = await env.DB.prepare("SELECT * FROM reviews WHERE visible=1 ORDER BY created_at DESC").all();
+      return json(results, 200, origin);
+    }
+
+    // GET /reviews/all — admin
+    if (request.method === "GET" && path === "/reviews/all") {
+      if (!isAuthorized(request, env)) return json({ error: "Unauthorized" }, 401, origin);
+      const { results } = await env.DB.prepare("SELECT * FROM reviews ORDER BY created_at DESC").all();
+      return json(results, 200, origin);
+    }
+
+    // POST /reviews — public
+    if (request.method === "POST" && path === "/reviews") {
+      const body = await request.json();
+      if (!body.name?.trim() || !body.comment?.trim()) return json({ error: "name and comment required" }, 400, origin);
+      const id = Date.now().toString();
+      await env.DB.prepare(
+        "INSERT INTO reviews (id, name, comment, rating, visible, created_at) VALUES (?, ?, ?, ?, 0, ?)"
+      ).bind(id, body.name.slice(0, 60), body.comment.slice(0, 500), Number(body.rating) || 5, new Date().toISOString()).run();
+      return json({ id }, 201, origin);
+    }
+
+    // PUT /reviews/:id — admin, toggle visibility
+    if (request.method === "PUT" && path.startsWith("/reviews/")) {
+      if (!isAuthorized(request, env)) return json({ error: "Unauthorized" }, 401, origin);
+      const id = path.split("/")[2];
+      const body = await request.json();
+      await env.DB.prepare("UPDATE reviews SET visible=? WHERE id=?").bind(body.visible ? 1 : 0, id).run();
+      return json({ id, visible: body.visible }, 200, origin);
+    }
+
+    // DELETE /reviews/:id — admin
+    if (request.method === "DELETE" && path.startsWith("/reviews/")) {
+      if (!isAuthorized(request, env)) return json({ error: "Unauthorized" }, 401, origin);
+      const id = path.split("/")[2];
+      await env.DB.prepare("DELETE FROM reviews WHERE id=?").bind(id).run();
+      return json({ deleted: id }, 200, origin);
     }
 
     return json({ error: "Not found" }, 404, origin);
