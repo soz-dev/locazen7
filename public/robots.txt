@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /locazen-admin
+
+Sitemap: https://www.locazen7.fr/sitemap.xml

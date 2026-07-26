@@ -16,6 +16,7 @@ import FAQ from "@/components/locazen/FAQ";
 import Contact from "@/components/locazen/Contact";
 import BrassensBlock from "@/components/locazen/BrassensBlock";
 import Footer from "@/components/locazen/Footer";
+import SEO from "@/components/SEO";
 
 const SETE_AERIAL = "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80";
 
@@ -36,6 +37,25 @@ export default function VoyageurPage() {
       transition={{ duration: 0.6 }}
       className="bg-[#F7F5F2] min-h-screen"
     >
+      <SEO
+        title="Location Vacances Sète | Appartements &amp; Villas"
+        description="Trouvez votre location de vacances à Sète : appartements, villas et maisons avec vue mer. Réservez en direct, meilleurs prix garantis. Sète (34200) — Locazen 7."
+        canonical="/voyageur"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "LodgingBusiness",
+          "name": "Locazen 7 — Locations Vacances Sète",
+          "description": "Location de vacances à Sète : appartements, studios et villas de charme en bord de mer, étang de Thau et centre-ville.",
+          "url": "https://www.locazen7.fr/voyageur",
+          "telephone": "+33659769194",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Sète",
+            "postalCode": "34200",
+            "addressCountry": "FR"
+          }
+        }}
+      />
       <Navbar visitorType="voyageur" onSwitch={handleSwitch} />
       <Hero
         image={SETE_AERIAL}

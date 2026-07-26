@@ -2,6 +2,7 @@ import { Toaster } from "@/components/ui/toaster"
 import { QueryClientProvider } from '@tanstack/react-query'
 import { queryClientInstance } from '@/lib/query-client'
 import { BrowserRouter as Router, Route, Routes, Navigate, useLocation } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import { useState, useEffect } from 'react';
 import PageNotFound from '@/pages/PageNotFound';
 import ScrollToTop from '@/components/ScrollToTop';
@@ -62,15 +63,17 @@ function AppContent() {
 
 function App() {
   return (
-    <QueryClientProvider client={queryClientInstance}>
-      <Router basename={import.meta.env.BASE_URL}>
-        <ScrollToTop />
-        <ErrorBoundary>
-          <AppContent />
-        </ErrorBoundary>
-      </Router>
-      <Toaster />
-    </QueryClientProvider>
+    <HelmetProvider>
+      <QueryClientProvider client={queryClientInstance}>
+        <Router basename={import.meta.env.BASE_URL}>
+          <ScrollToTop />
+          <ErrorBoundary>
+            <AppContent />
+          </ErrorBoundary>
+        </Router>
+        <Toaster />
+      </QueryClientProvider>
+    </HelmetProvider>
   );
 }
 
