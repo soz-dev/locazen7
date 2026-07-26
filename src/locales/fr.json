@@ -19,10 +19,6 @@
     "owner": "Propriétaire",
     "travelerLinks": [
       {
-        "label": "Accueil",
-        "href": "#accueil"
-      },
-      {
         "label": "Locations",
         "href": "#locations"
       },
@@ -31,12 +27,20 @@
         "href": "#carte"
       },
       {
+        "label": "Météo",
+        "href": "#meteo"
+      },
+      {
+        "label": "Agenda",
+        "href": "#agenda"
+      },
+      {
         "label": "Tarifs",
         "href": "#tarifs"
       },
       {
-        "label": "Sète",
-        "href": "#sete"
+        "label": "Explorer Sète",
+        "href": "#explorer-sete"
       },
       {
         "label": "FAQ",
@@ -49,28 +53,24 @@
     ],
     "ownerLinks": [
       {
-        "label": "Visite",
-        "href": "#etape-1"
+        "label": "Services",
+        "href": "#etapes"
       },
       {
-        "label": "Annonce",
-        "href": "#etape-2"
+        "label": "À propos",
+        "href": "#apropos"
       },
       {
-        "label": "Réservations",
-        "href": "#etape-3"
+        "label": "Simulateur",
+        "href": "#simulateur"
       },
       {
-        "label": "Arrivées",
-        "href": "#etape-4"
+        "label": "Explorer Sète",
+        "href": "#explorer-sete"
       },
       {
-        "label": "Sérénité",
-        "href": "#etape-5"
-      },
-      {
-        "label": "Tarifs",
-        "href": "#tarifs"
+        "label": "Avis",
+        "href": "#avis"
       },
       {
         "label": "FAQ",
@@ -767,7 +767,8 @@
           }
         ]
       }
-    ]
+    ],
+    "subtitle": "Découvrez la Venise du Languedoc à travers ses trésors."
   },
   "etapes": {
     "eyebrow": "Notre démarche",

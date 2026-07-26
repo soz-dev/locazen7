@@ -12,7 +12,7 @@ export default function About() {
   const values = t("about.values", { returnObjects: true });
   return (
     <section id="apropos" className="py-24 md:py-32 bg-[#E5E0DA]/30 border-t border-[#2D2D2D]/10">
-      <div className="max-w-7xl mx-auto px-6 md:px-16">
+      <div className="max-w-5xl mx-auto px-6 md:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           {/* Image with overlap */}
           <motion.div
@@ -22,7 +22,7 @@ export default function About() {
             transition={{ duration: 1, ease: [0.25, 0.1, 0, 1] }}
             className="relative"
           >
-            <div className="relative aspect-[3/4] max-w-[460px]">
+            <div className="relative aspect-[3/4] max-w-[460px] border border-black">
               <Image
                 src={KEYS_IMG}
                 alt="Main posant délicatement une clé en laiton sur une surface de lin, lumière matinale douce"

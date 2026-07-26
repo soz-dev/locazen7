@@ -11,9 +11,10 @@ import Sete from "@/components/locazen/Sete";
 import OwnerTestimonials from "@/components/locazen/OwnerTestimonials";
 import FAQ from "@/components/locazen/FAQ";
 import Contact from "@/components/locazen/Contact";
+import BrassensBlock from "@/components/locazen/BrassensBlock";
 import Footer from "@/components/locazen/Footer";
 
-const BED_IMMACULATE = "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1920&q=80";
+const BED_IMMACULATE = "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1920&q=80";
 
 export default function ProprietairePage() {
   const { t } = useTranslation();
@@ -48,6 +49,7 @@ export default function ProprietairePage() {
       <OwnerTestimonials />
       <FAQ visitorType="proprietaire" />
       <Contact visitorType="proprietaire" />
+      <BrassensBlock />
       <Footer visitorType="proprietaire" />
     </motion.div>
   );

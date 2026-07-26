@@ -1,5 +1,5 @@
 import React from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { MapPin, Waves, Landmark, Utensils, Bike, Clock } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
@@ -67,22 +67,20 @@ export default function Sete() {
   const activities = t("sete.activities", { returnObjects: true });
   const ACTIVITY_ICONS = [Waves, Landmark, Utensils, Bike];
   const ACTIVITY_ACCENTS = ["#38BDF8", "#C4A96B", "#F59E0B", "#34D399"];
-  const { scrollYProgress } = useScroll();
-  const imgY = useTransform(scrollYProgress, [0, 1], [0, -60]);
 
   return (
     <>
       <section id="sete" className="relative overflow-hidden bg-[#2D2D2D] border-t border-white/10">
 
       {/* Image plein-écran — Port de Sète */}
-      <div className="relative h-[70vh] md:h-[80vh]">
-        <motion.div style={{ y: imgY }} className="absolute inset-0 scale-105">
+      <div className="relative h-[70vh] md:h-[80vh] overflow-hidden">
+        <div className="absolute inset-0">
           <img
             src={SETE_PORT}
             alt="Le port de Sète, cœur maritime de la ville sur l'Étang de Thau"
             className="w-full h-full object-cover"
           />
-        </motion.div>
+        </div>
         <div className="absolute inset-0 bg-gradient-to-t from-[#2D2D2D]/80 via-[#2D2D2D]/30 to-transparent" />
 
         <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-16 max-w-7xl mx-auto">
@@ -108,15 +106,9 @@ export default function Sete() {
       </section>
 
       {/* ── 2. Activités — fond clair ── */}
-      <section className="bg-[#F0F9FF] py-16 md:py-24">
-        <div className="max-w-6xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="mb-10 flex flex-col md:flex-row md:items-end md:justify-between gap-4"
-          >
+      <section id="explorer-sete" className="bg-[#F0F9FF] pt-6 pb-8 md:pb-12 scroll-mt-20">
+        <div className="max-w-5xl mx-auto px-6 md:px-16">
+          <div className="mb-10 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
             <div>
               <p className="text-[#0891B2] text-xs tracking-[0.3em] uppercase font-body mb-3">
                 {t("sete.eyebrow2")}
@@ -128,7 +120,7 @@ export default function Sete() {
             <p className="text-[#0C4A6E]/35 text-sm font-body max-w-xs leading-relaxed hidden md:block">
               {t("sete.subtitle") || "Découvrez la Venise du Languedoc à travers ses trésors."}
             </p>
-          </motion.div>
+          </div>
 
           {/* Bandes éditoriales */}
           <div className="mb-14 divide-y divide-[#0C4A6E]/8">
@@ -216,40 +208,6 @@ export default function Sete() {
         </div>
       </section>
 
-      {/* ── 3. Brassens — fond sombre ── */}
-      <section className="bg-[#2D2D2D] py-16 md:py-24">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.2 }}
-          className="max-w-3xl mx-auto px-6 text-center"
-        >
-          <blockquote className="font-heading text-2xl md:text-3xl font-light text-[#F7F5F2]/80 italic leading-relaxed">
-            « L'amitié n'exige rien en retour, que de l'entretien »
-          </blockquote>
-          <p className="mt-6 text-[#8E9B90] text-sm tracking-[0.2em] uppercase font-body">
-            Georges Brassens
-          </p>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, delay: 0.3 }}
-          className="mt-16 max-w-[260px] mx-auto px-6"
-        >
-          <img
-            src="https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Brassens-StudioHarcourt-1957.png&width=600"
-            alt="Portrait de Georges Brassens par Studio Harcourt, 1957"
-            className="w-full opacity-80"
-          />
-          <p className="mt-4 text-center text-[#F7F5F2]/30 text-[10px] tracking-[0.25em] uppercase font-body">
-            1921 — 1981 · Sète
-          </p>
-        </motion.div>
-      </section>
     </>
   );
 }

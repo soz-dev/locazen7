@@ -14,6 +14,7 @@ import TravelerTarifs from "@/components/locazen/TravelerTarifs";
 import Sete from "@/components/locazen/Sete";
 import FAQ from "@/components/locazen/FAQ";
 import Contact from "@/components/locazen/Contact";
+import BrassensBlock from "@/components/locazen/BrassensBlock";
 import Footer from "@/components/locazen/Footer";
 
 const SETE_AERIAL = "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80";
@@ -54,6 +55,7 @@ export default function VoyageurPage() {
       <Sete />
       <FAQ visitorType="voyageur" />
       <Contact visitorType="voyageur" />
+      <BrassensBlock />
       <Footer visitorType="voyageur" />
     </motion.div>
   );

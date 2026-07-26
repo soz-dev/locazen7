@@ -25,7 +25,7 @@ export default function EtapesProprietaire() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="mb-10 md:mb-14"
+          className="mb-10 md:mb-14 text-center"
         >
           <p className={`text-xs tracking-[0.3em] uppercase font-body ${O.accent} mb-3`}>
             {t("etapes.eyebrow")}
@@ -46,6 +46,21 @@ export default function EtapesProprietaire() {
           <p className="font-heading italic text-2xl md:text-3xl font-light text-[#1A2535]/80 leading-snug">
             {t("ownerPricing.distinction")}
           </p>
+        </motion.div>
+
+        {/* Image zen */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.15 }}
+          className="mb-14 overflow-hidden h-64 border border-black"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=1200&q=80"
+            alt="Sérénité totale"
+            className="w-full h-full object-cover object-center"
+          />
         </motion.div>
 
         {/* Steps + prix */}

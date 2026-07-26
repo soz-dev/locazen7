@@ -39,7 +39,7 @@ export default function OwnerTestimonials() {
 
   return (
     <section id="avis" className="py-24 md:py-32 bg-[#1A2535] border-t border-white/10">
-      <div className="max-w-7xl mx-auto px-6 md:px-16">
+      <div className="max-w-5xl mx-auto px-6 md:px-16">
 
         {/* Header */}
         <motion.div
@@ -47,7 +47,7 @@ export default function OwnerTestimonials() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mb-16"
+          className="mb-16 text-center"
         >
           <p className="text-[#C4A96B] text-xs tracking-[0.3em] uppercase font-body mb-4">Témoignages</p>
           <h2 className="font-heading text-4xl md:text-5xl font-light text-[#F7F5F2] leading-tight">

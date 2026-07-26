@@ -19,10 +19,6 @@
     "owner": "Owner",
     "travelerLinks": [
       {
-        "label": "Home",
-        "href": "#accueil"
-      },
-      {
         "label": "Rentals",
         "href": "#locations"
       },
@@ -31,12 +27,20 @@
         "href": "#carte"
       },
       {
+        "label": "Weather",
+        "href": "#meteo"
+      },
+      {
+        "label": "Agenda",
+        "href": "#agenda"
+      },
+      {
         "label": "Rates",
         "href": "#tarifs"
       },
       {
-        "label": "Sète",
-        "href": "#sete"
+        "label": "Explore Sète",
+        "href": "#explorer-sete"
       },
       {
         "label": "FAQ",
@@ -49,28 +53,24 @@
     ],
     "ownerLinks": [
       {
-        "label": "Visit",
-        "href": "#etape-1"
+        "label": "Services",
+        "href": "#etapes"
       },
       {
-        "label": "Listing",
-        "href": "#etape-2"
+        "label": "About",
+        "href": "#apropos"
       },
       {
-        "label": "Bookings",
-        "href": "#etape-3"
+        "label": "Simulator",
+        "href": "#simulateur"
       },
       {
-        "label": "Check-in",
-        "href": "#etape-4"
+        "label": "Explore Sète",
+        "href": "#explorer-sete"
       },
       {
-        "label": "Serenity",
-        "href": "#etape-5"
-      },
-      {
-        "label": "Rates",
-        "href": "#tarifs"
+        "label": "Reviews",
+        "href": "#avis"
       },
       {
         "label": "FAQ",
@@ -767,7 +767,8 @@
           }
         ]
       }
-    ]
+    ],
+    "subtitle": "Discover the Venice of Languedoc through its treasures."
   },
   "etapes": {
     "eyebrow": "Our approach",

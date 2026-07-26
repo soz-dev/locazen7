@@ -50,15 +50,15 @@ export default function Contact({ visitorType = "proprietaire" }) {
   const hoverLink  = isVoyageur ? "hover:text-[#38BDF8]" : "hover:text-[#C4A96B]";
 
   return (
-      <section id="contact" className={`${sectionBg} border-t border-white/10 py-24 md:py-32 px-6`}>
-      <div className="max-w-4xl mx-auto">
+      <section id="contact" className={`${sectionBg} border-t border-white/10 py-24 md:py-32`}>
+      <div className="max-w-5xl mx-auto px-6 md:px-16">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mb-14 md:mb-20"
+          className="mb-14 md:mb-20 text-center"
         >
           <p className={`${accentCls} text-xs tracking-[0.3em] uppercase font-body mb-4`}>
             {t("contact.eyebrow")}
@@ -66,7 +66,7 @@ export default function Contact({ visitorType = "proprietaire" }) {
           <h2 className="font-heading text-4xl md:text-6xl font-light text-[#F7F5F2] tracking-[0.05em]">
             {t("contact.title")}
           </h2>
-          <p className="mt-4 text-[#F7F5F2]/50 text-sm font-body max-w-md">
+          <p className="mt-4 text-[#F7F5F2]/50 text-sm font-body max-w-md mx-auto">
             {visitorType === "voyageur" ? t("contact.subtitleVoyageur") : t("contact.subtitleOwner")}
           </p>
         </motion.div>

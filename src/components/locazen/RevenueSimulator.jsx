@@ -28,7 +28,7 @@ export default function RevenueSimulator() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mb-12"
+          className="mb-12 text-center"
         >
           <p className="text-[#C4A96B] text-xs tracking-[0.3em] uppercase font-body mb-4">
             {t("simulator.eyebrow")}
@@ -120,6 +120,15 @@ export default function RevenueSimulator() {
             transition={{ duration: 0.7 }}
             className="flex flex-col gap-4"
           >
+            {/* Image décorative */}
+            <div className="overflow-hidden h-44 flex-shrink-0">
+              <img
+                src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=80"
+                alt="Simulation de revenus locatifs"
+                className="w-full h-full object-cover"
+              />
+            </div>
+
             <div className="border border-[#F7F5F2]/10 p-7">
               <p className="text-[#F7F5F2]/40 text-xs font-body tracking-[0.2em] uppercase mb-3">
                 {t("simulator.monthly")}

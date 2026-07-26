@@ -30,8 +30,7 @@ export default function Navbar({ visitorType, onSwitch }) {
 
   const handleLogoClick = (e) => {
     e.preventDefault();
-    const el = document.getElementById("accueil");
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    onSwitch();
   };
 
   const openAdminModal = () => {
@@ -55,8 +54,15 @@ export default function Navbar({ visitorType, onSwitch }) {
   };
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
-    window.addEventListener("scroll", onScroll);
+    const onScroll = () => {
+      const y = window.scrollY;
+      setScrolled(prev => {
+        if (!prev && y > 80) return true;
+        if (prev && y < 20) return false;
+        return prev;
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -73,7 +79,7 @@ export default function Navbar({ visitorType, onSwitch }) {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
             ? `${scrolledBg} backdrop-blur-md shadow-sm py-3`
             : "bg-transparent py-6"
