@@ -16,7 +16,7 @@ export default function EtapesProprietaire() {
   const pricing = t("ownerPricing.items",  { returnObjects: true });
 
   return (
-    <section id="etapes" className={`py-20 md:py-28 ${O.bg}`}>
+    <section id="etapes" className={`py-16 md:py-20 ${O.bg}`}>
       <div className="max-w-5xl mx-auto px-6 md:px-16">
 
         {/* Header */}

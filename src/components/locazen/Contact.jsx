@@ -50,7 +50,7 @@ export default function Contact({ visitorType = "proprietaire" }) {
   const hoverLink  = isVoyageur ? "hover:text-[#38BDF8]" : "hover:text-[#C4A96B]";
 
   return (
-      <section id="contact" className={`${sectionBg} border-t border-white/10 py-24 md:py-32`}>
+      <section id="contact" className={`${sectionBg} border-t border-white/10 py-16 md:py-20`}>
       <div className="max-w-5xl mx-auto px-6 md:px-16">
         {/* Header */}
         <motion.div

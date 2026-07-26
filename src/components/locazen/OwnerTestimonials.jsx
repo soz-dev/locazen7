@@ -38,7 +38,7 @@ export default function OwnerTestimonials() {
   };
 
   return (
-    <section id="avis" className="py-24 md:py-32 bg-[#1A2535] border-t border-white/10">
+    <section id="avis" className="py-16 md:py-20 bg-[#1A2535] border-t border-white/10">
       <div className="max-w-5xl mx-auto px-6 md:px-16">
 
         {/* Header */}
