@@ -66,7 +66,7 @@ export default function EventsAgenda() {
   const { t } = useTranslation();
   const events = t("agenda.events", { returnObjects: true });
   return (
-    <section id="agenda" className="py-16 md:py-20 bg-[#F0F9FF] border-t border-[#0C4A6E]/10">
+    <section id="agenda" className="py-[5px] bg-[#F0F9FF] border-t border-[#0C4A6E]/10">
       <div className="max-w-7xl mx-auto px-6 md:px-16">
         <motion.div
           initial={{ opacity: 0, y: 40 }}

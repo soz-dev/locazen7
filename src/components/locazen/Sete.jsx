@@ -106,7 +106,7 @@ export default function Sete() {
       </section>
 
       {/* ── 2. Activités — fond clair ── */}
-      <section id="explorer-sete" className="bg-[#F0F9FF] py-16 md:py-20 scroll-mt-20">
+      <section id="explorer-sete" className="bg-[#F0F9FF] py-[5px] scroll-mt-20">
         <div className="max-w-5xl mx-auto px-6 md:px-16">
           <div className="mb-10 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
             <div>

@@ -34,7 +34,7 @@ export default function Testimonials() {
   const { t } = useTranslation();
   const items = t("testimonials.items", { returnObjects: true });
   return (
-    <section className="py-16 md:py-20 bg-[#0C4A6E] border-t border-white/10">
+    <section className="py-[5px] bg-[#0C4A6E] border-t border-white/10">
       <div className="max-w-7xl mx-auto px-6 md:px-16">
         <motion.div
           initial={{ opacity: 0, y: 40 }}

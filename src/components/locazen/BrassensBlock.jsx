@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export default function BrassensBlock() {
   return (
-    <section className="bg-[#2D2D2D] py-16 md:py-20">
+    <section className="bg-[#2D2D2D] py-[5px]">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
