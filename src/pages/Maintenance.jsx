@@ -1,7 +1,7 @@
 import React from "react";
 import { Wrench, AlertTriangle, RefreshCw } from "lucide-react";
 
-export default function Maintenance({ error = false, onRetry }) {
+export default function Maintenance({ error = false, errorMsg = "", onRetry }) {
   return (
     <div className="min-h-screen bg-[#0C4A6E] flex flex-col items-center justify-center px-6 text-center">
       <div className="max-w-md">
@@ -28,7 +28,7 @@ export default function Maintenance({ error = false, onRetry }) {
 
         <p className="text-white/50 text-sm font-body leading-relaxed">
           {error
-            ? "Un problème de chargement est survenu.\nMerci de réessayer dans un instant."
+          ? (errorMsg ? errorMsg : "Un problème de chargement est survenu. Merci de réessayer dans un instant.")
             : "Nous effectuons une mise à jour.\nMerci de revenir dans quelques instants."
           }
         </p>

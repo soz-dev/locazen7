@@ -6,6 +6,8 @@ import { useState, useEffect } from 'react';
 import PageNotFound from '@/pages/PageNotFound';
 import ScrollToTop from '@/components/ScrollToTop';
 import Home from '@/pages/Home';
+import VoyageurPage from '@/pages/VoyageurPage';
+import ProprietairePage from '@/pages/ProprietairePage';
 import Admin from '@/pages/Admin';
 import Maintenance from '@/pages/Maintenance';
 import ErrorBoundary from '@/components/ErrorBoundary';
@@ -38,7 +40,7 @@ function AppContent() {
     return (
       <Routes>
         <Route path="/locazen-admin" element={<AdminGuard />} />
-        <Route path="*" element={<Maintenance />} />
+      <Route path="*" element={<Maintenance />} />
       </Routes>
     );
   }
@@ -46,6 +48,8 @@ function AppContent() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/voyageur" element={<VoyageurPage />} />
+      <Route path="/proprietaire" element={<ProprietairePage />} />
       <Route path="/locazen-admin" element={<AdminGuard />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
