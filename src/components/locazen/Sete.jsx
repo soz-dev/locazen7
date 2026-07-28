@@ -189,13 +189,12 @@ export default function Sete() {
           >
             <div className="flex flex-col sm:flex-row">
               {/* Photo Myriam */}
-              <div className="sm:w-44 shrink-0 relative">
+              <div className="sm:w-44 shrink-0 bg-[#E0F2FE] flex items-center justify-center p-7">
                 <img
                   src={`${import.meta.env.BASE_URL}myriam.png`}
                   alt="Myriam, votre hôte Sète"
-                  className="w-full h-52 sm:h-full object-cover object-top"
+                  className="w-28 h-28 rounded-full object-cover object-[50%_12%] ring-4 ring-white shadow-md"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-white/60 hidden sm:block" />
               </div>
 
               {/* Contenu */}
