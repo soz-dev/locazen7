@@ -98,24 +98,50 @@
     "eyebrow": "Ils nous ont fait confiance",
     "title1": "Ce que disent",
     "title2": "nos voyageurs",
+    "airbnb_note": "Les avis complets sont disponibles sur le profil Airbnb de Myriam",
+    "airbnb_link": "Voir le profil Airbnb",
     "items": [
       {
         "name": "Marie D.",
         "location": "Paris",
+        "rating": 5,
         "text": "Appartement magnifique avec vue sur le port. Tout était impeccable à notre arrivée : linge propre, cuisine équipée. On reviendra l'année prochaine !",
         "initials": "MD"
       },
       {
         "name": "Thomas & Emma",
         "location": "Lyon",
+        "rating": 5,
         "text": "L'accueil était parfait et le logement exactement comme sur les photos, peut-être encore mieux. Sète est une ville incroyable, idéalement situés.",
         "initials": "TE"
       },
       {
         "name": "Julien B.",
         "location": "Bordeaux",
+        "rating": 5,
         "text": "La meilleure expérience de location que j'ai eue. Communication au top, aucun souci durant tout le séjour. Je recommande sans la moindre hésitation.",
         "initials": "JB"
+      },
+      {
+        "name": "Sophie M.",
+        "location": "Toulouse",
+        "rating": 5,
+        "text": "Séjour de rêve à Sète ! Le logement était propre, bien équipé et Myriam a été disponible et réactive. Endroit parfait pour découvrir la ville.",
+        "initials": "SM"
+      },
+      {
+        "name": "Lucas P.",
+        "location": "Nantes",
+        "rating": 5,
+        "text": "Très bonne expérience, logement conforme aux photos et bien situé. L'hôte est arrangeante et répond rapidement. Je recommande vivement.",
+        "initials": "LP"
+      },
+      {
+        "name": "Claire & Antoine",
+        "location": "Marseille",
+        "rating": 5,
+        "text": "Logement parfaitement propre, linge de qualité, tout était prêt à notre arrivée. Sète est une destination magnifique et ce logement en est le meilleur point de départ.",
+        "initials": "CA"
       }
     ]
   },

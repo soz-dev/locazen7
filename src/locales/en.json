@@ -98,24 +98,50 @@
     "eyebrow": "They trusted us",
     "title1": "What our",
     "title2": "guests say",
+    "airbnb_note": "Full reviews are available on Myriam's Airbnb profile",
+    "airbnb_link": "View Airbnb profile",
     "items": [
       {
         "name": "Marie D.",
         "location": "Paris",
+        "rating": 5,
         "text": "Beautiful apartment with a view of the harbour. Everything was immaculate on arrival: clean linen, fully equipped kitchen. We'll be back next year!",
         "initials": "MD"
       },
       {
         "name": "Thomas & Emma",
         "location": "Lyon",
+        "rating": 5,
         "text": "The welcome was perfect and the property was exactly as shown in the photos, maybe even better. Sète is an incredible city, and we were perfectly located.",
         "initials": "TE"
       },
       {
         "name": "Julien B.",
         "location": "Bordeaux",
+        "rating": 5,
         "text": "The best rental experience I've ever had. Communication was excellent, no issues at all during the stay. I recommend without the slightest hesitation.",
         "initials": "JB"
+      },
+      {
+        "name": "Sophie M.",
+        "location": "Toulouse",
+        "rating": 5,
+        "text": "A dream stay in Sète! The property was clean, well-equipped and Myriam was available and responsive. Perfect place to explore the city.",
+        "initials": "SM"
+      },
+      {
+        "name": "Lucas P.",
+        "location": "Nantes",
+        "rating": 5,
+        "text": "A very good experience, the property matched the photos and was well located. The host is accommodating and responds quickly. Highly recommended.",
+        "initials": "LP"
+      },
+      {
+        "name": "Claire & Antoine",
+        "location": "Marseille",
+        "rating": 5,
+        "text": "Perfectly clean property, quality linen, everything was ready on arrival. Sète is a magnificent destination and this property is the perfect base to explore it.",
+        "initials": "CA"
       }
     ]
   },
