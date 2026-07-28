@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { MapPin, Waves, Landmark, Utensils, Bike, Clock } from "lucide-react";
+import { MapPin, Waves, Landmark, Utensils, Bike, Clock, Download } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 const SETE_PORT =
@@ -178,6 +178,37 @@ export default function Sete() {
               );
             })}
           </div>
+
+          {/* ── Téléchargement guide PDF ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="my-10 border border-[#0891B2]/20 bg-white rounded-2xl px-8 py-7 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5"
+          >
+            <div className="flex items-center gap-4">
+              <div className="w-11 h-11 bg-[#E0F2FE] rounded-xl flex items-center justify-center shrink-0">
+                <Download size={20} className="text-[#0891B2]" />
+              </div>
+              <div>
+                <p className="text-[#0C4A6E] font-body font-semibold text-sm">
+                  {t("sete.guide_cta")}
+                </p>
+                <p className="text-[#0C4A6E]/45 font-body text-xs mt-0.5">
+                  {t("sete.guide_sub")}
+                </p>
+              </div>
+            </div>
+            <a
+              href={`${import.meta.env.BASE_URL}guide-sete.pdf`}
+              download="Guide-Sete-Locazen.pdf"
+              className="inline-flex items-center gap-2 bg-[#0891B2] hover:bg-[#0C4A6E] text-white text-xs tracking-[0.15em] uppercase font-body px-6 py-3 transition-colors duration-200 shrink-0"
+            >
+              <Download size={13} />
+              {t("sete.guide_cta")}
+            </a>
+          </motion.div>
 
           {/* À proximité */}
           <motion.div
