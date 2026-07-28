@@ -97,3 +97,23 @@ export async function deleteReview(id) {
   if (!res.ok) throw new Error("Erreur suppression");
   return res.json();
 }
+
+export async function createAdminReview(payload) {
+  const res = await fetch(`${API_URL}/reviews`, {
+    method: "POST",
+    headers: authHeaders,
+    body: JSON.stringify(payload),
+  });
+  if (!res.ok) throw new Error("Erreur création avis");
+  return res.json();
+}
+
+export async function updateReviewContent(id, payload) {
+  const res = await fetch(`${API_URL}/reviews/${id}`, {
+    method: "PUT",
+    headers: authHeaders,
+    body: JSON.stringify(payload),
+  });
+  if (!res.ok) throw new Error("Erreur mise à jour avis");
+  return res.json();
+}

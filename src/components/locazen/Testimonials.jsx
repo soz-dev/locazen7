@@ -1,11 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Star, Quote, ExternalLink } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { fetchReviews } from "@/lib/rentalsApi";
 
 export default function Testimonials() {
   const { t } = useTranslation();
-  const items = t("testimonials.items", { returnObjects: true });
+  const staticItems = t("testimonials.items", { returnObjects: true });
+  const [apiItems, setApiItems] = useState(null);
+
+  useEffect(() => {
+    fetchReviews()
+      .then(data => { if (Array.isArray(data) && data.length > 0) setApiItems(data); })
+      .catch(() => {});
+  }, []);
+
+  const items = apiItems
+    ? apiItems.map(r => ({
+        name: r.name,
+        location: r.location || "",
+        rating: r.rating ?? 5,
+        text: r.comment,
+        initials: r.name.slice(0, 2).toUpperCase(),
+      }))
+    : staticItems;
   return (
     <section className="py-16 md:py-20 bg-[#0C4A6E] border-t border-white/10">
       <div className="max-w-5xl mx-auto px-6 md:px-16">

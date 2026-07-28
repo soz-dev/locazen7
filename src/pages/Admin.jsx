@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Plus, Pencil, Trash2, Loader2, ArrowLeft, Wrench, Eye, EyeOff } from "lucide-react";
+import { Plus, Pencil, Trash2, Loader2, ArrowLeft, Wrench, Eye, EyeOff, X } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
-import { fetchRentals, createRental, updateRental, deleteRental, fetchSettings, updateSetting, fetchAllReviews, toggleReviewVisibility, deleteReview } from "@/lib/rentalsApi";
+import { fetchRentals, createRental, updateRental, deleteRental, fetchSettings, updateSetting, fetchAllReviews, toggleReviewVisibility, deleteReview, createAdminReview, updateReviewContent } from "@/lib/rentalsApi";
 import { AMENITIES, getAmenity } from "@/components/locazen/amenities";
 import RentalForm from "@/components/locazen/RentalForm";
 
@@ -16,6 +16,9 @@ export default function Admin() {
   const [maintenanceLoading, setMaintenanceLoading] = useState(false);
   const [reviews, setReviews] = useState([]);
   const [reviewsLoading, setReviewsLoading] = useState(true);
+  const [showReviewForm, setShowReviewForm] = useState(false);
+  const [editingReview, setEditingReview] = useState(null);
+  const [reviewDraft, setReviewDraft] = useState({ name: "", location: "", rating: 5, comment: "" });
   const { toast } = useToast();
 
   const isAdmin = sessionStorage.getItem("locazen_admin") === "true";
@@ -64,6 +67,34 @@ export default function Admin() {
       await deleteReview(r.id);
       setReviews((prev) => prev.filter((x) => x.id !== r.id));
       toast({ title: "Avis supprimé" });
+    } catch {
+      toast({ title: "Erreur", variant: "destructive" });
+    }
+  };
+
+  const openCreateReview = () => {
+    setEditingReview(null);
+    setReviewDraft({ name: "", location: "", rating: 5, comment: "" });
+    setShowReviewForm(true);
+  };
+  const openEditReview = (r) => {
+    setEditingReview(r);
+    setReviewDraft({ name: r.name, location: r.location || "", rating: r.rating, comment: r.comment });
+    setShowReviewForm(true);
+  };
+  const handleSaveReview = async () => {
+    if (!reviewDraft.name.trim() || !reviewDraft.comment.trim()) return;
+    try {
+      if (editingReview) {
+        await updateReviewContent(editingReview.id, { ...reviewDraft, visible: editingReview.visible });
+        setReviews((prev) => prev.map((x) => x.id === editingReview.id ? { ...x, ...reviewDraft } : x));
+        toast({ title: "Avis mis à jour" });
+      } else {
+        const created = await createAdminReview({ ...reviewDraft, visible: true });
+        setReviews((prev) => [created, ...prev]);
+        toast({ title: "Avis ajouté" });
+      }
+      setShowReviewForm(false);
     } catch {
       toast({ title: "Erreur", variant: "destructive" });
     }
@@ -235,10 +266,19 @@ export default function Admin() {
         <div className="flex items-center justify-between mb-8">
           <div>
             <p className="text-[#2D2D2D]/50 text-sm font-body">
-              {reviews.length} avis propriétaire{reviews.length > 1 ? "s" : ""}
+              {reviews.length} avis voyageur{reviews.length > 1 ? "s" : ""}
             </p>
-            <h2 className="font-heading text-2xl font-light text-[#2D2D2D] mt-0.5">Avis propriétaires</h2>
+            <h2 className="font-heading text-2xl font-light text-[#2D2D2D] mt-0.5">Avis voyageurs</h2>
           </div>
+          {isAdmin && (
+            <button
+              onClick={openCreateReview}
+              className="flex items-center gap-2 px-5 py-3 bg-[#0891B2] text-white text-xs tracking-[0.2em] uppercase font-body hover:bg-[#0C4A6E] transition-colors min-h-[44px]"
+            >
+              <Plus size={14} />
+              Ajouter
+            </button>
+          )}
         </div>
 
         {reviewsLoading ? (
@@ -271,6 +311,13 @@ export default function Admin() {
                 </div>
                 <div className="flex gap-1 shrink-0">
                   <button
+                    onClick={() => openEditReview(r)}
+                    title="Modifier"
+                    className="p-2 min-w-[36px] min-h-[36px] flex items-center justify-center text-[#2D2D2D]/40 hover:text-[#0891B2] hover:bg-blue-50 transition-colors"
+                  >
+                    <Pencil size={16} />
+                  </button>
+                  <button
                     onClick={() => handleToggleReview(r)}
                     title={r.visible ? "Masquer" : "Publier"}
                     className={`p-2 min-w-[36px] min-h-[36px] flex items-center justify-center transition-colors ${
@@ -291,6 +338,85 @@ export default function Admin() {
           </div>
         )}
       </div>
+
+      {/* Formulaire avis voyageur */}
+      {showReviewForm && (
+        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+          <div className="bg-white max-w-lg w-full p-8">
+            <div className="flex items-center justify-between mb-6">
+              <h3 className="font-heading text-2xl font-light text-[#2D2D2D]">
+                {editingReview ? "Modifier l'avis" : "Ajouter un avis"}
+              </h3>
+              <button onClick={() => setShowReviewForm(false)} className="p-2 text-[#2D2D2D]/40 hover:text-[#2D2D2D] transition-colors">
+                <X size={20} />
+              </button>
+            </div>
+            <div className="space-y-4">
+              <div>
+                <label className="text-xs tracking-[0.15em] uppercase font-body text-[#2D2D2D]/60 block mb-1.5">Nom</label>
+                <input
+                  value={reviewDraft.name}
+                  onChange={e => setReviewDraft(p => ({ ...p, name: e.target.value }))}
+                  className="w-full border border-[#E5E0DA] px-4 py-3 font-body text-sm focus:outline-none focus:border-[#0891B2]"
+                  placeholder="Marie D."
+                />
+              </div>
+              <div>
+                <label className="text-xs tracking-[0.15em] uppercase font-body text-[#2D2D2D]/60 block mb-1.5">Ville</label>
+                <input
+                  value={reviewDraft.location}
+                  onChange={e => setReviewDraft(p => ({ ...p, location: e.target.value }))}
+                  className="w-full border border-[#E5E0DA] px-4 py-3 font-body text-sm focus:outline-none focus:border-[#0891B2]"
+                  placeholder="Paris"
+                />
+              </div>
+              <div>
+                <label className="text-xs tracking-[0.15em] uppercase font-body text-[#2D2D2D]/60 block mb-1.5">Note</label>
+                <div className="flex gap-2">
+                  {[1, 2, 3, 4, 5].map(n => (
+                    <button
+                      key={n}
+                      type="button"
+                      onClick={() => setReviewDraft(p => ({ ...p, rating: n }))}
+                      className={`w-10 h-10 border font-body text-sm transition-colors ${
+                        reviewDraft.rating >= n
+                          ? "bg-[#F59E0B] border-[#F59E0B] text-white"
+                          : "border-[#E5E0DA] text-[#2D2D2D]/40 hover:border-[#F59E0B]"
+                      }`}
+                    >
+                      {n}★
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <label className="text-xs tracking-[0.15em] uppercase font-body text-[#2D2D2D]/60 block mb-1.5">Commentaire</label>
+                <textarea
+                  value={reviewDraft.comment}
+                  onChange={e => setReviewDraft(p => ({ ...p, comment: e.target.value }))}
+                  rows={4}
+                  className="w-full border border-[#E5E0DA] px-4 py-3 font-body text-sm focus:outline-none focus:border-[#0891B2] resize-none"
+                  placeholder="Le commentaire du voyageur..."
+                />
+              </div>
+            </div>
+            <div className="flex gap-3 mt-6">
+              <button
+                onClick={handleSaveReview}
+                className="flex-1 py-3 bg-[#0891B2] text-white text-xs tracking-[0.2em] uppercase font-body hover:bg-[#0C4A6E] transition-colors"
+              >
+                Enregistrer
+              </button>
+              <button
+                onClick={() => setShowReviewForm(false)}
+                className="px-6 py-3 border border-[#E5E0DA] text-xs tracking-[0.2em] uppercase font-body text-[#2D2D2D]/60 hover:border-[#8E9B90] transition-colors"
+              >
+                Annuler
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
