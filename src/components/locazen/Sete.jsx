@@ -185,29 +185,45 @@ export default function Sete() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="my-10 border border-[#0891B2]/20 bg-white rounded-2xl px-8 py-7 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5"
+            className="my-10 bg-white border border-[#0891B2]/15 rounded-2xl overflow-hidden"
           >
-            <div className="flex items-center gap-4">
-              <div className="w-11 h-11 bg-[#E0F2FE] rounded-xl flex items-center justify-center shrink-0">
-                <Download size={20} className="text-[#0891B2]" />
+            <div className="flex flex-col sm:flex-row">
+              {/* Photo Myriam */}
+              <div className="sm:w-44 shrink-0 relative">
+                <img
+                  src={`${import.meta.env.BASE_URL}myriam.png`}
+                  alt="Myriam, votre hôte Sète"
+                  className="w-full h-52 sm:h-full object-cover object-top"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-white/60 hidden sm:block" />
               </div>
-              <div>
-                <p className="text-[#0C4A6E] font-body font-semibold text-sm">
+
+              {/* Contenu */}
+              <div className="flex flex-col justify-between p-7 flex-1 gap-4">
+                <div>
+                  <p className="text-[#0891B2] text-[10px] tracking-[0.3em] uppercase font-body mb-2">
+                    {t("sete.guide_eyebrow")}
+                  </p>
+                  <h4 className="font-heading text-2xl md:text-3xl font-light text-[#0C4A6E] leading-tight">
+                    {t("sete.guide_title")}
+                  </h4>
+                  <p className="text-[#0C4A6E]/50 font-body text-xs mt-2">
+                    {t("sete.guide_by")}
+                  </p>
+                  <p className="text-[#0C4A6E]/40 font-body text-xs mt-1">
+                    {t("sete.guide_sub")}
+                  </p>
+                </div>
+                <a
+                  href={`${import.meta.env.BASE_URL}guide-sete.pdf`}
+                  download="Guide-Sete-Locazen.pdf"
+                  className="self-start inline-flex items-center gap-2 bg-[#0891B2] hover:bg-[#0C4A6E] text-white text-xs tracking-[0.15em] uppercase font-body px-6 py-3 transition-colors duration-200"
+                >
+                  <Download size={13} />
                   {t("sete.guide_cta")}
-                </p>
-                <p className="text-[#0C4A6E]/45 font-body text-xs mt-0.5">
-                  {t("sete.guide_sub")}
-                </p>
+                </a>
               </div>
             </div>
-            <a
-              href={`${import.meta.env.BASE_URL}guide-sete.pdf`}
-              download="Guide-Sete-Locazen.pdf"
-              className="inline-flex items-center gap-2 bg-[#0891B2] hover:bg-[#0C4A6E] text-white text-xs tracking-[0.15em] uppercase font-body px-6 py-3 transition-colors duration-200 shrink-0"
-            >
-              <Download size={13} />
-              {t("sete.guide_cta")}
-            </a>
           </motion.div>
 
           {/* À proximité */}

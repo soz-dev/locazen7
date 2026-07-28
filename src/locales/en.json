@@ -708,8 +708,11 @@
     "eyebrow2": "Things to do",
     "title2": "Explore Sète",
     "nearby": "Nearby",
-    "guide_cta": "Download the Sète travel guide",
+    "guide_cta": "Download the guide",
     "guide_sub": "Map, top addresses & highlights — Free PDF",
+    "guide_eyebrow": "Exclusive guide",
+    "guide_title": "My personal guide to Sète",
+    "guide_by": "Written by Myriam, your host",
     "activities": [
       {
         "category": "Beaches & Nature",
