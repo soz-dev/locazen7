@@ -50,12 +50,20 @@ export default function Footer({ visitorType = "proprietaire" }) {
               {t("footer.navigation")}
             </p>
             <div className="flex flex-col gap-3">
-              {[
-                { label: "Accueil", href: "#accueil" },
-                { label: "Services", href: "#services" },
-                { label: "À propos", href: "#apropos" },
-                { label: "Prestations", href: "#prestations" },
-              ].map((l) => (
+              {(isVoyageur
+                ? [
+                    { label: t("footer.nav.rentals"),  href: "#locations" },
+                    { label: t("footer.nav.map"),       href: "#carte" },
+                    { label: t("footer.nav.tarifs"),    href: "#tarifs" },
+                    { label: t("footer.nav.contact"),   href: "#contact" },
+                  ]
+                : [
+                    { label: t("footer.nav.services"),  href: "#etapes" },
+                    { label: t("footer.nav.about"),     href: "#apropos" },
+                    { label: t("footer.nav.reviews"),   href: "#avis" },
+                    { label: t("footer.nav.contact"),   href: "#contact" },
+                  ]
+              ).map((l) => (
                 <a
                   key={l.href}
                   href={l.href}

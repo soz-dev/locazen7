@@ -445,8 +445,15 @@
   "footer": {
     "tagline": "Seasonal rental concierge in Sète.\nThe art of hospitality, in person.",
     "nav": "Navigation",
-    "navigation": "Navigation",
-    "contactLabel": "Contact",
+    "navigation": "Navigation",    "nav": {
+      "services": "Our services",
+      "about": "About",
+      "reviews": "Reviews",
+      "contact": "Contact",
+      "rentals": "Our rentals",
+      "map": "Map",
+      "tarifs": "Rates"
+    },    "contactLabel": "Contact",
     "ctaLabel": "Get in touch",
     "ctaText": "A seasonal rental project? We'd love to discuss it with you.",
     "callUs": "Call us",

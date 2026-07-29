@@ -446,6 +446,15 @@
     "tagline": "Service de Conciergerie à Sète.\nL'art de l'accueil, en personne.",
     "nav": "Navigation",
     "navigation": "Navigation",
+    "nav": {
+      "services": "Nos services",
+      "about": "À propos",
+      "reviews": "Avis",
+      "contact": "Contact",
+      "rentals": "Nos locations",
+      "map": "Carte",
+      "tarifs": "Tarifs"
+    },
     "contactLabel": "Contact",
     "ctaLabel": "Nous contacter",
     "ctaText": "Un projet de location saisonnière ? Nous serions ravis d'en discuter avec vous.",
