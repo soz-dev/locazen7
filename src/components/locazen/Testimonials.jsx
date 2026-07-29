@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Star, ExternalLink } from "lucide-react";
+import { Star, Quote, ExternalLink } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { fetchReviews } from "@/lib/rentalsApi";
 
