@@ -14,10 +14,7 @@ export default function OwnerTestimonials() {
 
   useEffect(() => {
     fetchReviews()
-      .then(data => {
-        const prop = Array.isArray(data) ? data.filter(r => !r.type || r.type === "proprietaire") : [];
-        setReviews(prop);
-      })
+      .then(data => setReviews(Array.isArray(data) ? data : []))
       .catch(() => setReviews([]))
       .finally(() => setLoading(false));
   }, []);
