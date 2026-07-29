@@ -14,7 +14,7 @@ export default function OwnerTestimonials() {
 
   useEffect(() => {
     fetchReviews()
-      .then(data => setReviews(Array.isArray(data) ? data.filter(r => !r.name?.startsWith("V|")) : []))
+      .then(data => setReviews(Array.isArray(data) ? data.filter(r => !r.name?.startsWith("V|")).slice(0, 6) : []))
       .catch(() => setReviews([]))
       .finally(() => setLoading(false));
   }, []);
