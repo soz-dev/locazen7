@@ -11,7 +11,10 @@ export default function Testimonials() {
 
   useEffect(() => {
     fetchReviews()
-      .then(data => { if (Array.isArray(data) && data.length > 0) setApiItems(data); })
+      .then(data => {
+        const voy = Array.isArray(data) ? data.filter(r => r.type === "voyageur") : [];
+        if (voy.length > 0) setApiItems(voy);
+      })
       .catch(() => {});
   }, []);
 
