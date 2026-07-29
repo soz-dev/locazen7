@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Star, Quote, ExternalLink } from "lucide-react";
+import { Star, ExternalLink } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { fetchReviews } from "@/lib/rentalsApi";
 
@@ -27,15 +27,19 @@ export default function Testimonials() {
         initials: r.name.slice(2, 4).toUpperCase(),
       }))
     : staticItems;
+
+  // décalage vertical par colonne : col0=0, col1=56px, col2=28px
+  const colOffsets = [0, 56, 28];
+
   return (
-    <section className="py-16 md:py-20 bg-[#0C4A6E] border-t border-white/10">
-      <div className="max-w-5xl mx-auto px-6 md:px-16">
+    <section className="py-20 md:py-28 bg-[#0C4A6E] border-t border-white/10 overflow-hidden">
+      <div className="max-w-6xl mx-auto px-6 md:px-10">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mb-16 text-center"
+          className="mb-16 md:mb-20 text-center"
         >
           <p className="text-[#38BDF8] text-xs tracking-[0.3em] uppercase font-body mb-4">
             {t("testimonials.eyebrow")}
@@ -46,32 +50,44 @@ export default function Testimonials() {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-start pb-16">
           {Array.isArray(items) && items.map((item, i) => (
             <motion.div
-              key={item.initials}
-              initial={{ opacity: 0, y: 40 }}
+              key={i}
+              initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.08 }}
-              className="bg-white/5 border border-white/10 p-7 flex flex-col"
+              transition={{ duration: 0.7, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+              style={{ marginTop: colOffsets[i % 3] }}
+              className="relative bg-[#0A3A56] border border-white/10 p-7 hover:border-[#38BDF8]/50 transition-all duration-500 group"
             >
-              <div className="flex gap-0.5 mb-4">
+              {/* Guillemet décoratif */}
+              <span className="absolute top-3 right-5 font-heading text-8xl text-[#38BDF8]/10 leading-none select-none pointer-events-none group-hover:text-[#38BDF8]/20 transition-colors duration-500">
+                "
+              </span>
+
+              {/* Étoiles */}
+              <div className="flex gap-1 mb-5">
                 {Array.from({ length: item.rating ?? 5 }).map((_, j) => (
-                  <Star key={j} size={12} className="text-[#F59E0B] fill-[#F59E0B]" />
+                  <Star key={j} size={11} className="text-[#F59E0B] fill-[#F59E0B]" />
                 ))}
               </div>
-              <Quote size={18} className="text-[#38BDF8]/30 mb-4" />
-              <p className="text-[#F7F5F2]/75 text-sm font-body leading-relaxed flex-1 mb-6">
-                "{item.text}"
+
+              {/* Texte */}
+              <p className="text-[#F7F5F2]/80 text-sm font-body leading-relaxed mb-7 relative z-10">
+                {item.text}
               </p>
-              <div className="flex items-center gap-3">
+
+              {/* Auteur */}
+              <div className="flex items-center gap-3 pt-5 border-t border-white/10">
                 <div className="w-9 h-9 bg-[#0891B2] flex items-center justify-center shrink-0">
-                  <span className="text-white text-xs font-body tracking-wider">{item.initials}</span>
+                  <span className="text-white text-[10px] font-body tracking-wider">{item.initials}</span>
                 </div>
                 <div>
-                  <p className="text-[#F7F5F2] text-sm font-body">{item.name}</p>
-                  <p className="text-[#F7F5F2]/40 text-xs font-body">{item.location}</p>
+                  <p className="text-[#F7F5F2] text-sm font-body leading-tight">{item.name}</p>
+                  {item.location && (
+                    <p className="text-[#38BDF8]/60 text-xs font-body mt-0.5">{item.location}</p>
+                  )}
                 </div>
               </div>
             </motion.div>
@@ -84,7 +100,7 @@ export default function Testimonials() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-12 text-center"
+          className="text-center"
         >
           <p className="text-[#F7F5F2]/40 text-xs font-body tracking-wide mb-3">
             {t("testimonials.airbnb_note")}
@@ -103,3 +119,4 @@ export default function Testimonials() {
     </section>
   );
 }
+
