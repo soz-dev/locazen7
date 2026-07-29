@@ -28,7 +28,6 @@ export default function Testimonials() {
       }))
     : staticItems;
 
-  // décalage vertical par colonne : col0=0, col1=56px, col2=28px
   const colOffsets = [0, 56, 28];
 
   return (
@@ -50,48 +49,49 @@ export default function Testimonials() {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-start pb-16">
-          {Array.isArray(items) && items.map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
-              style={{ marginTop: colOffsets[i % 3] }}
-              className="relative bg-[#0A3A56] border border-white/10 p-7 hover:border-[#38BDF8]/50 transition-all duration-500 group"
-            >
-              {/* Guillemet décoratif */}
-              <span className="absolute top-3 right-5 font-heading text-8xl text-[#38BDF8]/10 leading-none select-none pointer-events-none group-hover:text-[#38BDF8]/20 transition-colors duration-500">
-                "
-              </span>
-
-              {/* Étoiles */}
-              <div className="flex gap-1 mb-5">
-                {Array.from({ length: item.rating ?? 5 }).map((_, j) => (
-                  <Star key={j} size={11} className="text-[#F59E0B] fill-[#F59E0B]" />
-                ))}
-              </div>
-
-              {/* Texte */}
-              <p className="text-[#F7F5F2]/80 text-sm font-body leading-relaxed mb-7 relative z-10">
-                {item.text}
-              </p>
-
-              {/* Auteur */}
-              <div className="flex items-center gap-3 pt-5 border-t border-white/10">
-                <div className="w-9 h-9 bg-[#0891B2] flex items-center justify-center shrink-0">
-                  <span className="text-white text-[10px] font-body tracking-wider">{item.initials}</span>
+        <div className="max-w-2xl mx-auto space-y-5 mb-14">
+          {Array.isArray(items) && items.map((item, i) => {
+            const right = i % 2 === 1;
+            return (
+              <motion.article
+                key={i}
+                initial={{ opacity: 0, x: right ? 30 : -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.5, delay: i * 0.06 }}
+                className="relative w-[88%] rounded-2xl border border-[#1a5a7a] bg-[#0A3A56] p-5 shadow-[0_18px_40px_-14px_rgba(0,0,0,0.55)]"
+                style={{ marginLeft: right ? "auto" : "0", marginRight: right ? "0" : "auto" }}
+              >
+                {/* Queue */}
+                <span
+                  className="absolute top-6 h-3 w-3 rotate-45 border border-[#1a5a7a] bg-[#0A3A56]"
+                  style={
+                    right
+                      ? { right: -6, borderLeft: "none", borderBottom: "none" }
+                      : { left: -6, borderRight: "none", borderTop: "none" }
+                  }
+                />
+                <div className="mb-3 flex items-center justify-between">
+                  <div className="flex gap-0.5">
+                    {Array.from({ length: item.rating ?? 5 }).map((_, s) => (
+                      <Star key={s} className="h-3.5 w-3.5 fill-[#F59E0B] text-[#F59E0B]" />
+                    ))}
+                  </div>
+                  <Quote className="h-5 w-5 text-[#F59E0B]/70" />
                 </div>
-                <div>
-                  <p className="text-[#F7F5F2] text-sm font-body leading-tight">{item.name}</p>
-                  {item.location && (
-                    <p className="text-[#38BDF8]/60 text-xs font-body mt-0.5">{item.location}</p>
-                  )}
+                <p className="text-sm leading-relaxed text-white/85 font-body">{item.text}</p>
+                <div className="mt-4 border-t border-[#1a5a7a] pt-3 flex items-center gap-2.5">
+                  <div className="w-7 h-7 bg-[#0891B2] flex items-center justify-center shrink-0 rounded-sm">
+                    <span className="text-white text-[9px] font-body tracking-wide">{item.initials}</span>
+                  </div>
+                  <div>
+                    <span className="text-sm font-medium text-[#F7F5F2] font-body">{item.name}</span>
+                    {item.location && <p className="text-[#38BDF8]/60 text-xs font-body">{item.location}</p>}
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.article>
+            );
+          })}
         </div>
 
         {/* Note Airbnb */}

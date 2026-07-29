@@ -56,40 +56,48 @@ export default function OwnerTestimonials() {
           </h2>
         </motion.div>
 
-        {/* Avis approuvés */}
+        {/* Avis appRouvés */}
         {!loading && reviews.length > 0 && (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-            {reviews.map((r, i) => (
-              <motion.div
-                key={r.id}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="bg-white/5 border border-white/10 p-8 flex flex-col"
-              >
-                <Quote size={22} className="text-[#C4A96B]/35 mb-5" />
-                <p className="text-[#F7F5F2]/75 text-sm font-body leading-relaxed flex-1 mb-7">
-                  "{r.comment}"
-                </p>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-[#C4A96B] flex items-center justify-center shrink-0">
-                    <span className="text-[#1A2535] text-xs font-body tracking-wider">
-                      {r.name.slice(0, 2).toUpperCase()}
-                    </span>
+          <div className="max-w-2xl mx-auto space-y-5 mb-20">
+            {reviews.map((r, i) => {
+              const right = i % 2 === 1;
+              return (
+                <motion.article
+                  key={r.id}
+                  initial={{ opacity: 0, x: right ? 30 : -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ duration: 0.5, delay: i * 0.06 }}
+                  className="relative w-[88%] rounded-2xl border border-[#C4A96B]/25 bg-white/5 p-5 shadow-[0_18px_40px_-14px_rgba(0,0,0,0.55)]"
+                  style={{ marginLeft: right ? "auto" : "0", marginRight: right ? "0" : "auto" }}
+                >
+                  {/* Queue */}
+                  <span
+                    className="absolute top-6 h-3 w-3 rotate-45 border border-[#C4A96B]/25 bg-[#1f2f41]"
+                    style={
+                      right
+                        ? { right: -6, borderLeft: "none", borderBottom: "none" }
+                        : { left: -6, borderRight: "none", borderTop: "none" }
+                    }
+                  />
+                  <div className="mb-3 flex items-center justify-between">
+                    <div className="flex gap-0.5">
+                      {Array.from({ length: r.rating ?? 5 }).map((_, s) => (
+                        <Star key={s} className="h-3.5 w-3.5 fill-[#C4A96B] text-[#C4A96B]" />
+                      ))}
+                    </div>
+                    <Quote className="h-5 w-5 text-[#C4A96B]/60" />
                   </div>
-                  <div className="flex-1">
-                    <p className="text-[#F7F5F2] text-sm font-body">{r.name}</p>
-                    <p className="text-[#F7F5F2]/40 text-xs font-body">Propriétaire</p>
+                  <p className="text-sm leading-relaxed text-white/85 font-body">{r.comment}</p>
+                  <div className="mt-4 border-t border-[#C4A96B]/20 pt-3 flex items-center gap-2.5">
+                    <div className="w-7 h-7 bg-[#C4A96B] flex items-center justify-center shrink-0 rounded-sm">
+                      <span className="text-[#1A2535] text-[9px] font-body tracking-wide">{r.name.slice(0, 2).toUpperCase()}</span>
+                    </div>
+                    <span className="text-sm font-medium text-[#F7F5F2] font-body">{r.name}</span>
                   </div>
-                  <div className="flex gap-0.5">
-                    {Array.from({ length: r.rating }).map((_, j) => (
-                      <Star key={j} size={11} className="text-[#C4A96B] fill-[#C4A96B]" />
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.article>
+              );
+            })}
           </div>
         )}
 
