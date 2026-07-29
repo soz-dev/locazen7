@@ -43,7 +43,7 @@ export default function Navbar({ visitorType, onSwitch }) {
 
   const submitAdminPwd = (e) => {
     e.preventDefault();
-    if (adminPwd === ADMIN_PASSWORD) {
+    if (adminPwd.trim() === ADMIN_PASSWORD) {
       sessionStorage.setItem("locazen_admin", "true");
       setAdminOpen(false);
       navigate("/locazen-admin");
