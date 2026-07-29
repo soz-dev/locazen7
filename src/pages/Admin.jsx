@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Plus, Pencil, Trash2, Loader2, ArrowLeft, Wrench, Eye, EyeOff, X } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
-import { fetchRentals, createRental, updateRental, deleteRental, fetchSettings, updateSetting, fetchAllReviews, toggleReviewVisibility, deleteReview, createAdminReview, updateReviewContent } from "@/lib/rentalsApi";
+import { fetchRentals, createRental, updateRental, deleteRental, fetchSettings, updateSetting, fetchAllReviews, toggleReviewVisibility, deleteReview, createAdminReview, updateReviewContent, updateHiddenRentals } from "@/lib/rentalsApi";
 import { AMENITIES, getAmenity } from "@/components/locazen/amenities";
 import RentalForm from "@/components/locazen/RentalForm";
 
@@ -14,6 +14,7 @@ export default function Admin() {
   const [editing, setEditing] = useState(null);
   const [maintenance, setMaintenance] = useState(false);
   const [maintenanceLoading, setMaintenanceLoading] = useState(false);
+  const [hiddenRentalIds, setHiddenRentalIds] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [reviewsLoading, setReviewsLoading] = useState(true);
   const [showReviewForm, setShowReviewForm] = useState(false);
@@ -28,6 +29,7 @@ export default function Admin() {
       .then(([list, settings, revs]) => {
         setRentals(list);
         setMaintenance(settings.maintenance === "true");
+        try { setHiddenRentalIds(JSON.parse(settings.hidden_rentals || "[]")); } catch { setHiddenRentalIds([]); }
         setReviews(revs);
       })
       .catch(() => toast({ title: "Erreur de chargement", variant: "destructive" }))
@@ -50,6 +52,18 @@ export default function Admin() {
 
   const openCreate = () => { setEditing(null); setShowForm(true); };
   const openEdit = (r) => { setEditing(r); setShowForm(true); };
+
+  const handleToggleRentalVisibility = async (r) => {
+    const isHidden = hiddenRentalIds.includes(r.id);
+    const next = isHidden ? hiddenRentalIds.filter(id => id !== r.id) : [...hiddenRentalIds, r.id];
+    try {
+      await updateHiddenRentals(next);
+      setHiddenRentalIds(next);
+      toast({ title: isHidden ? "Location visible" : "Location masquée" });
+    } catch {
+      toast({ title: "Erreur", variant: "destructive" });
+    }
+  };
 
   const handleToggleReview = async (r) => {
     try {
@@ -208,13 +222,15 @@ export default function Admin() {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {rentals.map((r, i) => (
+            {rentals.map((r, i) => {
+              const isHidden = hiddenRentalIds.includes(r.id);
+              return (
               <motion.div
                 key={r.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.05 }}
-                className="bg-white border border-[#E5E0DA] overflow-hidden flex flex-col"
+                className={`bg-white border overflow-hidden flex flex-col transition-opacity ${isHidden ? "border-[#E5E0DA] opacity-50" : "border-[#E5E0DA]"}`}
               >
                 <div className="flex">
                   <div className="w-32 h-32 flex-shrink-0 bg-[#E5E0DA]/40">
@@ -225,7 +241,10 @@ export default function Admin() {
                   <div className="p-5 flex-1">
                     <div className="flex items-start justify-between">
                       <div>
-                        <h3 className="font-heading text-xl font-light text-[#2D2D2D]">{r.name}</h3>
+                        <h3 className="font-heading text-xl font-light text-[#2D2D2D]">
+                          {r.name}
+                          {isHidden && <span className="ml-2 text-xs font-body text-amber-600 bg-amber-50 px-1.5 py-0.5">Masquée</span>}
+                        </h3>
                         <p className="text-[#2D2D2D]/50 text-xs font-body mt-1">{r.type || "—"}</p>
                       </div>
                       <span className="font-heading text-lg text-[#2D2D2D]">{r.price}€<span className="text-xs text-[#2D2D2D]/40">/nuit</span></span>
@@ -257,13 +276,17 @@ export default function Admin() {
                     <button onClick={() => openEdit(r)} className="flex-1 flex items-center justify-center gap-2 py-3 text-xs tracking-[0.15em] uppercase font-body text-[#2D2D2D]/70 hover:bg-[#E5E0DA]/30 transition-colors min-h-[44px]">
                       <Pencil size={14} /> Modifier
                     </button>
+                    <button onClick={() => handleToggleRentalVisibility(r)} title={isHidden ? "Rendre visible" : "Masquer"} className={`flex-1 flex items-center justify-center gap-2 py-3 text-xs tracking-[0.15em] uppercase font-body transition-colors min-h-[44px] border-l border-[#E5E0DA] ${isHidden ? "text-amber-600 hover:bg-amber-50" : "text-[#2D2D2D]/70 hover:bg-[#E5E0DA]/30"}`}>
+                      {isHidden ? <Eye size={14} /> : <EyeOff size={14} />} {isHidden ? "Afficher" : "Masquer"}
+                    </button>
                     <button onClick={() => handleDelete(r)} className="flex-1 flex items-center justify-center gap-2 py-3 text-xs tracking-[0.15em] uppercase font-body text-[#2D2D2D]/70 hover:bg-red-50 hover:text-red-600 transition-colors min-h-[44px] border-l border-[#E5E0DA]">
                       <Trash2 size={14} /> Supprimer
                     </button>
                   </div>
                 )}
               </motion.div>
-            ))}
+              );
+            })}
           </div>
         )}
       </main>

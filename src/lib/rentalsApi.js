@@ -57,6 +57,10 @@ export async function updateSetting(key, value) {
   return res.json();
 }
 
+export async function updateHiddenRentals(hiddenIds) {
+  return updateSetting("hidden_rentals", JSON.stringify(hiddenIds));
+}
+
 export async function fetchReviews() {
   const res = await fetch(`${API_URL}/reviews`);
   if (!res.ok) return [];

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { MapPin, Star, Loader2, ExternalLink, Waves, Sun, Coffee } from "lucide-react";
 import { getAmenity } from "@/components/locazen/amenities";
-import { fetchRentals } from "@/lib/rentalsApi";
+import { fetchRentals, fetchSettings } from "@/lib/rentalsApi";
 import { useTranslation } from "react-i18next";
 
 const PLACEHOLDER_RENTALS = [
@@ -50,8 +50,12 @@ export default function TravelerRentals() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchRentals()
-      .then(setRentals)
+    Promise.all([fetchRentals(), fetchSettings()])
+      .then(([list, settings]) => {
+        let hidden = [];
+        try { hidden = JSON.parse(settings.hidden_rentals || "[]"); } catch {}
+        setRentals(list.filter(r => !hidden.includes(r.id)));
+      })
       .catch(() => setRentals([]))
       .finally(() => setLoading(false));
   }, []);
