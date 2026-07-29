@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Star, Quote, ExternalLink } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { fetchReviews } from "@/lib/rentalsApi";
+import { fetchReviews, fetchSettings } from "@/lib/rentalsApi";
 
 export default function Testimonials() {
   const { t } = useTranslation();
@@ -10,9 +10,10 @@ export default function Testimonials() {
   const [apiItems, setApiItems] = useState(null);
 
   useEffect(() => {
-    fetchReviews()
-      .then(data => {
-        const voy = Array.isArray(data) ? data.filter(r => r.name?.startsWith("V|")).slice(0, 6) : [];
+    Promise.all([fetchReviews(), fetchSettings()])
+      .then(([data, settings]) => {
+        const max = parseInt(settings.max_reviews, 10) || 6;
+        const voy = Array.isArray(data) ? data.filter(r => r.name?.startsWith("V|")).slice(0, max) : [];
         if (voy.length > 0) setApiItems(voy);
       })
       .catch(() => {});

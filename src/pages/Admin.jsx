@@ -15,6 +15,8 @@ export default function Admin() {
   const [maintenance, setMaintenance] = useState(false);
   const [maintenanceLoading, setMaintenanceLoading] = useState(false);
   const [hiddenRentalIds, setHiddenRentalIds] = useState([]);
+  const [maxReviews, setMaxReviews] = useState(6);
+  const [maxReviewsSaving, setMaxReviewsSaving] = useState(false);
   const [reviews, setReviews] = useState([]);
   const [reviewsLoading, setReviewsLoading] = useState(true);
   const [showReviewForm, setShowReviewForm] = useState(false);
@@ -30,6 +32,7 @@ export default function Admin() {
         setRentals(list);
         setMaintenance(settings.maintenance === "true");
         try { setHiddenRentalIds(JSON.parse(settings.hidden_rentals || "[]")); } catch { setHiddenRentalIds([]); }
+        setMaxReviews(parseInt(settings.max_reviews, 10) || 6);
         setReviews(revs);
       })
       .catch(() => toast({ title: "Erreur de chargement", variant: "destructive" }))
@@ -152,6 +155,19 @@ export default function Admin() {
       toast({ title: "Location supprimée" });
     } catch {
       toast({ title: "Erreur lors de la suppression", variant: "destructive" });
+    }
+  };
+
+  const handleMaxReviewsChange = async (n) => {
+    const val = Math.max(1, Math.min(20, n));
+    setMaxReviews(val);
+    setMaxReviewsSaving(true);
+    try {
+      await updateSetting("max_reviews", String(val));
+    } catch {
+      toast({ title: "Erreur", variant: "destructive" });
+    } finally {
+      setMaxReviewsSaving(false);
     }
   };
 
@@ -364,13 +380,31 @@ export default function Admin() {
             <h2 className="font-heading text-2xl font-light text-[#2D2D2D] mt-0.5">Avis voyageurs</h2>
           </div>
           {isAdmin && (
-            <button
-              onClick={() => openCreateReview("voyageur")}
-              className="flex items-center gap-2 px-5 py-3 bg-[#0891B2] text-white text-xs tracking-[0.2em] uppercase font-body hover:bg-[#0C4A6E] transition-colors min-h-[44px]"
-            >
-              <Plus size={14} />
-              Ajouter
-            </button>
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2">
+                <span className="text-[#2D2D2D]/50 text-xs font-body tracking-wide">Max affiché</span>
+                <div className="flex items-center border border-[#E5E0DA] bg-white">
+                  <button
+                    onClick={() => handleMaxReviewsChange(maxReviews - 1)}
+                    disabled={maxReviews <= 1 || maxReviewsSaving}
+                    className="w-8 h-8 flex items-center justify-center text-[#2D2D2D]/60 hover:bg-[#E5E0DA]/40 disabled:opacity-30 transition-colors font-body text-base"
+                  >−</button>
+                  <span className="w-8 text-center text-sm font-body font-medium text-[#2D2D2D]">{maxReviews}</span>
+                  <button
+                    onClick={() => handleMaxReviewsChange(maxReviews + 1)}
+                    disabled={maxReviews >= 20 || maxReviewsSaving}
+                    className="w-8 h-8 flex items-center justify-center text-[#2D2D2D]/60 hover:bg-[#E5E0DA]/40 disabled:opacity-30 transition-colors font-body text-base"
+                  >+</button>
+                </div>
+              </div>
+              <button
+                onClick={() => openCreateReview("voyageur")}
+                className="flex items-center gap-2 px-5 py-3 bg-[#0891B2] text-white text-xs tracking-[0.2em] uppercase font-body hover:bg-[#0C4A6E] transition-colors min-h-[44px]"
+              >
+                <Plus size={14} />
+                Ajouter
+              </button>
+            </div>
           )}
         </div>
         {reviewsLoading ? (
