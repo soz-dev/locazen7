@@ -87,7 +87,7 @@ export default function Testimonials() {
             {t("testimonials.airbnb_note")}
           </p>
           <a
-            href="https://www.airbnb.fr/users/show/XXXXXXX"
+            href="https://www.airbnb.fr/users/profile/1469513399317474812"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-[#38BDF8] text-xs tracking-[0.15em] uppercase font-body hover:text-[#F59E0B] transition-colors"
