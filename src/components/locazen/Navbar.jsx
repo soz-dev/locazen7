@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import i18n from "@/i18n";
 
-const ADMIN_PASSWORD = "SohanKahyl9434";
+const ADMIN_PASSWORD = import.meta.env.VITE_ADMIN_PASSWORD;
 
 const travelerLinks = [];
 const ownerLinks = [];

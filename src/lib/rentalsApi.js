@@ -1,5 +1,5 @@
 const API_URL = "https://locazen12-api.motastic.workers.dev";
-const TOKEN   = "SohanKahyl9434";
+const TOKEN   = import.meta.env.VITE_API_TOKEN;
 
 const authHeaders = {
   "Content-Type": "application/json",
