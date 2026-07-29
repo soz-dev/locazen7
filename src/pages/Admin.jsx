@@ -79,23 +79,26 @@ export default function Admin() {
   };
   const openEditReview = (r) => {
     setEditingReview(r);
-    setReviewDraft({ name: r.name, location: r.location || "", rating: r.rating, comment: r.comment, type: r.type || "proprietaire" });
+    const isVoy = r.name?.startsWith("V|");
+    setReviewDraft({ name: isVoy ? r.name.slice(2) : r.name, location: r.location || "", rating: r.rating, comment: r.comment, type: isVoy ? "voyageur" : "proprietaire" });
     setShowReviewForm(true);
   };
   const handleSaveReview = async () => {
     if (!reviewDraft.name.trim() || !reviewDraft.comment.trim()) return;
+    const nameToStore = reviewDraft.type === "voyageur" ? `V|${reviewDraft.name}` : reviewDraft.name;
+    const payload = { ...reviewDraft, name: nameToStore };
     try {
       if (editingReview) {
-        await updateReviewContent(editingReview.id, { ...reviewDraft, visible: editingReview.visible });
-        setReviews((prev) => prev.map((x) => x.id === editingReview.id ? { ...x, ...reviewDraft } : x));
+        await updateReviewContent(editingReview.id, { ...payload, visible: editingReview.visible });
+        setReviews((prev) => prev.map((x) => x.id === editingReview.id ? { ...x, ...payload } : x));
         toast({ title: "Avis mis à jour" });
       } else {
-        const created = await createAdminReview({ ...reviewDraft, visible: 1 });
+        const created = await createAdminReview({ ...payload, visible: 1 });
         if (created?.id) {
           try { await toggleReviewVisibility(created.id, true); } catch {}
         }
         const newReview = {
-          ...reviewDraft,
+          ...payload,
           visible: 1,
           created_at: new Date().toISOString(),
           ...(created && typeof created === "object" ? created : {}),
@@ -138,8 +141,8 @@ export default function Admin() {
     }
   };
 
-  const propReviews = reviews.filter(r => !r.type || r.type === "proprietaire");
-  const voyReviews = reviews.filter(r => r.type === "voyageur");
+  const propReviews = reviews.filter(r => !r.name?.startsWith("V|"));
+  const voyReviews  = reviews.filter(r =>  r.name?.startsWith("V|"));
 
   return (
     <div className="min-h-screen bg-[#F7F5F2]">
@@ -281,16 +284,8 @@ export default function Admin() {
               {propReviews.length} avis propriétaire{propReviews.length > 1 ? "s" : ""}
             </p>
             <h2 className="font-heading text-2xl font-light text-[#2D2D2D] mt-0.5">Avis propriétaires</h2>
+            <p className="text-[#2D2D2D]/40 text-xs font-body mt-1">Soumis par les propriétaires · modération uniquement</p>
           </div>
-          {isAdmin && (
-            <button
-              onClick={() => openCreateReview("proprietaire")}
-              className="flex items-center gap-2 px-5 py-3 bg-[#C4A96B] text-white text-xs tracking-[0.2em] uppercase font-body hover:bg-[#b8963c] transition-colors min-h-[44px]"
-            >
-              <Plus size={14} />
-              Ajouter
-            </button>
-          )}
         </div>
         {reviewsLoading ? (
           <div className="flex justify-center py-10"><Loader2 size={24} className="animate-spin text-[#8E9B90]" /></div>
@@ -321,9 +316,6 @@ export default function Admin() {
                   <p className="text-[#2D2D2D]/70 text-sm font-body">{r.comment}</p>
                 </div>
                 <div className="flex gap-1 shrink-0">
-                  <button onClick={() => openEditReview(r)} title="Modifier" className="p-2 min-w-[36px] min-h-[36px] flex items-center justify-center text-[#2D2D2D]/40 hover:text-[#C4A96B] hover:bg-amber-50 transition-colors">
-                    <Pencil size={16} />
-                  </button>
                   <button onClick={() => handleToggleReview(r)} title={r.visible ? "Masquer" : "Publier"} className={`p-2 min-w-[36px] min-h-[36px] flex items-center justify-center transition-colors ${
                     r.visible ? "text-green-600 hover:bg-green-50" : "text-[#2D2D2D]/40 hover:bg-[#E5E0DA]/40"
                   }`}>
@@ -339,7 +331,7 @@ export default function Admin() {
         )}
       </div>
 
-      {/* Section avis voyageurs */}
+      {/* Section avis voyageurs */}}
       <div className="max-w-6xl mx-auto px-6 md:px-10 py-10 border-t border-[#E5E0DA]">
         <div className="flex items-center justify-between mb-8">
           <div>
@@ -369,11 +361,11 @@ export default function Admin() {
                 r.visible ? "border-[#0891B2]/60" : "border-[#E5E0DA] opacity-60"
               }`}>
                 <div className="w-10 h-10 bg-[#0891B2] flex items-center justify-center shrink-0">
-                  <span className="text-white text-xs font-body">{r.name.slice(0, 2).toUpperCase()}</span>
+                  <span className="text-white text-xs font-body">{r.name.slice(2, 4).toUpperCase()}</span>
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 flex-wrap mb-1">
-                    <span className="font-body text-sm font-medium text-[#2D2D2D]">{r.name}</span>
+                    <span className="font-body text-sm font-medium text-[#2D2D2D]">{r.name.slice(2)}</span>
                     <span className="text-[#0891B2] text-xs">{"★".repeat(r.rating)}</span>
                     <span className={`text-[10px] font-body px-2 py-0.5 ${
                       r.visible ? "bg-green-100 text-green-700" : "bg-[#E5E0DA] text-[#2D2D2D]/50"

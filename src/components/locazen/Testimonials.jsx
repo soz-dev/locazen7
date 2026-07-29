@@ -12,19 +12,19 @@ export default function Testimonials() {
   useEffect(() => {
     fetchReviews()
       .then(data => {
-        const visible = Array.isArray(data) ? data.slice(0, 6) : [];
-        if (visible.length > 0) setApiItems(visible);
+        const voy = Array.isArray(data) ? data.filter(r => r.name?.startsWith("V|")).slice(0, 6) : [];
+        if (voy.length > 0) setApiItems(voy);
       })
       .catch(() => {});
   }, []);
 
   const items = apiItems
     ? apiItems.map(r => ({
-        name: r.name,
+        name: r.name.slice(2),
         location: r.location || "",
         rating: r.rating ?? 5,
         text: r.comment,
-        initials: r.name.slice(0, 2).toUpperCase(),
+        initials: r.name.slice(2, 4).toUpperCase(),
       }))
     : staticItems;
   return (
