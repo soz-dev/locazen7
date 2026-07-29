@@ -4,14 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script>
-      // GitHub Pages SPA redirect — restore path from query string
+      // GitHub Pages SPA redirect — restaure le path depuis ?p=
       (function () {
-        var p = window.location.search.slice(1).split('&p=')[1];
+        var p = new URLSearchParams(window.location.search).get('p');
         if (p) {
-          window.history.replaceState(
-            null, null,
-            window.location.pathname.split('/').slice(0, 2).join('/') + '/' + decodeURIComponent(p)
-          );
+          window.history.replaceState(null, null, '/' + decodeURIComponent(p));
         }
       })();
     </script>
