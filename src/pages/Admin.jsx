@@ -90,7 +90,10 @@ export default function Admin() {
         setReviews((prev) => prev.map((x) => x.id === editingReview.id ? { ...x, ...reviewDraft } : x));
         toast({ title: "Avis mis à jour" });
       } else {
-        const created = await createAdminReview({ ...reviewDraft, visible: true });
+        const created = await createAdminReview({ ...reviewDraft, visible: 1 });
+        if (created?.id) {
+          try { await toggleReviewVisibility(created.id, true); } catch {}
+        }
         const newReview = {
           ...reviewDraft,
           visible: 1,
@@ -98,7 +101,7 @@ export default function Admin() {
           ...(created && typeof created === "object" ? created : {}),
         };
         setReviews((prev) => [newReview, ...prev]);
-        toast({ title: "Avis ajouté" });
+        toast({ title: "Avis ajouté et publié" });
       }
       setShowReviewForm(false);
     } catch {
