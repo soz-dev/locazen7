@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Plus, Pencil, Trash2, Loader2, ArrowLeft, Wrench, Eye, EyeOff, X } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
-import { fetchRentals, createRental, updateRental, deleteRental, fetchSettings, updateSetting, fetchAllReviews, toggleReviewVisibility, deleteReview, createAdminReview, updateReviewContent, updateHiddenRentals } from "@/lib/rentalsApi";
+import { fetchRentals, createRental, updateRental, deleteRental, fetchSettings, updateSetting, fetchAllReviews, toggleReviewVisibility, deleteReview, createAdminReview, updateHiddenRentals } from "@/lib/rentalsApi";
 import { AMENITIES, getAmenity } from "@/components/locazen/amenities";
 import RentalForm from "@/components/locazen/RentalForm";
 
@@ -103,14 +103,27 @@ export default function Admin() {
   const handleSaveReview = async () => {
     if (!reviewDraft.name.trim() || !reviewDraft.comment.trim()) return;
     const nameToStore = reviewDraft.type === "voyageur" ? `V|${reviewDraft.name}` : reviewDraft.name;
-    const payload = { ...reviewDraft, name: nameToStore };
     try {
       if (editingReview) {
-        await updateReviewContent(editingReview.id, { ...payload, visible: editingReview.visible });
-        setReviews((prev) => prev.map((x) => x.id === editingReview.id ? { ...x, ...payload } : x));
+        // Le backend PUT n'accepte que visible — on supprime + recrée pour mettre à jour le contenu
+        await deleteReview(editingReview.id);
+        const created = await createAdminReview({ name: nameToStore, comment: reviewDraft.comment, rating: reviewDraft.rating, visible: 0 });
+        if (editingReview.visible && created?.id) {
+          await toggleReviewVisibility(created.id, true);
+        }
+        const updated = {
+          id: created?.id || editingReview.id,
+          name: nameToStore,
+          comment: reviewDraft.comment,
+          rating: reviewDraft.rating,
+          visible: editingReview.visible,
+          created_at: created?.created_at || editingReview.created_at,
+        };
+        setReviews(prev => [updated, ...prev.filter(x => x.id !== editingReview.id)]);
         toast({ title: "Avis mis à jour" });
       } else {
-        const created = await createAdminReview({ ...payload, visible: 1 });
+        const payload = { name: nameToStore, comment: reviewDraft.comment, rating: reviewDraft.rating };
+        const created = await createAdminReview({ ...payload, visible: 0 });
         if (created?.id) {
           try { await toggleReviewVisibility(created.id, true); } catch {}
         }
