@@ -91,7 +91,13 @@ export default function Admin() {
         toast({ title: "Avis mis à jour" });
       } else {
         const created = await createAdminReview({ ...reviewDraft, visible: true });
-        setReviews((prev) => [created, ...prev]);
+        const newReview = {
+          ...reviewDraft,
+          visible: 1,
+          created_at: new Date().toISOString(),
+          ...(created && typeof created === "object" ? created : {}),
+        };
+        setReviews((prev) => [newReview, ...prev]);
         toast({ title: "Avis ajouté" });
       }
       setShowReviewForm(false);
