@@ -29,6 +29,7 @@ export default function MentionsLegales() {
               <li><span className="font-medium text-[#1A2535]">Dénomination :</span> Locazen 7</li>
               <li><span className="font-medium text-[#1A2535]">Forme juridique :</span> Entreprise individuelle</li>
               <li><span className="font-medium text-[#1A2535]">Siège social :</span> 34, rue Lucien Salette, 34200 Sète, France</li>
+              <li><span className="font-medium text-[#1A2535]">SIRET :</span> <span className="text-[#C4A96B]">[À COMPLÉTER]</span></li>
               <li><span className="font-medium text-[#1A2535]">Téléphone :</span> 06.59.76.91.94</li>
               <li><span className="font-medium text-[#1A2535]">Email :</span>{" "}
                 <a href="mailto:myriamboum34@gmail.com" className="text-[#C4A96B] hover:underline">
@@ -54,12 +55,11 @@ export default function MentionsLegales() {
             </h2>
             <p>Le site est hébergé par :</p>
             <ul className="mt-3 space-y-1 pl-4">
-              <li><span className="font-medium text-[#1A2535]">Société :</span> GitHub, Inc.</li>
-              <li><span className="font-medium text-[#1A2535]">Adresse :</span> 88 Colin P Kelly Jr Street, San Francisco, CA 94107, États-Unis</li>
-              <li><span className="font-medium text-[#1A2535]">Site web :</span>{" "}
-                <a href="https://pages.github.com" target="_blank" rel="noopener noreferrer" className="text-[#C4A96B] hover:underline">
-                  pages.github.com
-                </a>
+              <li><span className="font-medium text-[#1A2535]">Hébergeur du site :</span> GitHub, Inc. — 88 Colin P Kelly Jr Street, San Francisco, CA 94107, États-Unis —{" "}
+                <a href="https://pages.github.com" target="_blank" rel="noopener noreferrer" className="text-[#C4A96B] hover:underline">pages.github.com</a>
+              </li>
+              <li><span className="font-medium text-[#1A2535]">Gestionnaire du nom de domaine :</span> OVH SAS — 2, rue Kellermann, 59100 Roubaix, France —{" "}
+                <a href="https://www.ovh.com" target="_blank" rel="noopener noreferrer" className="text-[#C4A96B] hover:underline">ovh.com</a>
               </li>
             </ul>
           </section>

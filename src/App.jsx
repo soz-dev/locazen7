@@ -14,6 +14,7 @@ import Maintenance from '@/pages/Maintenance';
 import MentionsLegales from '@/pages/MentionsLegales';
 import PolitiqueConfidentialite from '@/pages/PolitiqueConfidentialite';
 import ErrorBoundary from '@/components/ErrorBoundary';
+import CookieBanner from '@/components/locazen/CookieBanner';
 import { fetchSettings } from '@/lib/rentalsApi';
 
 function AdminGuard() {
@@ -70,6 +71,7 @@ function App() {
           <ErrorBoundary>
             <AppContent />
           </ErrorBoundary>
+          <CookieBanner />
         </Router>
         <Toaster />
       </QueryClientProvider>

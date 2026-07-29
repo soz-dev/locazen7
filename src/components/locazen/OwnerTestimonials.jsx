@@ -9,6 +9,7 @@ export default function OwnerTestimonials() {
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [form, setForm] = useState({ name: "", comment: "", rating: 5 });
+  const [consent, setConsent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
@@ -23,6 +24,10 @@ export default function OwnerTestimonials() {
     e.preventDefault();
     if (!form.name.trim() || !form.comment.trim()) {
       toast({ title: "Nom et commentaire requis", variant: "destructive" });
+      return;
+    }
+    if (!consent) {
+      toast({ title: "Veuillez accepter que votre avis soit publié", variant: "destructive" });
       return;
     }
     setSubmitting(true);
@@ -160,9 +165,23 @@ export default function OwnerTestimonials() {
                 </div>
               </div>
 
+              <div className="flex items-start gap-3">
+                <input
+                  type="checkbox"
+                  id="consent"
+                  checked={consent}
+                  onChange={(e) => setConsent(e.target.checked)}
+                  className="mt-0.5 w-4 h-4 accent-[#C4A96B] shrink-0 cursor-pointer"
+                />
+                <label htmlFor="consent" className="text-xs text-[#F7F5F2]/50 font-body leading-relaxed cursor-pointer">
+                  J'accepte que mon prénom et mon avis soient publiés sur ce site conformément à la{" "}
+                  <a href="/politique-confidentialite" className="text-[#C4A96B] hover:underline" target="_blank" rel="noopener noreferrer">politique de confidentialité</a>. *
+                </label>
+              </div>
+
               <button
                 type="submit"
-                disabled={submitting}
+                disabled={submitting || !consent}
                 className="flex items-center gap-2 px-8 py-4 bg-[#C4A96B] hover:bg-[#B8965A] text-[#1A2535] text-xs tracking-[0.2em] uppercase font-body transition-colors min-h-[44px] disabled:opacity-50"
               >
                 {submitting ? <Loader2 size={14} className="animate-spin" /> : <Send size={14} />}
