@@ -3,13 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <script>
-      // GitHub Pages SPA redirect
-      // Encode the path into query string and redirect to index.html
+      // GitHub Pages SPA redirect — redirige toujours vers / avec le path encodé
       var l = window.location;
       l.replace(
         l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-        l.pathname.split('/').slice(0, 2).join('/') +
-        '/?p=' + encodeURIComponent(l.pathname.slice(1) + (l.search ? '&' + l.search.slice(1) : '') + l.hash)
+        '/?p=' + encodeURIComponent(l.pathname.slice(1))
       );
     </script>
   </head>
