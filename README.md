@@ -43,11 +43,13 @@
 
 ## 📖 Documentation
 
-- [Guide de Configuration Complet](./CONFIGURATION.md) - Tout sur la configuration du backend et du token API
-- [Structure de l'API](#api) - Documentation des endpoints
+- 🚀 [Guide de Démarrage Rapide](./QUICK_START.md) - **Commencez ici !** Résolvez l'erreur backend en 3 étapes
+- 📋 [Guide de Configuration Complet](./CONFIGURATION.md) - Tout sur la configuration du backend et du token API
+- 🔍 `npm run check-config` - Script de diagnostic automatique
 
 ## 🔧 Commandes Disponibles
 
+- `npm run check-config` - 🔍 **Vérifier la configuration** (recommandé avant de commencer)
 - `npm run dev` - Démarrer en mode développement
 - `npm run build` - Construire pour la production
 - `npm run preview` - Prévisualiser la build de production
