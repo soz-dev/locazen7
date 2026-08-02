@@ -1,5 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /admin
 Disallow: /locazen-admin
+
+# Crawl-delay pour éviter la surcharge
+Crawl-delay: 1
 
 Sitemap: https://www.locazen7.fr/sitemap.xml
