@@ -1,6 +1,12 @@
 const API_URL = "https://locazen12-api.motastic.workers.dev";
 const TOKEN   = import.meta.env.VITE_API_TOKEN;
 
+// Vérification du token au chargement
+if (!TOKEN && import.meta.env.MODE !== 'production') {
+  console.warn('⚠️ VITE_API_TOKEN non défini. Les opérations d\'administration ne fonctionneront pas.');
+  console.warn('Créez un fichier .env avec VITE_API_TOKEN=votre_token');
+}
+
 const authHeaders = {
   "Content-Type": "application/json",
   "Authorization": `Bearer ${TOKEN}`,
@@ -18,7 +24,12 @@ export async function createRental(payload) {
     headers: authHeaders,
     body: JSON.stringify(payload),
   });
-  if (!res.ok) throw new Error("Erreur lors de la création");
+  if (!res.ok) {
+    if (res.status === 401) {
+      throw new Error("Non autorisé - Vérifiez votre token API dans le fichier .env");
+    }
+    throw new Error("Erreur lors de la création");
+  }
   return res.json();
 }
 
@@ -69,7 +80,12 @@ export async function fetchReviews() {
 
 export async function fetchAllReviews() {
   const res = await fetch(`${API_URL}/reviews/all`, { headers: authHeaders });
-  if (!res.ok) throw new Error("Erreur chargement avis");
+  if (!res.ok) {
+    if (res.status === 401) {
+      throw new Error("Non autorisé - Token API manquant ou invalide. Vérifiez le fichier .env");
+    }
+    throw new Error("Erreur chargement avis");
+  }
   return res.json();
 }
 
