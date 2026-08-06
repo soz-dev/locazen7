@@ -214,7 +214,7 @@ export default function Sete() {
                   </p>
                 </div>
                 <a
-                  href={`${import.meta.env.BASE_URL}guide-sete.pdf`}
+                  href="https://raw.githubusercontent.com/soz-dev/locazen7/main/public/guide-sete.pdf"
                   download="Guide-Sete-Locazen.pdf"
                   className="self-start inline-flex items-center gap-2 bg-[#0891B2] hover:bg-[#0C4A6E] text-white text-xs tracking-[0.15em] uppercase font-body px-6 py-3 transition-colors duration-200"
                 >

@@ -36,6 +36,9 @@ jobs:
           VITE_ADMIN_PASSWORD: ${{ secrets.VITE_ADMIN_PASSWORD }}
           VITE_API_TOKEN: ${{ secrets.VITE_API_TOKEN }}
 
+      - name: Remove PDF from artifact
+        run: rm -f dist/guide-sete.pdf
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
