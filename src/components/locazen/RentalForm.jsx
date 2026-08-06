@@ -50,7 +50,25 @@ export default function RentalForm({ rental, onSave, onClose }) {
     }));
   };
 
-  const handleUpload = (e) => {
+  const compressImage = (file, maxWidth = 1920, quality = 0.82) =>
+    new Promise((resolve, reject) => {
+      const img = new window.Image();
+      const url = URL.createObjectURL(file);
+      img.onload = () => {
+        URL.revokeObjectURL(url);
+        const canvas = document.createElement("canvas");
+        let { width, height } = img;
+        if (width > maxWidth) { height = Math.round(height * maxWidth / width); width = maxWidth; }
+        canvas.width = width;
+        canvas.height = height;
+        canvas.getContext("2d").drawImage(img, 0, 0, width, height);
+        resolve(canvas.toDataURL("image/jpeg", quality));
+      };
+      img.onerror = () => { URL.revokeObjectURL(url); reject(); };
+      img.src = url;
+    });
+
+  const handleUpload = async (e) => {
     const file = e.target.files?.[0];
     if (!file) return;
     if (file.size > 20 * 1024 * 1024) {
@@ -58,10 +76,14 @@ export default function RentalForm({ rental, onSave, onClose }) {
       return;
     }
     setUploading(true);
-    const reader = new FileReader();
-    reader.onload = () => { set("image", reader.result); setUploading(false); };
-    reader.onerror = () => { toast({ title: "Erreur de lecture", variant: "destructive" }); setUploading(false); };
-    reader.readAsDataURL(file);
+    try {
+      const compressed = await compressImage(file);
+      set("image", compressed);
+    } catch {
+      toast({ title: "Erreur de lecture", variant: "destructive" });
+    } finally {
+      setUploading(false);
+    }
   };
 
   const handleSubmit = async (e) => {
