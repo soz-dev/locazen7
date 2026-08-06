@@ -367,7 +367,7 @@ export default function Admin() {
         )}
       </div>
 
-      {/* Section avis voyageurs */}}
+      {/* Section avis voyageurs */}
       <div className="max-w-6xl mx-auto px-6 md:px-10 py-10 border-t border-[#E5E0DA]">
         <div className="flex items-center justify-between mb-8">
           <div>
