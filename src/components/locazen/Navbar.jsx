@@ -68,7 +68,6 @@ export default function Navbar({ visitorType, onSwitch }) {
 
   const isVoyageur  = visitorType === "voyageur";
   const scrolledBg  = isVoyageur ? "bg-[#0C4A6E]/95" : "bg-[#1A2535]/95";
-  const logoColor   = "text-[#F7F5F2]";
   const badgeStyle  = scrolled
     ? (isVoyageur ? "bg-[#0891B2]/30 text-[#38BDF8]" : "bg-[#C4A96B]/20 text-[#C4A96B]")
     : "bg-[#F7F5F2]/20 text-[#F7F5F2]/90";
@@ -87,8 +86,8 @@ export default function Navbar({ visitorType, onSwitch }) {
       >
         <div className="max-w-7xl mx-auto pl-[10px] pr-4 flex items-center justify-between">
           <div className="flex flex-col items-start">
-            <button onClick={handleLogoClick} className={`font-heading text-2xl tracking-[0.2em] font-light leading-none min-h-[auto] transition-colors duration-500 ${logoColor}`}>
-              LOCAZEN 7
+            <button onClick={handleLogoClick} className="min-h-[auto] leading-none">
+              <img src="/logo-locazen.png" alt="Locazen 7" className="h-10 w-auto" style={{ filter: "drop-shadow(0 1px 3px rgba(0,0,0,0.4))" }} />
             </button>
             <span className={`mt-1.5 px-2 py-0.5 text-[9px] tracking-[0.2em] uppercase font-body transition-all duration-500 ${badgeStyle}`}>
               {modeLabel}

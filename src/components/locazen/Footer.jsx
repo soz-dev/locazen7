@@ -36,9 +36,7 @@ export default function Footer({ visitorType = "proprietaire" }) {
         <div className={`grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8 pb-16 border-b ${divider}`}>
           {/* Brand */}
           <div>
-            <p className={`font-heading text-xl tracking-[0.15em] ${brandName} mb-3`}>
-              LOCAZEN 7
-            </p>
+            <img src="/logo-locazen.png" alt="Locazen 7" className="h-16 w-auto mb-3" />
             <p className="text-[#2D2D2D]/50 text-sm font-body">
               {t("footer.tagline")}
             </p>
