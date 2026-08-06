@@ -44,14 +44,14 @@ export default function SelectionScreen({ onSelect }) {
         >
           Bienvenue
         </motion.p>
-        <motion.h1
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.15 }}
-          className="font-heading text-5xl md:text-7xl font-light text-[#2D2D2D] tracking-[0.2em]"
+          className="flex justify-center"
         >
-          LocaZen Sète
-        </motion.h1>
+          <img src="/logo-locazen.png" alt="Locazen 7" className="h-40 md:h-52 w-auto" />
+        </motion.div>
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
