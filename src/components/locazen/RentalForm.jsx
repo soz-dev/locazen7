@@ -53,8 +53,8 @@ export default function RentalForm({ rental, onSave, onClose }) {
   const handleUpload = (e) => {
     const file = e.target.files?.[0];
     if (!file) return;
-    if (file.size > 3 * 1024 * 1024) {
-      toast({ title: "Image trop lourde (max 3 Mo)", variant: "destructive" });
+    if (file.size > 20 * 1024 * 1024) {
+      toast({ title: "Image trop lourde (max 20 Mo)", variant: "destructive" });
       return;
     }
     setUploading(true);
