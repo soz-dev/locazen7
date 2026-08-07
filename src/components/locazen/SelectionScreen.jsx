@@ -44,10 +44,18 @@ export default function SelectionScreen({ onSelect }) {
         >
           Bienvenue
         </motion.p>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          className="flex justify-center mb-4"
+        >
+          <img src="/logo-locazen.png" alt="Locazen 7" className="h-24 md:h-32 w-auto" />
+        </motion.div>
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.15 }}
+          transition={{ duration: 0.8, delay: 0.25 }}
           className="font-heading text-5xl md:text-7xl font-light text-[#2D2D2D] tracking-[0.2em]"
         >
           Locazen 7
@@ -84,10 +92,9 @@ export default function SelectionScreen({ onSelect }) {
                 <div className={`w-12 h-12 flex items-center justify-center bg-[#F7F5F2]/15 backdrop-blur-sm mb-5 transition-all duration-500 ${c.hoverBg}`}>
                   <c.icon size={20} className="text-[#F7F5F2]" />
                 </div>
-                <h2 className="font-heading text-3xl md:text-4xl font-light text-[#F7F5F2] leading-tight mb-4">
+                <h2 className="font-heading text-3xl md:text-4xl font-light text-[#F7F5F2] leading-tight mb-2">
                   {c.title}
                 </h2>
-                <img src="/logo-locazen.png" alt="Locazen 7" className="h-20 w-auto mb-4 drop-shadow-lg" />
                 <p className="text-[#F7F5F2]/70 text-sm font-body mb-5">{c.subtitle}</p>
                 <span className="inline-flex items-center gap-2 text-[#F7F5F2] text-xs tracking-[0.2em] uppercase font-body">
                   {c.cta}
