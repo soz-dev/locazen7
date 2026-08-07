@@ -87,7 +87,7 @@ export default function Navbar({ visitorType, onSwitch }) {
         <div className="max-w-7xl mx-auto pl-[10px] pr-4 flex items-center justify-between">
           <div className="flex flex-col items-start">
             <button onClick={handleLogoClick} className="min-h-[auto] leading-none">
-              <img src="/logo-locazen.png" alt="Locazen 7" className="h-10 w-auto" style={{ filter: "drop-shadow(0 1px 3px rgba(0,0,0,0.4))" }} />
+              <span className="font-heading text-xl font-light text-[#F7F5F2] tracking-[0.15em] drop-shadow" style={{ textShadow: "0 1px 3px rgba(0,0,0,0.4)" }}>Locazen 7</span>
             </button>
             <span className={`mt-1.5 px-2 py-0.5 text-[9px] tracking-[0.2em] uppercase font-body transition-all duration-500 ${badgeStyle}`}>
               {modeLabel}

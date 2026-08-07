@@ -54,6 +54,7 @@ export default function Hero({
           transition={{ duration: 1, delay: 0.6, ease: [0.25, 0.1, 0, 1] }}
           className="self-center text-center"
         >
+          <img src="/logo-locazen.png" alt="Locazen 7" className="h-24 md:h-32 w-auto mx-auto mb-6 drop-shadow-xl" />
           <p className="font-body text-[#F7F5F2]/80 text-4xl md:text-5xl tracking-[0.3em] uppercase">
             {eyebrow}
           </p>
