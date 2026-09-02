@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Image } from "@/components/ui/image";
 
-export default function ServiceCard({ title, description, image, alt, index }) {
+export default function ServiceCard({ title, description, image, alt, index, href = "#prestations" }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 60 }}
@@ -33,9 +33,13 @@ export default function ServiceCard({ title, description, image, alt, index }) {
           {description}
         </p>
         <div className="mt-4 opacity-0 translate-y-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0">
-          <span className="inline-block px-6 py-3 border border-[#F7F5F2]/40 text-[#F7F5F2] text-xs tracking-[0.2em] uppercase hover:bg-[#F7F5F2] hover:text-[#2D2D2D] transition-colors duration-300 min-h-[44px] flex items-center">
+          <a
+            href={href}
+            onClick={(e) => { e.preventDefault(); const el = document.querySelector(href); if (el) el.scrollIntoView({ behavior: "smooth" }); }}
+            className="inline-flex items-center px-6 py-3 border border-[#F7F5F2]/40 text-[#F7F5F2] text-xs tracking-[0.2em] uppercase hover:bg-[#F7F5F2] hover:text-[#2D2D2D] transition-colors duration-300 min-h-[44px]"
+          >
             En savoir plus
-          </span>
+          </a>
         </div>
       </div>
     </motion.div>
