@@ -44,6 +44,8 @@ const PLACEHOLDER_RENTALS = [
   },
 ];
 
+const cleanRentalName = (name) => name.replace(/\*+/g, "").replace(/\s{2,}/g, " ").trim();
+
 export default function TravelerRentals() {
   const { t } = useTranslation();
   const [rentals, setRentals] = useState([]);
@@ -105,7 +107,7 @@ export default function TravelerRentals() {
                 <div className="relative aspect-[4/5] overflow-hidden mb-5">
                   <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-105">
                     {r.image ? (
-                      <img src={r.image} alt={r.name} className="w-full h-full object-cover" style={{ objectPosition: `center ${r.imageY ?? 50}%` }} />
+                      <img src={r.image} alt={cleanRentalName(r.name)} className="w-full h-full object-cover" style={{ objectPosition: `center ${r.imageY ?? 50}%` }} />
                     ) : (
                       <div className="w-full h-full bg-[#DBEAFE]" />
                     )}
@@ -129,7 +131,7 @@ export default function TravelerRentals() {
                 </div>
 
                 <div>
-                  <h3 className="font-heading text-2xl font-light text-[#0C4A6E] mb-1">{r.name}</h3>
+                  <h3 className="font-heading text-2xl font-light text-[#0C4A6E] mb-1">{cleanRentalName(r.name)}</h3>
                   {r.type && (
                     <p className="flex items-center gap-1.5 text-[#0C4A6E]/50 text-sm font-body mb-3">
                       <MapPin size={12} className="text-[#0891B2]" />
