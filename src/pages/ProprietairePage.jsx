@@ -9,6 +9,7 @@ import About from "@/components/locazen/About";
 import RevenueSimulator from "@/components/locazen/RevenueSimulator";
 import Sete from "@/components/locazen/Sete";
 import OwnerTestimonials from "@/components/locazen/OwnerTestimonials";
+import MotasticPromo from "@/components/locazen/MotasticPromo";
 import FAQ from "@/components/locazen/FAQ";
 import Contact from "@/components/locazen/Contact";
 import BrassensBlock from "@/components/locazen/BrassensBlock";
@@ -69,6 +70,7 @@ export default function ProprietairePage() {
       <RevenueSimulator />
       <Sete />
       <OwnerTestimonials />
+      <MotasticPromo audience="proprietaire" />
       <FAQ visitorType="proprietaire" />
       <Contact visitorType="proprietaire" />
       <BrassensBlock />

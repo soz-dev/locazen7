@@ -1,45 +1,22 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Image as ImageIcon, X, Upload, Loader2, ChevronUp, ChevronDown } from "lucide-react";
+import { Image as ImageIcon, X, Upload, Loader2 } from "lucide-react";
+import { base44 } from "@/api/base44Client";
 import { useToast } from "@/components/ui/use-toast";
 import { AMENITIES } from "@/components/locazen/amenities";
 
 const empty = {
   name: "", type: "", price: "", beds: 1, baths: 1, guests: 2,
-  rating: 4.8, image: "", imageY: 50, amenities: [], airbnb_url: "",
-  address: "", lat: null, lng: null,
+  rating: 4.8, image: "", amenities: [], airbnb_url: "",
 };
 
 export default function RentalForm({ rental, onSave, onClose }) {
   const [form, setForm] = useState(rental ? { ...empty, ...rental } : empty);
   const [uploading, setUploading] = useState(false);
   const [saving, setSaving] = useState(false);
-  const [geocoding, setGeocoding] = useState({ loading: false, ok: null, city: "" });
   const { toast } = useToast();
 
   const set = (k, v) => setForm((f) => ({ ...f, [k]: v }));
-
-  const geocodeAddress = async (addr) => {
-    if (!addr.trim()) return;
-    setGeocoding({ loading: true, ok: null, city: "" });
-    try {
-      const res = await fetch(
-        `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(addr)}&limit=1&countrycodes=fr`,
-        { headers: { "Accept-Language": "fr", "User-Agent": "Locazen12/1.0" } }
-      );
-      const data = await res.json();
-      if (data.length > 0) {
-        const { lat, lon, display_name } = data[0];
-        setForm((f) => ({ ...f, lat: parseFloat(lat), lng: parseFloat(lon) }));
-        const city = display_name.split(",").slice(0, 2).join(", ");
-        setGeocoding({ loading: false, ok: true, city });
-      } else {
-        setGeocoding({ loading: false, ok: false, city: "" });
-      }
-    } catch {
-      setGeocoding({ loading: false, ok: false, city: "" });
-    }
-  };
 
   const toggleAmenity = (key) => {
     setForm((f) => ({
@@ -50,37 +27,16 @@ export default function RentalForm({ rental, onSave, onClose }) {
     }));
   };
 
-  const compressImage = (file, maxWidth = 1920, quality = 0.82) =>
-    new Promise((resolve, reject) => {
-      const img = new window.Image();
-      const url = URL.createObjectURL(file);
-      img.onload = () => {
-        URL.revokeObjectURL(url);
-        const canvas = document.createElement("canvas");
-        let { width, height } = img;
-        if (width > maxWidth) { height = Math.round(height * maxWidth / width); width = maxWidth; }
-        canvas.width = width;
-        canvas.height = height;
-        canvas.getContext("2d").drawImage(img, 0, 0, width, height);
-        resolve(canvas.toDataURL("image/jpeg", quality));
-      };
-      img.onerror = () => { URL.revokeObjectURL(url); reject(); };
-      img.src = url;
-    });
-
   const handleUpload = async (e) => {
     const file = e.target.files?.[0];
     if (!file) return;
-    if (file.size > 20 * 1024 * 1024) {
-      toast({ title: "Image trop lourde (max 20 Mo)", variant: "destructive" });
-      return;
-    }
     setUploading(true);
     try {
-      const compressed = await compressImage(file);
-      set("image", compressed);
-    } catch {
-      toast({ title: "Erreur de lecture", variant: "destructive" });
+      const { file_url } = await base44.integrations.Core.UploadFile({ file });
+      set("image", file_url);
+      toast({ title: "Photo ajoutée" });
+    } catch (err) {
+      toast({ title: "Erreur lors de l'envi", variant: "destructive" });
     } finally {
       setUploading(false);
     }
@@ -112,10 +68,7 @@ export default function RentalForm({ rental, onSave, onClose }) {
   const labelCls = "block text-xs tracking-[0.15em] uppercase text-[#2D2D2D]/60 font-body mb-2";
 
   return (
-    <div
-      className="fixed inset-0 z-[70] bg-[#2D2D2D]/40 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto"
-
-    >
+    <div className="fixed inset-0 z-[70] bg-[#2D2D2D]/40 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
       <motion.div
         initial={{ opacity: 0, y: 30, scale: 0.98 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -125,7 +78,7 @@ export default function RentalForm({ rental, onSave, onClose }) {
           <h2 className="font-heading text-2xl font-light text-[#2D2D2D]">
             {rental ? "Modifier la location" : "Nouvelle location"}
           </h2>
-          <button type="button" onClick={onClose} className="p-2 min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Fermer">
+          <button onClick={onClose} className="p-2 min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Fermer">
             <X size={20} className="text-[#2D2D2D]" />
           </button>
         </div>
@@ -135,39 +88,11 @@ export default function RentalForm({ rental, onSave, onClose }) {
           <div>
             <label className={labelCls}>Photo</label>
             {form.image ? (
-              <div>
-                <div className="relative aspect-[16/10] overflow-hidden">
-                  <img
-                    src={form.image}
-                    alt="Aperçu"
-                    className="w-full h-full object-cover transition-all duration-200"
-                    style={{ objectPosition: `center ${form.imageY ?? 50}%` }}
-                  />
-                  <button type="button" onClick={() => set("image", "")} className="absolute top-2 right-2 p-2 bg-[#2D2D2D]/80 text-[#F7F5F2] min-w-[44px] min-h-[44px] flex items-center justify-center">
-                    <X size={16} />
-                  </button>
-                </div>
-                <div className="mt-3 flex items-center gap-3">
-                  <button type="button" onClick={() => set("imageY", Math.max(0, (form.imageY ?? 50) - 5))} className="p-1 text-[#2D2D2D]/50 hover:text-[#2D2D2D] transition-colors">
-                    <ChevronUp size={18} />
-                  </button>
-                  <div className="flex-1 flex flex-col gap-1">
-                    <input
-                      type="range" min={0} max={100} step={1}
-                      value={form.imageY ?? 50}
-                      onChange={(e) => set("imageY", Number(e.target.value))}
-                      className="w-full accent-[#2D2D2D] h-1 cursor-pointer"
-                    />
-                    <div className="flex justify-between text-[10px] text-[#2D2D2D]/35 font-body tracking-[0.1em] uppercase">
-                      <span>Haut</span>
-                      <span>Recadrage vertical</span>
-                      <span>Bas</span>
-                    </div>
-                  </div>
-                  <button type="button" onClick={() => set("imageY", Math.min(100, (form.imageY ?? 50) + 5))} className="p-1 text-[#2D2D2D]/50 hover:text-[#2D2D2D] transition-colors">
-                    <ChevronDown size={18} />
-                  </button>
-                </div>
+              <div className="relative aspect-[16/10] overflow-hidden">
+                <img src={form.image} alt="Aperçu" className="w-full h-full object-cover" />
+                <button type="button" onClick={() => set("image", "")} className="absolute top-2 right-2 p-2 bg-[#2D2D2D]/80 text-[#F7F5F2] min-w-[44px] min-h-[44px] flex items-center justify-center">
+                  <X size={16} />
+                </button>
               </div>
             ) : (
               <label className={`flex flex-col items-center justify-center aspect-[16/10] border border-dashed border-[#E5E0DA] cursor-pointer hover:border-[#8E9B90] transition-colors ${uploading ? "opacity-50" : ""}`}>
@@ -187,38 +112,6 @@ export default function RentalForm({ rental, onSave, onClose }) {
               <label className={labelCls}>Type / Localisation</label>
               <input className={inputCls} value={form.type} onChange={(e) => set("type", e.target.value)} placeholder="Appartement · Centre-ville" />
             </div>
-          </div>
-
-          <div>
-            <label className={labelCls}>Adresse (pour la carte)</label>
-            <div className="flex gap-2">
-              <input
-                className={inputCls + " flex-1"}
-                value={form.address}
-                onChange={(e) => set("address", e.target.value)}
-                onBlur={(e) => geocodeAddress(e.target.value)}
-                placeholder="12 Quai du Général Durand, Sète, 34200"
-              />
-              <button
-                type="button"
-                onClick={() => geocodeAddress(form.address)}
-                disabled={geocoding.loading}
-                className="px-4 py-3 bg-[#2D2D2D] text-[#F7F5F2] text-xs tracking-widest uppercase font-body hover:bg-[#C4A96B] transition-colors min-w-[52px] min-h-[44px] flex items-center justify-center"
-              >
-                {geocoding.loading ? <Loader2 size={14} className="animate-spin" /> : "OK"}
-              </button>
-            </div>
-            {geocoding.ok === true && (
-              <p className="mt-1 text-xs text-emerald-600 font-body">✓ {geocoding.city}</p>
-            )}
-            {geocoding.ok === false && (
-              <p className="mt-1 text-xs text-red-500 font-body">Adresse introuvable — vérifiez la saisie</p>
-            )}
-            {form.lat && (
-              <p className="mt-1 text-[10px] text-[#2D2D2D]/35 font-body">
-                📍 {Number(form.lat).toFixed(5)}, {Number(form.lng).toFixed(5)}
-              </p>
-            )}
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-5">

@@ -12,6 +12,7 @@ import SeaConditions from "@/components/locazen/SeaConditions";
 import EventsAgenda from "@/components/locazen/EventsAgenda";
 import TravelerTarifs from "@/components/locazen/TravelerTarifs";
 import Sete from "@/components/locazen/Sete";
+import MotasticPromo from "@/components/locazen/MotasticPromo";
 import FAQ from "@/components/locazen/FAQ";
 import Contact from "@/components/locazen/Contact";
 import BrassensBlock from "@/components/locazen/BrassensBlock";
@@ -73,6 +74,7 @@ export default function VoyageurPage() {
       <EventsAgenda />
       <TravelerTarifs />
       <Sete />
+      <MotasticPromo audience="voyageur" />
       <FAQ visitorType="voyageur" />
       <Contact visitorType="voyageur" />
       <BrassensBlock />

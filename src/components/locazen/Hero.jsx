@@ -11,11 +11,7 @@ export default function Hero({
   tagline = "L'art de l'accueil, en personne",
   ctaLabel = "Découvrir nos services",
   ctaHref = "#services",
-  visitorType = "proprietaire",
 }) {
-  const ctaBtnCls = visitorType === "voyageur"
-    ? "bg-[#0891B2] hover:bg-[#0369A1] text-[#F7F5F2]"
-    : "bg-[#C4A96B] hover:bg-[#B8965A] text-[#1A2535]";
   const { scrollY } = useScroll();
   const imgY = useTransform(scrollY, [0, 800], [0, 150]);
   const opacity = useTransform(scrollY, [0, 600], [1, 0]);
@@ -47,30 +43,49 @@ export default function Hero({
         <div className="absolute inset-0 bg-gradient-to-b from-[#2D2D2D]/40 via-[#2D2D2D]/20 to-[#2D2D2D]/60" />
       </motion.div>
 
-      <motion.div style={{ opacity }} className="relative z-10 h-full flex flex-col justify-center px-6 md:px-16 py-20 md:py-28">
+      <motion.div style={{ opacity }} className="relative z-10 h-full flex flex-col justify-between px-6 md:px-16 py-20 md:py-28">
+        <motion.div
+          initial={{ opacity: 0, x: -40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1.2, ease: [0.25, 0.1, 0, 1] }}
+        >
+          <h1 className="font-heading font-light text-[#F7F5F2] text-5xl md:text-7xl lg:text-[6rem] tracking-[0.05em] leading-none">
+            {wordTop}
+          </h1>
+        </motion.div>
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6, ease: [0.25, 0.1, 0, 1] }}
           className="self-center text-center"
         >
-          <img src="/logo-locazen.png" alt="Locazen 7" style={{ height: "288px", width: "auto", margin: "0 auto 1.5rem" }} className="drop-shadow-xl" />
-          <p className="font-body text-[#F7F5F2]/80 text-4xl md:text-5xl tracking-[0.3em] uppercase">
+          <p className="font-body text-[#F7F5F2]/80 text-sm md:text-base tracking-[0.3em] uppercase">
             {eyebrow}
           </p>
-          <p className="mt-4 font-body text-[#F7F5F2]/60 text-sm md:text-lg max-w-lg mx-auto tracking-wide font-light text-center">
+          <p className="mt-4 font-body text-[#F7F5F2]/60 text-sm md:text-lg max-w-lg tracking-wide font-light">
             {tagline}
           </p>
           <motion.a
             href={ctaHref}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            className={`inline-block mt-8 px-10 py-4 ${ctaBtnCls} text-sm tracking-[0.2em] uppercase font-body transition-colors duration-500 min-h-[44px]`}
+            className="inline-block mt-8 px-10 py-4 bg-[#8E9B90] text-[#F7F5F2] text-sm tracking-[0.2em] uppercase font-body hover:bg-[#7a8a7c] transition-colors duration-500 min-h-[44px]"
           >
             {ctaLabel}
           </motion.a>
         </motion.div>
 
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1.2, delay: 0.3, ease: [0.25, 0.1, 0, 1] }}
+          className="self-end"
+        >
+          <h1 className="font-heading font-light text-[#F7F5F2] text-5xl md:text-7xl lg:text-[6rem] tracking-[0.05em] leading-none">
+            {wordBottom}
+          </h1>
+        </motion.div>
       </motion.div>
 
       <motion.div
