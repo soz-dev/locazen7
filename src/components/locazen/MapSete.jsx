@@ -5,6 +5,11 @@ import { MapContainer, CircleMarker, Popup, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import "maplibre-gl/dist/maplibre-gl.css";
 import "@maplibre/maplibre-gl-leaflet";
+import { setWorkerUrl } from "maplibre-gl";
+import maplibreWorkerUrl from "maplibre-gl/dist/maplibre-gl-worker.mjs?url";
+
+// Sans ça, le worker de maplibre n'est pas trouvé dans le build de production
+setWorkerUrl(maplibreWorkerUrl);
 import { useTranslation } from "react-i18next";
 import { fetchRentals } from "@/lib/rentalsApi";
 
