@@ -13,6 +13,13 @@ setWorkerUrl(maplibreWorkerUrl);
 import { useTranslation } from "react-i18next";
 import { fetchRentals } from "@/lib/rentalsApi";
 
+// Certains liens enregistrés pointent vers l'éditeur hôte Airbnb (privé) : on les convertit en lien public
+function publicListingUrl(url) {
+  if (!url) return null;
+  const id = url.match(/\/hosting\/listings\/editor\/(\d+)/)?.[1];
+  return id ? `https://www.airbnb.fr/rooms/${id}` : url;
+}
+
 // Fond de carte vectoriel OpenFreeMap : net sur écrans Retina, sans clé API
 function VectorBasemap() {
   const map = useMap();
@@ -143,14 +150,16 @@ export default function MapSete() {
                         {r.price} € / nuit
                       </p>
                       <a
-                        href={`#logement-${r.id}`}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          document.getElementById(`logement-${r.id}`)?.scrollIntoView({ behavior: "smooth", block: "center" });
-                        }}
+                        href={publicListingUrl(r.airbnb_url) ?? `#logement-${r.id}`}
+                        {...(r.airbnb_url ? { target: "_blank", rel: "noopener noreferrer" } : {
+                          onClick: (e) => {
+                            e.preventDefault();
+                            document.getElementById(`logement-${r.id}`)?.scrollIntoView({ behavior: "smooth", block: "center" });
+                          },
+                        })}
                         style={{ display: "inline-block", marginTop: 8, fontSize: 12, fontWeight: 600, color: "#0891B2", textDecoration: "underline" }}
                       >
-                        Voir le logement →
+                        {r.airbnb_url ? "Voir sur Airbnb →" : "Voir le logement →"}
                       </a>
                     </div>
                     {r.image && (
