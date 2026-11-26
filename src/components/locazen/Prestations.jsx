@@ -15,9 +15,6 @@ export default function Prestations() {
     <section id="prestations" className="py-24 md:py-32 bg-[#F7F5F2] border-t border-[#2D2D2D]/10">
       <div className="max-w-7xl mx-auto px-6 md:px-16">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
@@ -33,9 +30,6 @@ export default function Prestations() {
           {Array.isArray(items) && items.map((p, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.6, delay: i * 0.05 }}
               className="group flex items-start gap-5 p-6 hover:bg-[#E5E0DA]/30 transition-colors duration-500 cursor-default"
             >

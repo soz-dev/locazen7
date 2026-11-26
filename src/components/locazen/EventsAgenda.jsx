@@ -69,9 +69,6 @@ export default function EventsAgenda() {
     <section id="agenda" className="py-16 md:py-20 bg-[#F0F9FF] border-t border-[#0C4A6E]/10">
       <div className="max-w-7xl mx-auto px-6 md:px-16">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="mb-14"
         >
@@ -98,9 +95,6 @@ export default function EventsAgenda() {
             return (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.08 }}
                 className={`bg-white p-7 border ${
                   highlight ? "border-[#0891B2]/30" : "border-[#E0F2FE]"

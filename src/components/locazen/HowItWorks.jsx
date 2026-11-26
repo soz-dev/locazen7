@@ -37,9 +37,6 @@ export default function HowItWorks() {
     <section id="comment" className="pt-0 pb-24 md:pb-32 bg-[#F7F5F2]">
       <div className="max-w-7xl mx-auto px-6 md:px-16">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="mb-16"
         >
@@ -53,9 +50,6 @@ export default function HowItWorks() {
           {STEPS.map((s, i) => (
             <motion.div
               key={s.n}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.15 }}
               className="relative"
             >

@@ -21,9 +21,6 @@ export default function EtapesProprietaire() {
 
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           transition={{ duration: 0.7 }}
           className="mb-10 md:mb-14 text-center"
         >
@@ -37,9 +34,6 @@ export default function EtapesProprietaire() {
 
         {/* Message distinctif tarifs */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.1 }}
           className="mb-14 pl-6 border-l-4 border-[#C4A96B]"
         >
@@ -50,9 +44,6 @@ export default function EtapesProprietaire() {
 
         {/* Image zen */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.15 }}
           className="mb-14 overflow-hidden h-64 border border-black"
         >
@@ -71,9 +62,6 @@ export default function EtapesProprietaire() {
               <motion.div
                 key={i}
                 id={`etape-${i + 1}`}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.6, delay: i * 0.07 }}
                 className={`flex gap-6 md:gap-12 py-10 md:py-12 border-b ${O.divider} last:border-0`}
               >
@@ -121,9 +109,6 @@ export default function EtapesProprietaire() {
         {/* CTA + note facturation */}
         <motion.div
           id="tarifs"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
           className="mt-14"
         >

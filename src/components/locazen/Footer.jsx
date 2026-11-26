@@ -21,9 +21,6 @@ export default function Footer({ visitorType = "proprietaire" }) {
       {/* Massive brand name */}
       <div className="overflow-hidden mb-16 md:mb-24">
         <motion.h2
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           transition={{ duration: 1 }}
           className={`font-heading text-[6rem] md:text-[10rem] lg:text-[14rem] font-light ${brandTint} leading-none text-center tracking-[0.1em] select-none whitespace-nowrap`}
         >

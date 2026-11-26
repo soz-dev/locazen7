@@ -5,9 +5,6 @@ import { Image } from "@/components/ui/image";
 export default function ServiceCard({ title, description, image, alt, index, href = "#prestations" }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 60 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.8, delay: index * 0.15, ease: [0.25, 0.1, 0, 1] }}
       className="group relative flex-shrink-0 w-[280px] md:w-[340px] aspect-[2/3] overflow-hidden cursor-pointer"
     >

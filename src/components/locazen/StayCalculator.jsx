@@ -40,9 +40,6 @@ export default function StayCalculator() {
     <section id="calculateur" className="pt-8 pb-24 md:pt-10 md:pb-32 bg-[#F0F9FF]">
       <div className="max-w-5xl mx-auto px-6 md:px-16">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="mb-12"
         >
@@ -62,9 +59,6 @@ export default function StayCalculator() {
         ) : (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
               transition={{ duration: 0.7 }}
               className="space-y-8"
             >
@@ -113,9 +107,6 @@ export default function StayCalculator() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
               transition={{ duration: 0.7 }}
               className="bg-[#0C4A6E] p-10 flex flex-col gap-6"
             >

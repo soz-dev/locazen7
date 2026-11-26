@@ -68,9 +68,6 @@ export default function TravelerRentals() {
     <section id="locations" className="py-16 md:py-20 bg-gradient-to-b from-[#F0F9FF] to-[#E0F2FE]/50 border-t border-[#0C4A6E]/10">
       <div className="max-w-7xl mx-auto px-6 md:px-16">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="mb-16"
         >
@@ -98,11 +95,9 @@ export default function TravelerRentals() {
             {displayRentals.map((r, i) => (
               <motion.div
                 key={r.id}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
+                id={`logement-${r.id}`}
                 transition={{ duration: 0.7, delay: i * 0.1 }}
-                className="group cursor-pointer"
+                className="group cursor-pointer flex flex-col"
               >
                 <div className="relative aspect-[4/5] overflow-hidden mb-5">
                   <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-105">
@@ -130,7 +125,7 @@ export default function TravelerRentals() {
                   </div>
                 </div>
 
-                <div>
+                <div className="flex-1">
                   <h3 className="font-heading text-2xl font-light text-[#0C4A6E] mb-1">{cleanRentalName(r.name)}</h3>
                   {r.type && (
                     <p className="flex items-center gap-1.5 text-[#0C4A6E]/50 text-sm font-body mb-3">

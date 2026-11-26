@@ -5,9 +5,6 @@ export default function BrassensBlock() {
   return (
     <section className="bg-[#2D2D2D] py-16 md:py-20">
       <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
         transition={{ duration: 1.2 }}
         className="max-w-3xl mx-auto px-6 text-center"
       >
@@ -20,9 +17,6 @@ export default function BrassensBlock() {
       </motion.div>
 
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
         transition={{ duration: 1, delay: 0.3 }}
         className="mt-16 max-w-[400px] mx-auto px-6"
       >

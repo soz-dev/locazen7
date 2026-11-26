@@ -34,9 +34,6 @@ export default function Services() {
       <div className="max-w-7xl mx-auto px-6 md:px-16">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="mb-16"
         >

@@ -1,4 +1,4 @@
-const API_URL = "https://locazen12-api.motastic.workers.dev";
+const API_URL = import.meta.env.DEV ? "/api-proxy" : "https://locazen12-api.motastic.workers.dev";
 const TOKEN   = import.meta.env.VITE_API_TOKEN;
 
 // Vérification du token au chargement

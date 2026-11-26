@@ -618,7 +618,7 @@
     "eyebrow": "Tarifs propriétaires",
     "title": "Des tarifs clairs, sans surprise",
     "subtitle": "Vous avez la possibilité de combiner différentes prestations ou de choisir un pack complet, en fonction de vos besoins. Les packs sont proposés sur devis.",
-    "billing_title": "Facturation fin de mois.",
+    "billing_title": "* Facturation fin de mois.",
     "billing_detail": "Le ménage et la blanchisserie sont à la charge du voyageur. Vous conservez l'intégralité de vos revenus locatifs.",
     "phase1": "Phase 1",
     "beforeStay": "Avant le séjour",
@@ -703,7 +703,7 @@
       },
       {
         "label": "Sérénité totale",
-        "price": "Incluse",
+        "price": "Inclus*",
         "unit": "",
         "detail": "Conciergerie disponible pour vos hôtes durant tout le séjour."
       }

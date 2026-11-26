@@ -9,6 +9,7 @@ import ScrollToTop from '@/components/ScrollToTop';
 import Home from '@/pages/Home';
 import VoyageurPage from '@/pages/VoyageurPage';
 import ProprietairePage from '@/pages/ProprietairePage';
+import AvisProprietaire from '@/pages/AvisProprietaire';
 import Admin from '@/pages/Admin';
 import Maintenance from '@/pages/Maintenance';
 import MentionsLegales from '@/pages/MentionsLegales';
@@ -54,6 +55,7 @@ function AppContent() {
       <Route path="/" element={<Home />} />
       <Route path="/voyageur" element={<VoyageurPage />} />
       <Route path="/proprietaire" element={<ProprietairePage />} />
+      <Route path="/proprietaire/avis" element={<AvisProprietaire />} />
       <Route path="/mentions-legales" element={<MentionsLegales />} />
       <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
       <Route path="/locazen-admin" element={<AdminGuard />} />

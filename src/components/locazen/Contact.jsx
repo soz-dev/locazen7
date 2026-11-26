@@ -54,9 +54,6 @@ export default function Contact({ visitorType = "proprietaire" }) {
       <div className="max-w-5xl mx-auto px-6 md:px-16">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="mb-14 md:mb-20 text-center"
         >
@@ -75,9 +72,6 @@ export default function Contact({ visitorType = "proprietaire" }) {
           {/* Form */}
           <motion.form
             onSubmit={handleSubmit}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1 }}
             className="flex flex-col gap-5"
           >
@@ -172,9 +166,6 @@ export default function Contact({ visitorType = "proprietaire" }) {
 
           {/* Info */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.25 }}
             className="flex flex-col gap-8 pt-2"
           >

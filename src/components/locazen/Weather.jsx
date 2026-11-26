@@ -75,9 +75,6 @@ export default function Weather() {
 
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="mb-14"
         >
@@ -115,9 +112,6 @@ export default function Weather() {
               {days.map((day, i) => (
                 <motion.div
                   key={day.date}
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-20px" }}
                   transition={{ duration: 0.5, delay: Math.min(i * 0.04, 0.4) }}
                   className={`flex flex-col items-center text-center px-2 py-5 transition-colors duration-300
                     ${i === 0

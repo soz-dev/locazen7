@@ -16,9 +16,6 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           {/* Image with overlap */}
           <motion.div
-            initial={{ opacity: 0, x: -60 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
             transition={{ duration: 1, ease: [0.25, 0.1, 0, 1] }}
             className="relative"
           >
@@ -37,9 +34,6 @@ export default function About() {
 
           {/* Text content */}
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <p className="text-[#C4A96B] text-xs tracking-[0.3em] uppercase font-body mb-4">
@@ -61,9 +55,6 @@ export default function About() {
               {Array.isArray(values) && values.map((v, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
                   transition={{ delay: 0.3 + i * 0.1 }}
                   className="flex items-start gap-4"
                 >

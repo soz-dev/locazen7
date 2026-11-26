@@ -99,9 +99,6 @@ export default function FAQ({ visitorType }) {
     <section id="faq" className={`py-16 md:py-20 ${isProprio ? "bg-[#F7F5F2] border-t border-[#2D2D2D]/10" : "bg-white border-t border-[#0C4A6E]/10"}`}>
       <div className="max-w-5xl mx-auto px-6 md:px-16">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="mb-12 text-center"
         >

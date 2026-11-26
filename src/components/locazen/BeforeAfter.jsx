@@ -29,9 +29,6 @@ function PropertyCard({ prop, index }) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
       transition={{ duration: 0.7, delay: index * 0.1 }}
     >
       <div className="relative aspect-[4/3] overflow-hidden mb-4">
@@ -83,9 +80,6 @@ export default function BeforeAfter() {
     <section id="transformations" className="py-24 md:py-32 bg-[#1A2535] border-t border-white/10">
       <div className="max-w-7xl mx-auto px-6 md:px-16">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="mb-16"
         >

@@ -24,9 +24,6 @@ export default function RevenueSimulator() {
     <section id="simulateur" className="py-16 md:py-20 bg-[#1A2535]">
       <div className="max-w-5xl mx-auto px-6 md:px-16">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="mb-12 text-center"
         >
@@ -44,9 +41,6 @@ export default function RevenueSimulator() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Contrôles */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
             transition={{ duration: 0.7 }}
             className="space-y-8"
           >
@@ -114,9 +108,6 @@ export default function RevenueSimulator() {
 
           {/* Résultats */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
             transition={{ duration: 0.7 }}
             className="flex flex-col gap-4"
           >

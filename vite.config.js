@@ -11,5 +11,18 @@ export default defineConfig({
   },
   plugins: [
     react(),
-  ]
+  ],
+  optimizeDeps: {
+    exclude: ['maplibre-gl'],
+  },
+  server: {
+    // L'API n'autorise en CORS que le domaine de production : on la proxifie en local
+    proxy: {
+      '/api-proxy': {
+        target: 'https://locazen12-api.motastic.workers.dev',
+        changeOrigin: true,
+        rewrite: (p) => p.replace(/^\/api-proxy/, ''),
+      },
+    },
+  },
 });

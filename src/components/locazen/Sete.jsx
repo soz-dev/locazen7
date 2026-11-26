@@ -85,9 +85,6 @@ export default function Sete() {
 
         <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-16 max-w-7xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
             <div className="flex items-center gap-2 mb-4">
@@ -130,9 +127,6 @@ export default function Sete() {
               return (
                 <motion.div
                   key={cat.category}
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
                   transition={{ duration: 0.7, delay: i * 0.1 }}
                   className="group grid grid-cols-1 md:grid-cols-[220px_1fr] gap-6 md:gap-16 py-10 hover:bg-white/70 transition-colors duration-500 rounded-xl px-4 -mx-4"
                 >
@@ -181,9 +175,6 @@ export default function Sete() {
 
           {/* ── Téléchargement guide PDF ── */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="my-10 bg-white border border-[#0891B2]/15 rounded-2xl overflow-hidden"
           >
@@ -227,9 +218,6 @@ export default function Sete() {
 
           {/* À proximité */}
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
             transition={{ duration: 0.8 }}
             className="border-t border-[#BFDBFE] pt-10"
           >

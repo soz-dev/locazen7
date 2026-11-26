@@ -616,7 +616,7 @@
     "eyebrow": "Owner rates",
     "title": "Clear pricing, no surprises",
     "subtitle": "You can combine different services or choose a full package to suit your needs. Packages are available on request.",
-    "billing_title": "End of month billing.",
+    "billing_title": "* End of month billing.",
     "billing_detail": "Cleaning and laundry are charged to the guest. You keep 100% of your rental income.",
     "phase1": "Phase 1",
     "beforeStay": "Before the stay",
@@ -701,7 +701,7 @@
       },
       {
         "label": "Total peace of mind",
-        "price": "Included",
+        "price": "Included*",
         "unit": "",
         "detail": "Concierge service available for your guests throughout their stay."
       }

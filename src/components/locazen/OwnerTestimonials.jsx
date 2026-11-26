@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Star, Quote, Send, Loader2 } from "lucide-react";
+import { Link } from "react-router-dom";
+import OwnerReviewCard from "@/components/locazen/OwnerReviewCard";
+import { Star, Send, Loader2 } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 import { fetchReviews, submitReview } from "@/lib/rentalsApi";
 
@@ -48,9 +50,6 @@ export default function OwnerTestimonials() {
 
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="mb-16 text-center"
         >
@@ -64,44 +63,20 @@ export default function OwnerTestimonials() {
         {/* Avis appRouvés */}
         {!loading && reviews.length > 0 && (
           <div className="max-w-4xl mx-auto space-y-10 mb-20">
-            {reviews.map((r, i) => {
-              const right = i % 2 === 1;
-              return (
-                <motion.article
-                  key={r.id}
-                  initial={{ opacity: 0, x: right ? 24 : -24 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-40px" }}
-                  transition={{ duration: 0.5, delay: i * 0.05 }}
-                  className="relative w-[86%] overflow-hidden rounded-3xl border border-[#C4A96B]/25 bg-white/5 p-8 shadow-[0_22px_50px_-18px_rgba(0,0,0,0.55)]"
-                  style={{ marginLeft: right ? "auto" : "0", marginRight: right ? "0" : "auto" }}
-                >
-                  <Quote className="pointer-events-none absolute -right-2 -top-3 h-24 w-24 text-[#C4A96B]/10" />
-                  <div className="relative">
-                    <div className="mb-4 flex gap-1">
-                      {Array.from({ length: r.rating ?? 5 }).map((_, s) => (
-                        <Star key={s} className="h-4 w-4 fill-[#C4A96B] text-[#C4A96B]" />
-                      ))}
-                    </div>
-                    <p className="text-[15px] leading-7 text-white/90 font-body">{r.comment}</p>
-                    <div className="mt-6 flex items-center gap-2.5">
-                      <div className="w-7 h-7 bg-[#C4A96B] flex items-center justify-center shrink-0 rounded-md">
-                        <span className="text-[#1A2535] text-[9px] font-body tracking-wide">{r.name.slice(0, 2).toUpperCase()}</span>
-                      </div>
-                      <p className="text-sm font-medium tracking-wide text-white font-body">{r.name}</p>
-                    </div>
-                  </div>
-                </motion.article>
-              );
-            })}
+            {reviews.map((r, i) => <OwnerReviewCard key={r.id} review={r} index={i} />)}
+            <div className="text-center pt-4">
+              <Link
+                to="/proprietaire/avis"
+                className="inline-block text-xs tracking-[0.2em] uppercase font-body text-[#C4A96B] border-b border-[#C4A96B]/50 pb-1 hover:border-[#C4A96B] transition-colors"
+              >
+                Voir tous les avis
+              </Link>
+            </div>
           </div>
         )}
 
         {/* Formulaire de soumission */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="max-w-2xl"
         >
@@ -175,7 +150,7 @@ export default function OwnerTestimonials() {
                 />
                 <label htmlFor="consent" className="text-xs text-[#F7F5F2]/50 font-body leading-relaxed cursor-pointer">
                   J'accepte que mon prénom et mon avis soient publiés sur ce site conformément à la{" "}
-                  <a href="/politique-confidentialite" className="text-[#C4A96B] hover:underline" target="_blank" rel="noopener noreferrer">politique de confidentialité</a>. *
+                  <a href="/politique-confidentialite" className="text-[#C4A96B] hover:underline" target="_blank" rel="noopener noreferrer">politique de confidentialité</a>.
                 </label>
               </div>
 

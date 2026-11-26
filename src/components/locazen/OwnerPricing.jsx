@@ -13,9 +13,6 @@ export default function OwnerPricing() {
 
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           transition={{ duration: 0.7 }}
           className="mb-10"
         >
@@ -29,9 +26,6 @@ export default function OwnerPricing() {
 
         {/* Message distinctif */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.1 }}
           className="mb-12 pl-5 border-l-2 border-[#C4A96B]"
         >
@@ -42,9 +36,6 @@ export default function OwnerPricing() {
 
         {/* Card unifiée — 5 lignes */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.15 }}
           className="border border-[#C4A96B]/30 bg-[#FAF8F5]"
         >
@@ -101,9 +92,6 @@ export default function OwnerPricing() {
 
         {/* Note facturation */}
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.5 }}
           className="flex items-start gap-3 mt-8 p-5 bg-[#C4A96B]/8"
         >

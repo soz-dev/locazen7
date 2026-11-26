@@ -34,9 +34,6 @@ export default function Testimonials() {
     <section className="py-20 md:py-28 bg-[#0C4A6E] border-t border-white/10 overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 md:px-10">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="mb-16 md:mb-20 text-center"
         >
@@ -55,9 +52,6 @@ export default function Testimonials() {
             return (
               <motion.article
                 key={i}
-                initial={{ opacity: 0, x: right ? 24 : -24 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.5, delay: i * 0.05 }}
                 className="relative w-[86%] overflow-hidden rounded-3xl border border-[#1a5a7a] bg-[#0A3A56]/90 p-8 shadow-[0_22px_50px_-18px_rgba(0,0,0,0.55)]"
                 style={{ marginLeft: right ? "auto" : "0", marginRight: right ? "0" : "auto" }}
@@ -87,9 +81,6 @@ export default function Testimonials() {
 
         {/* Note Airbnb */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
           className="text-center"
         >
