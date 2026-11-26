@@ -268,31 +268,39 @@
     "events": [
       {
         "name": "Fêtes de la Saint-Louis",
-        "dates": "23 – 27 août 2026",
         "type": "Joutes nautiques",
         "desc": "Le plus grand tournoi de joutes nautiques de France. Spectacles pyrotechniques, concerts et animations sur les canaux de Sète.",
         "lieu": "Canaux de Sète"
       },
       {
         "name": "Fête de la Mer",
-        "dates": "Septembre 2026",
         "type": "Tradition",
         "desc": "Bénédiction des bateaux de pêche, procession en mer et festivités animées tout le week-end.",
         "lieu": "Port de Sète"
       },
       {
         "name": "Les Langues de Renard",
-        "dates": "Octobre 2026",
         "type": "Festival",
         "desc": "Festival de musique alternative et expérimentale au cœur de Sète, avec artistes locaux et internationaux.",
         "lieu": "Sète"
       },
       {
         "name": "Marché de Noël",
-        "dates": "Décembre 2026",
         "type": "Marché",
         "desc": "Marché artisanal traditionnel avec produits locaux, vins de la région et créateurs sétois.",
         "lieu": "Centre-ville"
+      },
+      {
+        "name": "Fiest'A Sète",
+        "type": "Festival",
+        "desc": "Le festival des musiques du monde : concerts en plein air, ambiance festive et rencontres au pied du Mont Saint-Clair.",
+        "lieu": "Théâtre de la Mer"
+      },
+      {
+        "name": "Fêtes de la Saint-Pierre",
+        "type": "Tradition",
+        "desc": "Fête des pêcheurs sétois : bénédiction en mer, procession et animations sur le port.",
+        "lieu": "Port de Sète"
       }
     ]
   },
@@ -444,8 +452,6 @@
   },
   "footer": {
     "tagline": "Service de Conciergerie à Sète.\nL'art de l'accueil, en personne.",
-    "nav": "Navigation",
-    "navigation": "Navigation",
     "nav": {
       "services": "Nos services",
       "about": "À propos",
@@ -455,6 +461,7 @@
       "map": "Carte",
       "tarifs": "Tarifs"
     },
+    "navigation": "Navigation",
     "contactLabel": "Contact",
     "ctaLabel": "Nous contacter",
     "ctaText": "Un projet de location saisonnière ? Nous serions ravis d'en discuter avec vous.",

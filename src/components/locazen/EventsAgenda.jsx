@@ -3,68 +3,51 @@ import { motion } from "framer-motion";
 import { Calendar, MapPin } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
-const TODAY = new Date("2026-07-23");
-
+// Événements annuels : mois (1-12), jour de début, jour de fin (optionnel).
+// Sans jour de fin, seule le mois est affiché. La prochaine occurrence est recalculée automatiquement.
 const EVENTS = [
-  {
-    id: 1,
-    name: "Fêtes de la Saint-Louis",
-    dates: "23 – 27 août 2026",
-    dateStart: new Date("2026-08-23"),
-    type: "Joutes nautiques",
-    typeBg: "#0891B2",
-    desc: "Le plus grand tournoi de joutes nautiques de France. Spectacles pyrotechniques, concerts et animations sur les canaux de Sète.",
-    lieu: "Canaux de Sète",
-    highlight: true,
-  },
-  {
-    id: 2,
-    name: "Fête de la Mer",
-    dates: "Septembre 2026",
-    dateStart: new Date("2026-09-07"),
-    type: "Tradition",
-    typeBg: "#0C4A6E",
-    desc: "Bénédiction des bateaux de pêche, procession en mer et festivités animées tout le week-end.",
-    lieu: "Port de Sète",
-    highlight: false,
-  },
-  {
-    id: 3,
-    name: "Les Langues de Renard",
-    dates: "Octobre 2026",
-    dateStart: new Date("2026-10-10"),
-    type: "Festival",
-    typeBg: "#F59E0B",
-    desc: "Festival de musique alternative et expérimentale au cœur de Sète, avec artistes locaux et internationaux.",
-    lieu: "Sète",
-    highlight: false,
-  },
-  {
-    id: 4,
-    name: "Marché de Noël",
-    dates: "Décembre 2026",
-    dateStart: new Date("2026-12-05"),
-    type: "Marché",
-    typeBg: "#EF4444",
-    desc: "Marché artisanal traditionnel avec produits locaux, vins de la région et créateurs sétois.",
-    lieu: "Centre-ville",
-    highlight: false,
-  },
+  { i: 0, m: 8, d: 23, endD: 27, typeBg: "#0891B2" },
+  { i: 1, m: 9, d: 7, typeBg: "#0C4A6E" },
+  { i: 2, m: 10, d: 10, typeBg: "#F59E0B" },
+  { i: 3, m: 12, d: 5, typeBg: "#EF4444" },
+  { i: 4, m: 7, d: 10, typeBg: "#F59E0B" },
+  { i: 5, m: 7, d: 1, typeBg: "#0C4A6E" },
 ];
+const MAX_EVENTS = 4;
+const DAY_MS = 24 * 60 * 60 * 1000;
 
-function countdown(dateStart, t) {
-  const diff = Math.ceil((dateStart - TODAY) / (1000 * 60 * 60 * 24));
-  if (diff < 0) return null;
+function nextOccurrence(ev, today) {
+  const endDay = ev.endD ?? ev.d;
+  for (let year = today.getFullYear(); ; year++) {
+    const end = new Date(year, ev.m - 1, endDay);
+    if (end >= today) return { year, start: new Date(year, ev.m - 1, ev.d) };
+  }
+}
+
+function formatDates(ev, year, lang) {
+  const month = new Date(year, ev.m - 1, 1).toLocaleDateString(lang, { month: "long" });
+  if (!ev.endD) return `${month.charAt(0).toUpperCase()}${month.slice(1)} ${year}`;
+  return `${ev.d} – ${ev.endD} ${month} ${year}`;
+}
+
+function countdown(dateStart, today, t) {
+  const diff = Math.max(0, Math.ceil((dateStart - today) / DAY_MS));
   if (diff === 0) return t("agenda.today");
   if (diff === 1) return t("agenda.tomorrow");
   if (diff < 30) return t("agenda.in_days", { count: diff });
-  const months = Math.floor(diff / 30);
-  return t("agenda.in_months", { count: months });
+  return t("agenda.in_months", { count: Math.floor(diff / 30) });
 }
 
 export default function EventsAgenda() {
-  const { t } = useTranslation();
-  const events = t("agenda.events", { returnObjects: true });
+  const { t, i18n } = useTranslation();
+  const texts = t("agenda.events", { returnObjects: true });
+  const now = new Date();
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const events = (Array.isArray(texts) ? EVENTS : [])
+    .map((ev) => ({ ev, text: texts[ev.i], ...nextOccurrence(ev, today) }))
+    .filter((x) => x.text)
+    .sort((a, b) => a.start - b.start)
+    .slice(0, MAX_EVENTS);
   return (
     <section id="agenda" className="py-16 md:py-20 bg-[#F0F9FF] border-t border-[#0C4A6E]/10">
       <div className="max-w-7xl mx-auto px-6 md:px-16">
@@ -87,14 +70,13 @@ export default function EventsAgenda() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {Array.isArray(events) && events.map((e, i) => {
-            const dateStart = new Date(EVENTS[i]?.dateStart ?? TODAY);
-            const cd = countdown(dateStart, t);
-            const highlight = EVENTS[i]?.highlight ?? false;
-            const typeBg = EVENTS[i]?.typeBg ?? "#0891B2";
+          {events.map(({ ev, text: e, year, start }, i) => {
+            const cd = countdown(start, today, t);
+            const highlight = i === 0;
+            const typeBg = ev.typeBg;
             return (
               <motion.div
-                key={i}
+                key={ev.i}
                 transition={{ duration: 0.6, delay: i * 0.08 }}
                 className={`bg-white p-7 border ${
                   highlight ? "border-[#0891B2]/30" : "border-[#E0F2FE]"
@@ -122,7 +104,7 @@ export default function EventsAgenda() {
                   {e.name}
                 </h3>
                 <p className="text-[#0891B2] text-xs font-body tracking-wide mb-3">
-                  {e.dates}
+                  {formatDates(ev, year, i18n.language)}
                 </p>
                 <p className="text-[#0C4A6E]/55 text-sm font-body leading-relaxed mb-5">
                   {e.desc}

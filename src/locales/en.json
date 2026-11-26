@@ -268,31 +268,39 @@
     "events": [
       {
         "name": "Fêtes de la Saint-Louis",
-        "dates": "23 – 27 Aug 2026",
         "type": "Nautical jousting",
         "desc": "The largest nautical jousting tournament in France. Fireworks, concerts and entertainment along the canals of Sète.",
         "lieu": "Sète canals"
       },
       {
         "name": "Fête de la Mer",
-        "dates": "September 2026",
         "type": "Tradition",
         "desc": "Blessing of the fishing boats, procession at sea and lively festivities throughout the weekend.",
         "lieu": "Sète harbour"
       },
       {
         "name": "Les Langues de Renard",
-        "dates": "October 2026",
         "type": "Festival",
         "desc": "Alternative and experimental music festival in the heart of Sète, featuring local and international artists.",
         "lieu": "Sète"
       },
       {
         "name": "Christmas Market",
-        "dates": "December 2026",
         "type": "Market",
         "desc": "Traditional craft market with local produce, regional wines and Sète makers.",
         "lieu": "Town centre"
+      },
+      {
+        "name": "Fiest'A Sète",
+        "type": "Festival",
+        "desc": "The world music festival: open-air concerts, festive atmosphere and gatherings at the foot of Mont Saint-Clair.",
+        "lieu": "Théâtre de la Mer"
+      },
+      {
+        "name": "Fêtes de la Saint-Pierre",
+        "type": "Tradition",
+        "desc": "The Sète fishermen's celebration: blessing at sea, procession and events around the harbour.",
+        "lieu": "Sète harbour"
       }
     ]
   },
@@ -444,8 +452,7 @@
   },
   "footer": {
     "tagline": "Seasonal rental concierge in Sète.\nThe art of hospitality, in person.",
-    "nav": "Navigation",
-    "navigation": "Navigation",    "nav": {
+    "nav": {
       "services": "Our services",
       "about": "About",
       "reviews": "Reviews",
@@ -453,7 +460,9 @@
       "rentals": "Our rentals",
       "map": "Map",
       "tarifs": "Rates"
-    },    "contactLabel": "Contact",
+    },
+    "navigation": "Navigation",
+    "contactLabel": "Contact",
     "ctaLabel": "Get in touch",
     "ctaText": "A seasonal rental project? We'd love to discuss it with you.",
     "callUs": "Call us",
